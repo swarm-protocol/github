@@ -47,6 +47,8 @@ Ready-to-use agent for safe code refactoring and improving maintainability (unco
 
 ## Getting Started
 
+**⚡ New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+
 ### For Your Repository
 
 ```bash
@@ -66,9 +68,11 @@ Create a `.github-private` repository in your organization and add agent files t
 
 ## Documentation
 
-- [Detailed Setup Guide](.github/agents/README.md)
-- [Template Reference](TEMPLATE.agent.md)
-- [Example Agents](.github/agents/)
+- [⚡ Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
+- [📖 Detailed Setup Guide](.github/agents/README.md) - Complete instructions
+- [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
+- [💡 Example Agents](.github/agents/) - Pre-built examples
 
 ## Use Cases
 
