@@ -53,6 +53,7 @@ All agent files are in `.github/agents/` directory:
 | Code Reviewer | `code-reviewer.agent.md` | Security, performance, best practices |
 | Refactoring Assistant | `refactoring-assistant.agent.md` | Safe code refactoring patterns |
 | Docker Specialist | `docker-specialist.agent.md` | Dockerfiles, compose, Kubernetes |
+| Ansible Specialist | `ansible-specialist.agent.md` | Ansible playbooks, roles, automation |
 
 **Invoke agents**: `@agent-name` in GitHub Copilot Chat
 
@@ -72,6 +73,7 @@ All agent files are in `.github/agents/` directory:
 | Refactoring | `nix/refactoring/` | Code transformation tools |
 | Wrangler | `nix/wrangler/` | CloudFlare Workers development |
 | Terraform | `nix/terraform/` | Infrastructure as Code tools |
+| Ansible | `nix/ansible/` | Ansible automation tools |
 
 #### APT Packages (`apt/`)
 
@@ -87,6 +89,7 @@ All agent files are in `.github/agents/` directory:
 | Refactoring | `apt/refactoring/packages.txt` | Refactoring tool packages |
 | Wrangler | `apt/wrangler/packages.txt` | CloudFlare tools |
 | Terraform | `apt/terraform/packages.txt` | IaC packages |
+| Ansible | `apt/ansible/packages.txt` | Ansible automation packages |
 
 ### Infrastructure (`terraform/`)
 

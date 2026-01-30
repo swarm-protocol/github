@@ -18,6 +18,7 @@ Each subdirectory contains a `packages.txt` file listing packages available thro
 | **code-review** | Linters and code review tools | [`code-review/packages.txt`](code-review/packages.txt) |
 | **wrangler** | Cloudflare Workers development tools | [`wrangler/packages.txt`](wrangler/packages.txt) |
 | **terraform** | Infrastructure as Code tools | [`terraform/packages.txt`](terraform/packages.txt) |
+| **ansible** | Ansible automation and configuration management | [`ansible/packages.txt`](ansible/packages.txt) |
 
 ## 🚀 Quick Start
 

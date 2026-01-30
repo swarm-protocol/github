@@ -1,0 +1,59 @@
+# Ansible and Infrastructure Automation tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Ansible core
+ansible
+# Note: ansible-lint is best installed via pip3 for the latest version
+
+# Python (required for Ansible)
+python3
+python3-pip
+python3-venv
+python3-jmespath
+python3-netaddr
+python3-passlib
+
+# YAML/JSON tools
+jq
+
+# SSH and connectivity
+openssh-client
+sshpass
+
+# Version control
+git
+gh
+
+# Text editors
+vim
+nano
+
+# Utilities
+curl
+wget
+make
+ripgrep
+fd-find
+tree
+pwgen
+
+# Code quality
+shellcheck
+
+# Note: Many tools require additional installation:
+# Ansible collections: ansible-galaxy collection install <collection>
+# ansible-lint: pip3 install ansible-lint
+# yamllint: pip3 install yamllint
+# yq: https://github.com/mikefarah/yq/releases
+# molecule: pip3 install molecule molecule-plugins[docker]
+# pytest-testinfra: pip3 install pytest-testinfra
+# AWS CLI: pip3 install awscli or https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+# Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+# gcloud: https://cloud.google.com/sdk/docs/install
+# Docker: https://docs.docker.com/engine/install/
+# pre-commit: pip3 install pre-commit
+
+# Recommended pip packages:
+# pip3 install ansible ansible-lint yamllint molecule molecule-plugins[docker]
+# pip3 install pytest pytest-testinfra jmespath netaddr passlib
+# pip3 install boto3 google-api-python-client azure-mgmt-resource

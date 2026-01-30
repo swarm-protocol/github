@@ -132,6 +132,20 @@ A Docker and containerization specialist agent focused on:
 
 **Use this when:** You need help with Docker, Dockerfiles, docker-compose, Kubernetes configurations, or containerization best practices.
 
+### 8. ansible-specialist.agent.md ✅ READY TO USE
+
+An Ansible automation specialist agent focused on:
+- Writing Ansible playbooks and roles
+- Inventory management (static and dynamic)
+- Jinja2 templates for configuration files
+- Ansible Vault for secrets management
+- Molecule testing for roles
+- CI/CD integration with Ansible
+
+**Status:** Uncommented and ready to use immediately!
+
+**Use this when:** You need help with Ansible automation, playbooks, roles, or infrastructure configuration management.
+
 ## File Structure
 
 ```
@@ -143,7 +157,8 @@ A Docker and containerization specialist agent focused on:
     ├── code-reviewer.agent.md         # ✅ Code review agent (READY)
     ├── refactoring-assistant.agent.md # ✅ Refactoring agent (READY)
     ├── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
-    └── docker-specialist.agent.md     # ✅ Docker & YAML expert (READY)
+    ├── docker-specialist.agent.md     # ✅ Docker & YAML expert (READY)
+    └── ansible-specialist.agent.md    # ✅ Ansible automation (READY)
 ```
 
 ## Creating Your Own Agent
