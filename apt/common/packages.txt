@@ -1,0 +1,30 @@
+# Common development tools for GitHub Copilot Agents
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Version control
+git
+gh
+
+# Text editors and tools
+vim
+nano
+
+# Shell utilities (usually pre-installed on Ubuntu/Debian)
+coreutils
+findutils
+grep
+sed
+gawk
+
+# Documentation tools
+pandoc
+
+# Markdown tools (Note: mdl requires Ruby)
+ruby-full
+
+# YAML tools
+jq
+
+# Python for YAML tools
+python3
+python3-pip

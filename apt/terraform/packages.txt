@@ -1,0 +1,56 @@
+# Terraform and Infrastructure as Code tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Note: Terraform itself requires HashiCorp's apt repository
+# See: https://www.terraform.io/downloads
+
+# Kubernetes tools
+kubectl
+
+# JSON/YAML tools
+jq
+python3-pip
+
+# GraphViz for terraform graph
+graphviz
+
+# Version control
+git
+gh
+
+# Text editors
+vim
+nano
+
+# Ansible for configuration
+ansible
+
+# Code quality
+shellcheck
+
+# Utilities
+curl
+wget
+make
+ripgrep
+fd-find
+tree
+
+# Note: Many tools require additional installation:
+# Terraform: https://www.terraform.io/downloads
+# Terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/install/
+# tflint: https://github.com/terraform-linters/tflint
+# tfsec: https://aquasecurity.github.io/tfsec/latest/getting-started/installation/
+# terrascan: https://runterrascan.io/docs/getting-started/
+# checkov: pip3 install checkov
+# infracost: https://www.infracost.io/docs/#quick-start
+# terraform-docs: https://terraform-docs.io/user-guide/installation/
+# AWS CLI: pip3 install awscli
+# Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+# gcloud: https://cloud.google.com/sdk/docs/install
+# Helm: https://helm.sh/docs/intro/install/
+# Vault: https://www.vaultproject.io/downloads
+# Packer: https://www.packer.io/downloads
+# yamllint: pip3 install yamllint
+# yq: https://github.com/mikefarah/yq/releases
+# git-crypt: https://github.com/AGWA/git-crypt

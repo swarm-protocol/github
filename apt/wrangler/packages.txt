@@ -1,0 +1,35 @@
+# Cloudflare Wrangler development tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Node.js and package managers
+nodejs
+npm
+
+# TypeScript and build tools (via npm)
+# npm install -g typescript ts-node wrangler
+
+# Database tools for D1 and KV
+sqlite3
+redis-tools
+
+# API testing
+curl
+httpie
+jq
+
+# Git and version control
+git
+gh
+
+# Utilities
+ripgrep
+fd-find
+fzf
+
+# Note: Wrangler and many tools require npm installation:
+# npm install -g wrangler
+# npm install -g typescript ts-node esbuild
+# npm install -g vitest jest
+# npm install -g eslint prettier
+# yarn: npm install -g yarn
+# pnpm: npm install -g pnpm

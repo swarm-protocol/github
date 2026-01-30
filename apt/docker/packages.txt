@@ -1,0 +1,36 @@
+# Docker and container tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Docker (requires Docker's official repository)
+docker.io
+docker-compose
+
+# Kubernetes tools
+kubectl
+
+# YAML tools
+jq
+python3-pip
+
+# CI/CD tools
+gh
+git
+
+# Container tools (podman requires additional setup)
+podman
+
+# Utilities
+curl
+make
+
+# Note: Some tools like dive, hadolint, trivy, helm, kustomize, k9s, skopeo
+# are not available in standard apt repositories.
+# Install them manually:
+#
+# dive: https://github.com/wagoodman/dive/releases
+# hadolint: https://github.com/hadolint/hadolint/releases
+# trivy: https://aquasecurity.github.io/trivy/latest/getting-started/installation/
+# helm: https://helm.sh/docs/intro/install/
+# kustomize: https://kubectl.docs.kubernetes.io/installation/kustomize/
+# k9s: https://k9scli.io/topics/install/
+# skopeo: available in Ubuntu 20.10+

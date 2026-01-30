@@ -1,0 +1,44 @@
+# Documentation tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Markdown tools
+pandoc
+ruby-full
+
+# Documentation generators
+hugo
+jekyll
+python3-sphinx
+python3-pip
+
+# Diagram tools
+graphviz
+plantuml
+
+# Text processing
+sed
+gawk
+jq
+
+# Spell checking
+aspell
+aspell-en
+
+# Version control
+git
+gh
+
+# Node.js for documentation tools
+nodejs
+npm
+
+# Utilities
+tree
+ripgrep
+fd-find
+
+# Note: Some tools require additional installation:
+# - marksman: Install from https://github.com/artempyanykh/marksman/releases
+# - mkdocs: pip3 install mkdocs mkdocs-material
+# - mermaid-cli: npm install -g @mermaid-js/mermaid-cli
+# - markdownlint-cli: npm install -g markdownlint-cli
