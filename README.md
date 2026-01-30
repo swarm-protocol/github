@@ -74,6 +74,18 @@ Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML config
 - CI/CD pipeline YAML
 - Container security and best practices
 
+### 🔧 ansible-specialist.agent.md ✅
+Expert agent for Ansible automation, playbooks, roles, and infrastructure configuration management.
+**Status:** Ready to use immediately!
+
+**Specializes in:**
+- Ansible playbooks and role development
+- Inventory management (static and dynamic)
+- Jinja2 templates for configuration
+- Ansible Vault for secrets management
+- Molecule testing for roles
+- CI/CD integration with Ansible
+
 ## Features
 
 ✅ **Well-structured templates** following GitHub's best practices  
@@ -143,6 +155,9 @@ nix develop ./nix/wrangler
 
 # Terraform environment (Infrastructure as Code)
 nix develop ./nix/terraform
+
+# Ansible environment (Configuration Management)
+nix develop ./nix/ansible
 ```
 
 See [nix/README.md](nix/README.md) for complete setup instructions and environment details.

@@ -13,7 +13,8 @@ nix/
 ├── code-review/     # Code Review agent environment
 ├── refactoring/     # Refactoring Assistant agent environment
 ├── wrangler/        # Cloudflare Workers development environment
-└── terraform/       # Infrastructure as Code environment
+├── terraform/       # Infrastructure as Code environment
+└── ansible/         # Ansible automation environment
 ```
 
 ## Prerequisites
@@ -66,6 +67,10 @@ nix develop
 cd nix/terraform
 nix develop
 
+# Ansible environment (Configuration Management)
+cd nix/ansible
+nix develop
+
 # Common tools only
 cd nix/common
 nix develop
@@ -100,12 +105,14 @@ nix develop ./nix/code-review
 nix develop ./nix/refactoring
 nix develop ./nix/wrangler
 nix develop ./nix/terraform
+nix develop ./nix/ansible
 
 # Using nix-shell
 nix-shell ./nix/test/shell.nix
 nix-shell ./nix/docker/shell.nix
 nix-shell ./nix/wrangler/shell.nix
 nix-shell ./nix/terraform/shell.nix
+nix-shell ./nix/ansible/shell.nix
 # etc...
 ```
 
@@ -263,6 +270,29 @@ nix-shell ./nix/terraform/shell.nix
 - Cost estimation and optimization
 - Multi-cloud deployments
 - Kubernetes infrastructure provisioning
+
+### Ansible (`nix/ansible/`)
+
+**Purpose**: Infrastructure automation and configuration management
+
+**Includes**:
+- **Ansible Core**: ansible, ansible-lint, ansible-language-server
+- **Python**: Python 3.11, pip, jmespath, netaddr, passlib
+- **Testing**: molecule, pytest, pytest-testinfra
+- **Cloud CLIs**: awscli2, gcloud, azure-cli
+- **Cloud SDKs**: boto3, google-api-python-client, azure-mgmt-resource
+- **Container Tools**: docker, docker-compose (for Molecule)
+- **YAML/JSON**: yamllint, yq, jq
+- **SSH**: openssh, sshpass
+- **Utilities**: pwgen, age, pre-commit
+
+**When to use**:
+- Writing Ansible playbooks and roles
+- Configuration management automation
+- Server provisioning and configuration
+- Multi-cloud deployments with Ansible
+- Testing roles with Molecule
+- Working with `@ansible-specialist` agent
 
 ## Tips and Best Practices
 
