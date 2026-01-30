@@ -58,7 +58,7 @@ A comprehensive blank template with all recommended sections:
 
 **Use this when:** You want to create a completely custom agent from scratch.
 
-### 2. test-specialist.agent.md
+### 2. test-specialist.agent.md ✅ READY TO USE
 
 A testing specialist agent focused on:
 - Writing unit, integration, and E2E tests
@@ -66,9 +66,11 @@ A testing specialist agent focused on:
 - Ensuring test coverage
 - Never modifying production code
 
+**Status:** Uncommented and ready to use immediately!
+
 **Use this when:** You want help writing comprehensive tests without touching production code.
 
-### 3. documentation-expert.agent.md
+### 3. documentation-expert.agent.md ✅ READY TO USE
 
 A documentation specialist agent focused on:
 - Creating clear, comprehensive documentation
@@ -76,9 +78,11 @@ A documentation specialist agent focused on:
 - Maintaining README files
 - Creating tutorials and guides
 
+**Status:** Uncommented and ready to use immediately!
+
 **Use this when:** You need help with documentation, README files, or technical writing.
 
-### 4. code-reviewer.agent.md
+### 4. code-reviewer.agent.md ✅ READY TO USE
 
 A code review specialist agent focused on:
 - Reviewing code quality
@@ -86,9 +90,11 @@ A code review specialist agent focused on:
 - Suggesting performance improvements
 - Providing constructive feedback
 
+**Status:** Uncommented and ready to use immediately!
+
 **Use this when:** You want automated code review feedback following best practices.
 
-### 5. refactoring-assistant.agent.md
+### 5. refactoring-assistant.agent.md ✅ READY TO USE
 
 A refactoring specialist agent focused on:
 - Safe, incremental code refactoring
@@ -96,15 +102,19 @@ A refactoring specialist agent focused on:
 - Removing code smells
 - Following refactoring best practices
 
+**Status:** Uncommented and ready to use immediately!
+
 **Use this when:** You need help refactoring legacy code or improving code quality without changing functionality.
 
-### 6. documentation-builder.agent.md
+### 6. documentation-builder.agent.md ✅ READY TO USE
 
 A documentation builder specialist agent focused on:
 - Generating README.md from template files
 - Building CLAUDE.md for AI context
 - Processing template variables and substitutions
 - Maintaining consistent documentation structure
+
+**Status:** Uncommented and ready to use immediately!
 
 **Use this when:** You need to build or regenerate README.md and CLAUDE.md files from templates with variable substitution.
 
@@ -114,11 +124,11 @@ A documentation builder specialist agent focused on:
 .github/
 └── agents/
     ├── TEMPLATE.agent.md              # Blank template
-    ├── test-specialist.agent.md       # Example: Testing agent
-    ├── documentation-expert.agent.md  # Example: Documentation agent
-    ├── code-reviewer.agent.md         # Example: Code review agent
-    ├── refactoring-assistant.agent.md # Example: Refactoring agent (READY TO USE)
-    └── documentation-builder.agent.md # Example: README/CLAUDE.md builder (READY TO USE)
+    ├── test-specialist.agent.md       # ✅ Testing agent (READY)
+    ├── documentation-expert.agent.md  # ✅ Documentation agent (READY)
+    ├── code-reviewer.agent.md         # ✅ Code review agent (READY)
+    ├── refactoring-assistant.agent.md # ✅ Refactoring agent (READY)
+    └── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
 ```
 
 ## Creating Your Own Agent
@@ -130,10 +140,55 @@ A documentation builder specialist agent focused on:
 
 ### Step 2: Define the YAML Front Matter
 
-```markdown
+**⚠️ CRITICAL:** The YAML front matter MUST NOT be commented out! Custom agents require valid YAML to work.
+
+```yaml
 ---
 name: your-agent-name
-description: A brief description of what this agent does
+description: A brief description of what this agent does (REQUIRED)
+---
+```
+
+**Available YAML Properties:**
+
+| Property | Required | Description | Example |
+|----------|----------|-------------|---------|
+| `name` | Yes | Display name for the agent | `test-specialist` |
+| `description` | **Yes** | Agent's purpose and specialization | `"Expert in writing tests"` |
+| `tools` | No | List of available tools (omit for all tools) | `["read", "edit", "search"]` |
+| `target` | No | Where agent runs: `vscode`, `github-copilot`, or both | `vscode` |
+| `infer` | No | Auto-select agent based on context | `true` |
+| `mcp-servers` | No | MCP server configurations (org/enterprise only) | See below |
+
+**Available Tool Aliases:**
+- `execute` - Run shell commands
+- `read` - Read files
+- `edit` - Modify files
+- `search` - Search codebase
+- `agent` - Call other agents
+- `web` - Web requests
+- `todo` - Task management
+
+**Example with Optional Properties:**
+```yaml
+---
+name: python-test-expert
+description: Expert in Python testing with pytest and unittest
+tools: ["read", "edit", "execute"]
+target: vscode
+infer: true
+---
+```
+
+**Example with MCP Servers (Enterprise/Org only):**
+```yaml
+---
+name: github-integration-agent
+description: Agent with GitHub API access
+mcp-servers:
+  github:
+    read: true
+    write: false
 ---
 ```
 
@@ -234,10 +289,30 @@ Here are some ideas for agents you might create:
 
 ## Resources
 
+### Official GitHub Documentation
 - [GitHub Copilot Documentation](https://docs.github.com/copilot)
 - [Creating Custom Agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+- [Custom Agents Configuration Reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
+- [About Custom Agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
 - [Custom Agents Template Repository](https://github.com/docs/custom-agents-template)
 - [Best Practices Guide](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
+
+### SDKs and Extensions
+- [GitHub Copilot SDK](https://github.com/github/copilot-sdk) - Build programmable agents with Node.js, Python, Go, or .NET
+- [Copilot Extensions Preview SDK](https://github.com/copilot-extensions/preview-sdk.js/) - Build agent-based extensions
+- [Blackbeard Extension Example](https://github.com/copilot-extensions/blackbeard-extension) - Sample pirate-themed agent
+
+### Training and Tutorials
+- [Building Applications with GitHub Copilot Agent Mode](https://learn.microsoft.com/en-us/training/modules/github-copilot-agent-mode/) - Microsoft Learn module
+- [Quickstart for Extensions Using Agents](https://docs.github.com/en/copilot/tutorials/try-extensions)
+- [Building Your First Extension](https://resources.github.com/learn/pathways/copilot/extensions/building-your-first-extension/)
+- [VS Code Getting Started with Copilot](https://code.visualstudio.com/docs/copilot/getting-started)
+- [GitHub Copilot Tutorials](https://docs.github.com/en/copilot/tutorials)
+
+### Advanced Topics
+- [Enhancing Agent Mode with MCP](https://docs.github.com/en/copilot/tutorials/try-extensions) - Model Context Protocol integration
+- [Microsoft Agent Framework with Copilot](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/github-copilot-agent)
+- [Building Agents with GitHub Copilot SDK](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-agents-with-github-copilot-sdk-a-practical-guide-to-automated-tech-upda/4488948)
 
 ## Contributing
 

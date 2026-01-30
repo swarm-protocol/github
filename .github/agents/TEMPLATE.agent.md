@@ -1,11 +1,18 @@
 <!--
 This is a template file for creating GitHub Copilot custom agents.
+
+IMPORTANT: Custom agents MUST have uncommented YAML front matter to work!
+- The file must be in .github/agents/ directory
+- The file must end with .agent.md
+- The YAML front matter must NOT be commented out
+- The description field is REQUIRED
+
 To use this template:
 1. Copy this file and rename it to your-agent-name.agent.md
-2. Uncomment the YAML front matter and agent instructions
-3. Customize the name, description, and instructions for your agent
-4. Remove this comment block
-5. Commit the file to your repository
+2. Uncomment the YAML front matter and agent instructions (remove <!-- and -->)
+3. Customize the name, description, and other YAML properties
+4. Customize the agent instructions below the YAML
+5. Commit the file to your repository's default branch
 
 For more information, see: https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
 -->
@@ -14,7 +21,15 @@ For more information, see: https://docs.github.com/copilot/how-tos/use-copilot-a
 
 ---
 name: your-agent-name
-description: A concise description of what this agent specializes in (e.g., "Expert in React testing" or "Python code reviewer")
+description: A concise description of what this agent specializes in (REQUIRED - e.g., "Expert in React testing" or "Python code reviewer")
+# Optional YAML properties:
+# tools: ["read", "edit", "search", "execute", "agent", "web", "todo"]  # Omit to enable all tools
+# target: vscode  # or github-copilot (default: both)
+# infer: true  # Auto-select agent based on context
+# mcp-servers:  # MCP server configurations (org/enterprise only)
+#   github:
+#     read: true
+#     write: false
 ---
 
 # Agent Role and Expertise

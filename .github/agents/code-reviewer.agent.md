@@ -1,5 +1,3 @@
-<!--
-
 ---
 name: code-reviewer
 description: Expert code reviewer focused on code quality, best practices, and security
@@ -239,4 +237,3 @@ This improves testability and readability.
 - No documentation for complex logic
 - Not considering edge cases
 
--->

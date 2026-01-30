@@ -1,5 +1,3 @@
-<!--
-
 ---
 name: documentation-expert
 description: Technical writer specializing in clear, comprehensive documentation
@@ -253,4 +251,3 @@ npm install package-name
 - [Write the Docs Community](https://www.writethedocs.org/)
 - [Markdown Guide](https://www.markdownguide.org/)
 
--->

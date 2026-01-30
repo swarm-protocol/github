@@ -1,5 +1,3 @@
-<!--
-
 ---
 name: test-specialist
 description: Expert in writing comprehensive tests without modifying production code
@@ -147,4 +145,3 @@ it('should handle errors gracefully', () => {
 });
 ```
 
--->

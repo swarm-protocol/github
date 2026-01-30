@@ -25,20 +25,25 @@ See [.github/agents/README.md](.github/agents/README.md) for detailed instructio
 ### 📋 TEMPLATE.agent.md
 Comprehensive blank template with all recommended sections for creating custom agents from scratch.
 
-### 🧪 test-specialist.agent.md
+### 🧪 test-specialist.agent.md ✅
 Specialized agent for writing comprehensive tests without modifying production code.
+**Status:** Ready to use immediately!
 
-### 📝 documentation-expert.agent.md
+### 📝 documentation-expert.agent.md ✅
 Expert agent for creating clear, comprehensive documentation, READMEs, and guides.
+**Status:** Ready to use immediately!
 
-### 👀 code-reviewer.agent.md
+### 👀 code-reviewer.agent.md ✅
 Code review specialist focused on quality, security, and best practices.
+**Status:** Ready to use immediately!
 
-### 🔧 refactoring-assistant.agent.md
-Ready-to-use agent for safe code refactoring and improving maintainability (uncommented and ready to use!).
+### 🔧 refactoring-assistant.agent.md ✅
+Ready-to-use agent for safe code refactoring and improving maintainability.
+**Status:** Ready to use immediately!
 
-### 📄 documentation-builder.agent.md
-Ready-to-use agent for building README.md and CLAUDE.md from template files with variable substitution (uncommented and ready to use!).
+### 📄 documentation-builder.agent.md ✅
+Ready-to-use agent for building README.md and CLAUDE.md from template files with variable substitution.
+**Status:** Ready to use immediately!
 
 See [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) for usage examples.
 
