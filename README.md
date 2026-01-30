@@ -94,6 +94,30 @@ Create a `.github-private` repository in your organization and add agent files t
 - [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute
 - [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [💡 Example Agents](.github/agents/) - Pre-built examples
+- [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
+
+## Nix Development Environments
+
+Each agent has a corresponding Nix environment with all necessary tools pre-configured:
+
+```bash
+# Test Specialist environment
+nix develop ./nix/test
+
+# Docker Specialist environment  
+nix develop ./nix/docker
+
+# Documentation environment
+nix develop ./nix/documentation
+
+# Code Review environment
+nix develop ./nix/code-review
+
+# Refactoring environment
+nix develop ./nix/refactoring
+```
+
+See [nix/README.md](nix/README.md) for complete setup instructions and environment details.
 
 ## Use Cases
 
