@@ -379,7 +379,8 @@ These environments can be used in CI/CD pipelines:
 
 ```yaml
 - name: Setup Nix
-  uses: cachix/install-nix-action@v22
+  # Pin to specific commit SHA for security (v22 corresponds to this commit)
+  uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28
   with:
     extra_nix_config: |
       experimental-features = nix-command flakes

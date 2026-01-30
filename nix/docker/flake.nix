@@ -28,7 +28,7 @@
 
             # Container security scanning
             trivy
-            
+
             # Dockerfile linter
             hadolint
 

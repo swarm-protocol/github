@@ -19,7 +19,7 @@ pkgs.mkShell {
 
     # Documentation tools
     pandoc
-    
+
     # Markdown tools
     mdl
 

@@ -7,7 +7,7 @@ pkgs.mkShell {
     mdl  # Markdown linter
     marksman  # Markdown LSP
     nodePackages.markdownlint-cli
-    
+
     # Documentation generators
     hugo
     jekyll
