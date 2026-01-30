@@ -29,6 +29,15 @@ This file helps GitHub Copilot, Cursor, and other AI assistants to:
 | [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) | Template system guide | Variable substitution, examples |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **Navigation hub, bash commands** |
 
+### Configuration Files
+
+| File | Purpose | Key Topics |
+|------|---------|------------|
+| [.gitignore](.gitignore) | Git ignore patterns | OS files, editors, build artifacts, secrets |
+| [.editorconfig](.editorconfig) | Editor settings | Consistent formatting across editors |
+| [terraform/.gitignore](terraform/.gitignore) | Terraform ignore patterns | State files, credentials, locks |
+| [terraform/terraform.tfvars.example](terraform/terraform.tfvars.example) | Terraform variables example | Cloudflare configuration template |
+
 ### GitHub Copilot Agents (`.github/agents/`)
 
 **Main Index**: [.github/agents/README.md](.github/agents/README.md)

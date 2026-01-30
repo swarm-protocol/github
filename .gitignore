@@ -1,0 +1,63 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Build outputs
+dist/
+build/
+out/
+*.egg-info/
+__pycache__/
+*.pyc
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+.coverage
+htmlcov/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+
+# Nix
+result
+result-*
+
+# Secrets (never commit these)
+*.pem
+*.key
+secrets/
+.secrets/
+credentials/
