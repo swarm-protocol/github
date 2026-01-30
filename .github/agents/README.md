@@ -118,6 +118,20 @@ A documentation builder specialist agent focused on:
 
 **Use this when:** You need to build or regenerate README.md and CLAUDE.md files from templates with variable substitution.
 
+### 7. docker-specialist.agent.md ✅ READY TO USE
+
+A Docker and containerization specialist agent focused on:
+- Writing optimized Dockerfiles with multi-stage builds
+- Creating docker-compose.yml configurations
+- Kubernetes YAML manifests (Deployments, Services, ConfigMaps, Secrets)
+- CI/CD pipeline YAML for Docker workflows
+- Container security best practices
+- Docker debugging and troubleshooting
+
+**Status:** Uncommented and ready to use immediately!
+
+**Use this when:** You need help with Docker, Dockerfiles, docker-compose, Kubernetes configurations, or containerization best practices.
+
 ## File Structure
 
 ```
@@ -128,7 +142,8 @@ A documentation builder specialist agent focused on:
     ├── documentation-expert.agent.md  # ✅ Documentation agent (READY)
     ├── code-reviewer.agent.md         # ✅ Code review agent (READY)
     ├── refactoring-assistant.agent.md # ✅ Refactoring agent (READY)
-    └── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
+    ├── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
+    └── docker-specialist.agent.md     # ✅ Docker & YAML expert (READY)
 ```
 
 ## Creating Your Own Agent

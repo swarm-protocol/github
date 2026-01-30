@@ -29,6 +29,7 @@ This is a documentation-focused repository containing template files for GitHub 
 │       ├── README.md
 │       ├── TEMPLATE.agent.md
 │       ├── code-reviewer.agent.md
+│       ├── docker-specialist.agent.md
 │       ├── documentation-builder.agent.md
 │       ├── documentation-expert.agent.md
 │       ├── refactoring-assistant.agent.md
@@ -36,6 +37,7 @@ This is a documentation-focused repository containing template files for GitHub 
 ├── CLAUDE.md (this file)
 ├── CLAUDE.template.md
 ├── CONTRIBUTING.md
+├── DOCUMENTATION-BUILDER-USAGE.md
 ├── LICENSE
 ├── QUICKSTART.md
 ├── README.md
@@ -76,20 +78,23 @@ Agents follow this structure:
 ### 1. TEMPLATE.agent.md
 Blank template with all sections - starting point for custom agents.
 
-### 2. test-specialist.agent.md (commented)
-Focuses on writing tests without modifying production code.
+### 2. test-specialist.agent.md (ready to use)
+Focuses on writing tests without modifying production code - uncommented and production-ready.
 
-### 3. documentation-expert.agent.md (commented)
-Specializes in creating documentation, READMEs, and guides.
+### 3. documentation-expert.agent.md (ready to use)
+Specializes in creating documentation, READMEs, and guides - uncommented and production-ready.
 
-### 4. code-reviewer.agent.md (commented)
-Reviews code for quality, security, and best practices.
+### 4. code-reviewer.agent.md (ready to use)
+Reviews code for quality, security, and best practices - uncommented and production-ready.
 
 ### 5. refactoring-assistant.agent.md (ready to use)
 Helps with safe code refactoring - uncommented and production-ready.
 
 ### 6. documentation-builder.agent.md (ready to use)
 Builds README.md and CLAUDE.md from templates - uncommented and production-ready.
+
+### 7. docker-specialist.agent.md (ready to use)
+Expert in Docker, Dockerfiles, docker-compose, and Kubernetes YAML - uncommented and production-ready.
 
 ## Development Workflow
 

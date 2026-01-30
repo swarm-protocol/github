@@ -47,6 +47,17 @@ Ready-to-use agent for building README.md and CLAUDE.md from template files with
 
 See [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) for usage examples.
 
+### 🐳 docker-specialist.agent.md ✅
+Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML configurations.
+**Status:** Ready to use immediately!
+
+**Specializes in:**
+- Optimized Dockerfiles with multi-stage builds
+- docker-compose configurations
+- Kubernetes manifests (Deployments, Services, ConfigMaps, Secrets)
+- CI/CD pipeline YAML
+- Container security and best practices
+
 ## Features
 
 ✅ **Well-structured templates** following GitHub's best practices  
