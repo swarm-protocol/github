@@ -40,6 +40,8 @@ Ready-to-use agent for safe code refactoring and improving maintainability (unco
 ### 📄 documentation-builder.agent.md
 Ready-to-use agent for building README.md and CLAUDE.md from template files with variable substitution (uncommented and ready to use!).
 
+See [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) for usage examples.
+
 ## Features
 
 ✅ **Well-structured templates** following GitHub's best practices  
