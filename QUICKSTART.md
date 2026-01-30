@@ -2,7 +2,28 @@
 
 This guide will help you get started with GitHub Copilot custom agents in under 5 minutes.
 
-## Prerequisites
+## Automated Setup (Recommended)
+
+Run the bootstrap script to set up your development environment automatically:
+
+```bash
+# Clone this repository (if you haven't already)
+git clone https://github.com/swarm-protocol/github.git
+cd github
+
+# Run bootstrap script
+./bootstrap.sh
+```
+
+The script will guide you through:
+1. Detecting your system (Nix or APT)
+2. Choosing your development environment
+3. Installing required dependencies
+4. Verifying the setup
+
+## Manual Setup
+
+### Prerequisites
 
 - GitHub Copilot subscription (Pro, Business, or Enterprise)
 - Access to a GitHub repository

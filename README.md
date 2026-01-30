@@ -13,6 +13,22 @@ This repository provides ready-to-use templates for creating specialized GitHub 
 
 ## Quick Start
 
+### 🚀 Automated Setup
+
+Run the bootstrap script to set up your development environment:
+
+```bash
+./bootstrap.sh
+```
+
+The script will:
+- Detect your system (Nix or APT)
+- Install required dependencies
+- Set up your chosen environment (test, docker, documentation, etc.)
+- Verify the setup
+
+### ✋ Manual Setup
+
 1. **Explore the templates** in the `.github/agents/` directory
 2. **Copy a template** that fits your needs
 3. **Customize** the agent for your specific requirements

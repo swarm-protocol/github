@@ -434,6 +434,44 @@ echo $PATH
 
 ---
 
+## 🚀 Getting Started Quick Commands
+
+```bash
+# 1. Clone repository (if not already cloned)
+git clone https://github.com/swarm-protocol/github.git
+cd github
+
+# 2. Run automated setup (RECOMMENDED)
+./bootstrap.sh
+
+# The bootstrap script will:
+# - Detect your system (Nix or APT)
+# - Guide you through environment selection
+# - Install required dependencies
+# - Verify your setup
+# - Show next steps
+
+# 3. Manual environment setup (if preferred)
+# Option A: Nix (reproducible)
+cd nix/common && nix develop
+
+# Option B: APT (Ubuntu/Debian)
+xargs -a apt/common/packages.txt sudo apt install -y
+
+# 4. Explore the repository
+cat AGENTS.md
+cat README.md
+ls -la
+
+# 5. Start working with an agent
+# In GitHub Copilot:
+@test-specialist help me write tests
+@docker-specialist create a Dockerfile
+@documentation-builder generate README.md
+```
+
+---
+
 ## 🎯 Quick Navigation Shortcuts
 
 ### For GitHub Copilot
