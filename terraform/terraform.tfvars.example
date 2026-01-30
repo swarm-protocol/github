@@ -1,0 +1,71 @@
+# CloudFlare API Token
+# Get your API token from: https://dash.cloudflare.com/profile/api-tokens
+cloudflare_api_token = "your-cloudflare-api-token-here"
+
+# CloudFlare Account Name
+cloudflare_account_name = "Your Account Name"
+
+# Zone Configuration (if using DNS)
+zone_name = "example.com"
+
+# Workers Configuration
+deploy_workers = true
+worker_name    = "my-worker"
+worker_script_path = "./worker.js"
+
+# Example worker routes
+# worker_routes = [
+#   {
+#     pattern = "example.com/*"
+#     zone_id = "your-zone-id"
+#   }
+# ]
+
+# KV Namespaces
+# kv_namespaces = [
+#   { name = "MY_KV_NAMESPACE" }
+# ]
+
+# Worker environment variables
+# worker_env_vars = {
+#   API_URL = "https://api.example.com"
+# }
+
+# Worker secrets (stored securely)
+# worker_secrets = {
+#   API_KEY = "secret-api-key"
+# }
+
+# Pages Configuration
+deploy_pages          = false
+pages_project_name    = "my-pages-project"
+pages_production_branch = "main"
+pages_build_command   = "npm run build"
+pages_destination_dir = "dist"
+pages_root_dir        = ""
+
+# Pages environment variables
+# pages_env_vars = {
+#   NODE_ENV = "production"
+# }
+
+# DNS Configuration
+deploy_dns = false
+
+# DNS records example
+# dns_records = [
+#   {
+#     name    = "www"
+#     type    = "CNAME"
+#     value   = "example.com"
+#     ttl     = 1
+#     proxied = true
+#   },
+#   {
+#     name    = "@"
+#     type    = "A"
+#     value   = "192.0.2.1"
+#     ttl     = 1
+#     proxied = true
+#   }
+# ]
