@@ -89,6 +89,7 @@ Create a `.github-private` repository in your organization and add agent files t
 
 ## Documentation
 
+- [🗺️ **AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap and bash command reference**
 - [⚡ Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
 - [📖 Detailed Setup Guide](.github/agents/README.md) - Complete instructions
 - [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute
