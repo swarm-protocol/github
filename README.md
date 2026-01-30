@@ -95,6 +95,7 @@ Create a `.github-private` repository in your organization and add agent files t
 - [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [💡 Example Agents](.github/agents/) - Pre-built examples
 - [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
+- [🎯 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
 
 ## Nix Development Environments
 
@@ -134,11 +135,39 @@ Custom agents are perfect for:
 - **Domain expertise**: Agents with deep knowledge of your stack
 - **Workflow automation**: CI/CD, deployment, maintenance tasks
 
+## Agent Frameworks
+
+This repository includes comprehensive documentation for multiple agent frameworks:
+
+### GitHub Copilot Custom Agents
+
+GitHub Copilot agents are defined in `.github/agents/` directory using markdown files with YAML front matter. See the templates and examples in this repository for GitHub Copilot agent development.
+
+### Cursor Agent Framework
+
+Cursor provides a different approach with powerful features like:
+- **Rules System**: Static context in `.cursor/rules/`
+- **Skills**: Dynamic capabilities with `SKILL.md` files
+- **Subagents**: Parallel execution with specialized agents
+- **Agent Modes**: Agent, Ask, and Plan modes
+- **MCP Integration**: Connect to external tools and data sources
+
+See [CURSOR.md](CURSOR.md) for complete Cursor agent documentation.
+
 ## Resources
+
+### GitHub Copilot
 
 - [GitHub Copilot Documentation](https://docs.github.com/copilot)
 - [Creating Custom Agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 - [Best Practices Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
+
+### Cursor
+
+- [Cursor Documentation](https://cursor.com/docs)
+- [Agent Overview](https://cursor.com/docs/agent/overview)
+- [Best Practices for Coding with Agents](https://cursor.com/blog/agent-best-practices)
+- [Cursor Learn Course](https://cursor.com/learn)
 
 ## Contributing
 
