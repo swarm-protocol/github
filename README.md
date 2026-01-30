@@ -146,6 +146,44 @@ sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
 
 See [apt/README.md](apt/README.md) for all available environments and detailed usage instructions.
 
+## Repository Structure
+
+### Documentation (`docs/`)
+
+Comprehensive documentation for the agent framework:
+
+- **`docs/api/`** - API reference documentation
+- **`docs/guides/`** - Step-by-step guides and tutorials
+- **`docs/reference/`** - Technical specifications and architecture
+
+See [docs/README.md](docs/README.md) and [docs/AGENT_PROMPTS.md](docs/AGENT_PROMPTS.md) for working with documentation.
+
+### Data (`data/`)
+
+Data files, configurations, and schemas:
+
+- **`data/schemas/`** - JSON schemas and API specifications
+- **`data/configs/`** - Configuration templates and examples
+- **`data/examples/`** - Sample data for testing and demos
+
+See [data/README.md](data/README.md) and [data/AGENT_PROMPTS.md](data/AGENT_PROMPTS.md) for working with data files.
+
+### Source Code (`src/`)
+
+Source code and automation scripts:
+
+- **`src/agents/`** - Custom agent implementations
+- **`src/utils/`** - Utility functions and libraries
+- **`src/scripts/`** - Automation and deployment scripts
+
+See [src/README.md](src/README.md) and [src/AGENT_PROMPTS.md](src/AGENT_PROMPTS.md) for development guidelines.
+
+### Infrastructure
+
+- **`terraform/`** - CloudFlare deployment modules and templates
+- **`nix/`** - Reproducible development environments
+- **`apt/`** - Debian/Ubuntu package lists
+
 ## Use Cases
 
 Custom agents are perfect for:
