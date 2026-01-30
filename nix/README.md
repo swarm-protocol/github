@@ -11,7 +11,9 @@ nix/
 ├── docker/          # Docker Specialist agent environment
 ├── documentation/   # Documentation agents environment
 ├── code-review/     # Code Review agent environment
-└── refactoring/     # Refactoring Assistant agent environment
+├── refactoring/     # Refactoring Assistant agent environment
+├── wrangler/        # Cloudflare Workers development environment
+└── terraform/       # Infrastructure as Code environment
 ```
 
 ## Prerequisites
@@ -56,6 +58,14 @@ nix develop
 cd nix/refactoring
 nix develop
 
+# Wrangler environment (Cloudflare Workers)
+cd nix/wrangler
+nix develop
+
+# Terraform environment (Infrastructure as Code)
+cd nix/terraform
+nix develop
+
 # Common tools only
 cd nix/common
 nix develop
@@ -88,10 +98,14 @@ nix develop ./nix/docker
 nix develop ./nix/documentation
 nix develop ./nix/code-review
 nix develop ./nix/refactoring
+nix develop ./nix/wrangler
+nix develop ./nix/terraform
 
 # Using nix-shell
 nix-shell ./nix/test/shell.nix
 nix-shell ./nix/docker/shell.nix
+nix-shell ./nix/wrangler/shell.nix
+nix-shell ./nix/terraform/shell.nix
 # etc...
 ```
 
@@ -206,6 +220,49 @@ nix-shell ./nix/docker/shell.nix
 - Automated code formatting
 - Structural code transformations
 - Working with `@refactoring-assistant` agent
+
+### Wrangler (`nix/wrangler/`)
+
+**Purpose**: Cloudflare Workers development environment
+
+**Includes**:
+- **Runtime**: Node.js 20, npm, yarn, pnpm
+- **Cloudflare**: wrangler CLI
+- **TypeScript**: TypeScript, ts-node, esbuild
+- **Testing**: vitest, jest
+- **Database**: sqlite (D1), redis (KV testing)
+- **API Testing**: curl, httpie, jq
+- **Code Quality**: eslint, prettier
+
+**When to use**:
+- Developing Cloudflare Workers
+- Working with Cloudflare D1, KV, R2, Durable Objects
+- Edge computing applications
+- Serverless function development
+- Testing Workers locally with Miniflare
+
+### Terraform (`nix/terraform/`)
+
+**Purpose**: Infrastructure as Code development and management
+
+**Includes**:
+- **IaC Tools**: terraform, terragrunt, terraform-docs, terraform-ls
+- **Security**: tfsec, terrascan, checkov
+- **Cost**: infracost (cost estimation)
+- **Cloud CLIs**: awscli2, gcloud, azure-cli
+- **Kubernetes**: kubectl, helm
+- **Secrets**: vault, git-crypt
+- **Automation**: packer, ansible
+- **Linting**: tflint
+- **Utilities**: jq, yq, graphviz
+
+**When to use**:
+- Writing Terraform configurations
+- Managing cloud infrastructure (AWS, GCP, Azure)
+- Infrastructure security scanning
+- Cost estimation and optimization
+- Multi-cloud deployments
+- Kubernetes infrastructure provisioning
 
 ## Tips and Best Practices
 

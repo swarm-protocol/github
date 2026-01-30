@@ -115,6 +115,12 @@ nix develop ./nix/code-review
 
 # Refactoring environment
 nix develop ./nix/refactoring
+
+# Wrangler environment (Cloudflare Workers)
+nix develop ./nix/wrangler
+
+# Terraform environment (Infrastructure as Code)
+nix develop ./nix/terraform
 ```
 
 See [nix/README.md](nix/README.md) for complete setup instructions and environment details.
