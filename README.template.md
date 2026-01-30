@@ -1,6 +1,19 @@
-# GitHub Copilot Custom Agents Templates
+<!-- 
+Template Variables:
+- {{PROJECT_NAME}}: Name of the project
+- {{DESCRIPTION}}: Short description
+- {{VERSION}}: Current version
+- {{DATE}}: Last updated date
 
-A comprehensive collection of templates and examples for creating GitHub Copilot custom agents.
+This is an example template for README.md generation.
+-->
+
+# {{PROJECT_NAME}}
+
+{{DESCRIPTION}}
+
+**Version**: {{VERSION}}  
+**Last Updated**: {{DATE}}
 
 ## What's Included
 

@@ -98,6 +98,16 @@ A refactoring specialist agent focused on:
 
 **Use this when:** You need help refactoring legacy code or improving code quality without changing functionality.
 
+### 6. documentation-builder.agent.md
+
+A documentation builder specialist agent focused on:
+- Generating README.md from template files
+- Building CLAUDE.md for AI context
+- Processing template variables and substitutions
+- Maintaining consistent documentation structure
+
+**Use this when:** You need to build or regenerate README.md and CLAUDE.md files from templates with variable substitution.
+
 ## File Structure
 
 ```
@@ -107,7 +117,8 @@ A refactoring specialist agent focused on:
     ├── test-specialist.agent.md       # Example: Testing agent
     ├── documentation-expert.agent.md  # Example: Documentation agent
     ├── code-reviewer.agent.md         # Example: Code review agent
-    └── refactoring-assistant.agent.md # Example: Refactoring agent (READY TO USE)
+    ├── refactoring-assistant.agent.md # Example: Refactoring agent (READY TO USE)
+    └── documentation-builder.agent.md # Example: README/CLAUDE.md builder (READY TO USE)
 ```
 
 ## Creating Your Own Agent
