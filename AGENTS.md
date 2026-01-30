@@ -25,6 +25,7 @@ This file helps GitHub Copilot, Cursor, and other AI assistants to:
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines | How to contribute, PR process, standards |
 | [CLAUDE.md](CLAUDE.md) | Claude AI context file | Architecture, components, development workflow |
 | [CURSOR.md](CURSOR.md) | Cursor agent documentation | Rules, skills, subagents, MCP integration |
+| [N8N.md](N8N.md) | n8n agent framework | Visual workflows, AI agents, LangChain, MCP |
 | [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) | Template system guide | Variable substitution, examples |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **Navigation hub, bash commands** |
 
@@ -540,6 +541,7 @@ Common command patterns to use:
 - **[QUICKSTART.md](QUICKSTART.md)**: Get started quickly
 - **[CLAUDE.md](CLAUDE.md)**: Claude AI context
 - **[CURSOR.md](CURSOR.md)**: Cursor IDE integration
+- **[N8N.md](N8N.md)**: n8n workflow automation
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
 
 ---

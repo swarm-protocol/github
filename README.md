@@ -114,6 +114,7 @@ Create a `.github-private` repository in your organization and add agent files t
 - [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
 - [📦 APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
 - [🎯 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
+- [🔄 n8n Agent Framework](N8N.md) - Visual workflow automation with AI agents
 
 ## Development Environments
 
@@ -229,6 +230,18 @@ Cursor provides a different approach with powerful features like:
 
 See [CURSOR.md](CURSOR.md) for complete Cursor agent documentation.
 
+### n8n Agent Framework
+
+n8n is a visual workflow automation platform with comprehensive AI agent capabilities:
+- **AI Agent Node**: Autonomous decision-making with tools
+- **LangChain Integration**: Cluster nodes architecture with chains and agents
+- **Multi-Agent Patterns**: Four workflow patterns (Chained, Single Agent, Multi-Agent Gatekeeper, Multi-Agent Teams)
+- **MCP Integration**: Connect to external tools via Model Context Protocol
+- **RAG Support**: Build retrieval-augmented generation systems
+- **5000+ Templates**: Pre-built workflow templates for various use cases
+
+See [N8N.md](N8N.md) for complete n8n agent documentation.
+
 ## Resources
 
 ### GitHub Copilot
@@ -243,6 +256,13 @@ See [CURSOR.md](CURSOR.md) for complete Cursor agent documentation.
 - [Agent Overview](https://cursor.com/docs/agent/overview)
 - [Best Practices for Coding with Agents](https://cursor.com/blog/agent-best-practices)
 - [Cursor Learn Course](https://cursor.com/learn)
+
+### n8n
+
+- [n8n Documentation](https://docs.n8n.io/)
+- [AI Agent Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/)
+- [AI Agentic Workflows Guide](https://blog.n8n.io/ai-agentic-workflows/)
+- [5000+ AI Workflow Templates](https://n8n.io/workflows/categories/ai/)
 
 ## Contributing
 
