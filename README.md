@@ -34,6 +34,9 @@ Expert agent for creating clear, comprehensive documentation, READMEs, and guide
 ### 👀 code-reviewer.agent.md
 Code review specialist focused on quality, security, and best practices.
 
+### 🔧 refactoring-assistant.agent.md
+Ready-to-use agent for safe code refactoring and improving maintainability (uncommented and ready to use!).
+
 ## Features
 
 ✅ **Well-structured templates** following GitHub's best practices  

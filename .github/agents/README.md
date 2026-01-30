@@ -88,6 +88,16 @@ A code review specialist agent focused on:
 
 **Use this when:** You want automated code review feedback following best practices.
 
+### 5. refactoring-assistant.agent.md
+
+A refactoring specialist agent focused on:
+- Safe, incremental code refactoring
+- Improving code maintainability
+- Removing code smells
+- Following refactoring best practices
+
+**Use this when:** You need help refactoring legacy code or improving code quality without changing functionality.
+
 ## File Structure
 
 ```
@@ -96,7 +106,8 @@ A code review specialist agent focused on:
     ├── TEMPLATE.agent.md              # Blank template
     ├── test-specialist.agent.md       # Example: Testing agent
     ├── documentation-expert.agent.md  # Example: Documentation agent
-    └── code-reviewer.agent.md         # Example: Code review agent
+    ├── code-reviewer.agent.md         # Example: Code review agent
+    └── refactoring-assistant.agent.md # Example: Refactoring agent (READY TO USE)
 ```
 
 ## Creating Your Own Agent
