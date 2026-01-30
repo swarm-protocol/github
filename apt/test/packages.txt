@@ -1,0 +1,32 @@
+# Testing tools for multiple languages
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# JavaScript/TypeScript testing (requires Node.js)
+nodejs
+npm
+
+# Python testing
+python3
+python3-pip
+python3-pytest
+python3-pytest-cov
+python3-coverage
+
+# Go testing
+golang-go
+
+# Rust testing (install via rustup, not apt)
+# See: https://rustup.rs/
+
+# Java testing
+openjdk-21-jdk
+maven
+gradle
+
+# Code coverage tools
+lcov
+
+# General testing tools
+git
+make
+build-essential

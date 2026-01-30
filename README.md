@@ -95,9 +95,12 @@ Create a `.github-private` repository in your organization and add agent files t
 - [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [💡 Example Agents](.github/agents/) - Pre-built examples
 - [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
+- [📦 APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
 - [🎯 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
 
-## Nix Development Environments
+## Development Environments
+
+### Nix Environments (Recommended)
 
 Each agent has a corresponding Nix environment with all necessary tools pre-configured:
 
@@ -125,6 +128,23 @@ nix develop ./nix/terraform
 ```
 
 See [nix/README.md](nix/README.md) for complete setup instructions and environment details.
+
+### APT Package Lists (Debian/Ubuntu)
+
+For Debian/Ubuntu systems, corresponding APT package lists are available:
+
+```bash
+# Install common development tools
+sudo apt install -y $(cat apt/common/packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Install test environment packages
+sudo apt install -y $(cat apt/test/packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Install docker environment packages
+sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
+```
+
+See [apt/README.md](apt/README.md) for all available environments and detailed usage instructions.
 
 ## Use Cases
 

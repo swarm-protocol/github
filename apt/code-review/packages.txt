@@ -1,0 +1,55 @@
+# Code review and linting tools
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Multi-language linters
+shellcheck
+
+# JavaScript/TypeScript
+nodejs
+npm
+
+# Python
+python3
+python3-pip
+pylint
+flake8
+python3-mypy
+
+# Go
+golang-go
+
+# Rust (install via rustup)
+# See: https://rustup.rs/
+
+# Java
+openjdk-21-jdk
+checkstyle
+
+# C/C++
+clang-tools
+cppcheck
+
+# Version control
+git
+gh
+git-lfs
+
+# Diff tools
+colordiff
+
+# General utilities
+jq
+ripgrep
+fd-find
+
+# Note: Additional tools require manual installation:
+# JavaScript: npm install -g eslint prettier typescript
+# Python: pip3 install black ruff
+# Go: Install golangci-lint from https://golangci-lint.run/usage/install/
+# Rust: Install via rustup (includes clippy and rustfmt)
+# Security: trivy (https://aquasecurity.github.io/trivy/)
+# Security: semgrep (pip3 install semgrep)
+# Analysis: tokei (https://github.com/XAMPPRocky/tokei/releases)
+# Analysis: scc (https://github.com/boyter/scc/releases)
+# YAML: pip3 install yamllint
+# JSON: npm install -g jsonlint

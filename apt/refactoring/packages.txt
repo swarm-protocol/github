@@ -1,0 +1,45 @@
+# Refactoring tools for multiple languages
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# JavaScript/TypeScript refactoring
+nodejs
+npm
+
+# Python refactoring
+python3
+python3-pip
+
+# Go refactoring
+golang-go
+
+# Rust refactoring (install via rustup)
+# See: https://rustup.rs/
+
+# Java refactoring
+openjdk-21-jdk
+maven
+gradle
+
+# Version control
+git
+gh
+
+# Diff and merge tools
+meld
+colordiff
+
+# Code search and navigation
+ripgrep
+fd-find
+fzf
+
+# Utilities
+jq
+make
+
+# Note: Many refactoring tools require additional installation:
+# TypeScript/JS: npm install -g typescript prettier eslint
+# Python: pip3 install black isort autopep8 rope ruff
+# Go: Install via go install for gofumpt, gopls, etc.
+# Rust: Install via rustup, includes rustfmt and cargo
+# Additional: comby (https://comby.dev), tree-sitter, git-absorb
