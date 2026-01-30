@@ -95,4 +95,4 @@ Contributions are welcome! Share your useful agent templates by submitting a pul
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+Unlicense (Public Domain) - See [LICENSE](LICENSE) for details.

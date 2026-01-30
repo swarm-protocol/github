@@ -73,7 +73,7 @@ Your agent template should include:
 ### Naming Conventions
 
 - **File names**: Use kebab-case (e.g., `api-security-expert.agent.md`)
-- **Agent names**: Use snake_case (e.g., `api_security_expert`)
+- **Agent names**: Use kebab-case in YAML (e.g., `api-security-expert`) - this matches the file name
 - **Descriptions**: Be specific and action-oriented
 
 ### Code Style
@@ -177,7 +177,7 @@ Before submitting, verify your template includes:
 
 If you have questions about contributing:
 
-1. Check the [README](.github/agents/README.md) first
+1. Check the [README](README.md) for project overview
 2. Look at existing agents for examples
 3. Open an issue with your question
 4. Tag it with `question` label
@@ -208,7 +208,7 @@ Contributors will be:
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License, the same license as this project.
+By contributing, you agree that your contributions will be released into the public domain under the Unlicense, the same license as this project.
 
 ## Getting Help
 

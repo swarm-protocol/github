@@ -28,9 +28,9 @@ For the refactoring assistant (already uncommented and ready):
 # Create the agents directory
 mkdir -p .github/agents
 
-# Copy the refactoring assistant
-curl -o .github/agents/refactoring-assistant.agent.md \
-  https://raw.githubusercontent.com/swarm-protocol/github/main/.github/agents/refactoring-assistant.agent.md
+# Copy the refactoring assistant from this template repository
+# (or manually copy the file from .github/agents/refactoring-assistant.agent.md)
+cp /path/to/template/.github/agents/refactoring-assistant.agent.md .github/agents/
 
 # Commit and push
 git add .github/agents/
@@ -151,7 +151,7 @@ Let's create a simple Python linting agent:
 2. **Add this content**:
 ```markdown
 ---
-name: python_linter
+name: python-linter
 description: Python code quality and style checker
 ---
 
@@ -210,7 +210,7 @@ git push
 
 4. **Use it**:
 ```
-@python_linter review this function for PEP 8 compliance
+@python-linter review this function for PEP 8 compliance
 ```
 
 ## Next Steps
@@ -226,13 +226,12 @@ git push
 - [GitHub Copilot Docs](https://docs.github.com/copilot)
 - [Creating Custom Agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 - [Agent Best Practices](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
-- [Template Repository](https://github.com/swarm-protocol/github)
 
 ## Need Help?
 
-- 📖 Check the [README](.github/agents/README.md) for detailed instructions
-- 🐛 Found a bug? [Open an issue](https://github.com/swarm-protocol/github/issues)
-- 💡 Have a question? [Start a discussion](https://github.com/swarm-protocol/github/discussions)
+- 📖 Check the [Agent Creation Guide](.github/agents/README.md) for detailed instructions
+- 🐛 Found a bug? Open an issue in your repository
+- 💡 Have a question? Start a discussion or ask your team
 
 ---
 
