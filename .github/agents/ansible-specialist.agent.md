@@ -453,12 +453,10 @@ http {
 ---
 db_password: "supersecretpassword"
 api_keys:
-  stripe: "sk_live_xxxxx"
-  sendgrid: "SG.xxxxx"
+  stripe: "sk_test_EXAMPLE_STRIPE_API_KEY"
+  sendgrid: "EXAMPLE_SENDGRID_API_KEY"
 ssl_private_key: |
-  -----BEGIN RSA PRIVATE KEY-----
-  MIIEpAIBAAKCAQEA...
-  -----END RSA PRIVATE KEY-----
+  EXAMPLE_PRIVATE_KEY_DATA
 ```
 
 ### Using Vault in Playbooks
@@ -483,19 +481,20 @@ ssl_private_key: |
         mode: '0600'
 ```
 
-### Vault Password File
+### Vault Password Handling
 
 ```bash
-# Create password file (add to .gitignore!)
-echo "your-vault-password" > .vault_pass
-chmod 600 .vault_pass
+# Recommended for local use: prompt for the vault password
+ansible-playbook -i inventory.yml playbook.yml --ask-vault-pass
 
-# Use with playbook
-ansible-playbook -i inventory.yml playbook.yml --vault-password-file .vault_pass
+# Newer syntax with vault IDs and prompt
+ansible-playbook -i inventory.yml playbook.yml --vault-id @prompt
 
-# Configure in ansible.cfg
-[defaults]
-vault_password_file = .vault_pass
+# For CI/non-interactive use:
+# - Store the vault password in your CI's secret store.
+# - Pass it to Ansible at runtime (for example via environment variables or a
+#   short-lived helper script), and avoid writing it to persistent files or
+#   configuring vault_password_file in ansible.cfg.
 ```
 
 ## ansible.cfg Configuration
@@ -508,8 +507,8 @@ inventory = inventory/
 # Remote user
 remote_user = deploy
 
-# SSH settings
-host_key_checking = False
+# SSH settings (keep host key checking enabled for security)
+host_key_checking = True
 timeout = 30
 
 # Parallelism
@@ -521,8 +520,8 @@ log_path = ./ansible.log
 # Roles path
 roles_path = ./roles:~/.ansible/roles
 
-# Vault password
-vault_password_file = .vault_pass
+# Vault: use --ask-vault-pass or --vault-id @prompt instead of vault_password_file
+# for better security (see Vault Password Handling section above)
 
 # Retry files
 retry_files_enabled = False
