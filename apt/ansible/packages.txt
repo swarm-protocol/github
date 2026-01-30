@@ -3,7 +3,7 @@
 
 # Ansible core
 ansible
-ansible-lint
+# Note: ansible-lint is best installed via pip3 for the latest version
 
 # Python (required for Ansible)
 python3

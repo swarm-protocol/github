@@ -85,7 +85,7 @@
             echo "Testing:"
             echo "  molecule         - Test Ansible roles"
             echo "  pytest           - Run Python tests"
-            echo "  testinfra        - Infrastructure testing"
+            echo "  pytest-testinfra - Infrastructure testing (via pytest)"
             echo ""
             echo "Cloud CLIs:"
             echo "  aws              - AWS CLI v2"
