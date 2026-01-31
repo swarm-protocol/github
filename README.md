@@ -125,7 +125,8 @@ Create a `.github-private` repository in your organization and add agent files t
 - [💡 Example Agents](.github/agents/) - Pre-built examples
 - [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
 - [📦 APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
-- [🎯 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
+- [🎯 Cursor IDE Configuration](.cursor/README.md) - Cursor rules and agents
+- [📚 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
 - [🔄 n8n Agent Framework](N8N.md) - Visual workflow automation with AI agents
 
 ## Development Environments

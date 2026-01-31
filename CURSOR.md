@@ -2,6 +2,8 @@
 
 Comprehensive guide for building agent frameworks with **Cursor** - a powerful AI-powered code editor with advanced agent capabilities.
 
+> **📁 This Repository's Configuration**: See [`.cursor/README.md`](.cursor/README.md) for the actual Cursor configuration used in this repository.
+
 ## Table of Contents
 
 1. [Agent Architecture](#1-cursor-agent-architecture)
@@ -67,6 +69,12 @@ Rules provide **persistent instructions** that shape how the agent works with yo
 - **Project Rules**: `.cursor/rules/*.mdc` or `.cursor/rules/*.md`
 - **Alternative**: `AGENTS.md` in project root for simpler use cases
 - **User Rules**: Global to your Cursor environment (in settings)
+
+> **📁 This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
+> - [`general.md`](.cursor/rules/general.md) - General project standards
+> - [`testing.md`](.cursor/rules/testing.md) - Testing best practices
+> - [`documentation.md`](.cursor/rules/documentation.md) - Documentation standards
+> - [`code-review.md`](.cursor/rules/code-review.md) - Code review guidelines
 
 ### Rule File Structure
 

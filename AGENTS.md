@@ -38,6 +38,23 @@ This file helps GitHub Copilot, Cursor, and other AI assistants to:
 | [terraform/.gitignore](terraform/.gitignore) | Terraform ignore patterns | State files, credentials, locks |
 | [terraform/terraform.tfvars.example](terraform/terraform.tfvars.example) | Terraform variables example | Cloudflare configuration template |
 
+### Cursor IDE Configuration (`.cursor/`)
+
+**Main Index**: [.cursor/README.md](.cursor/README.md)
+
+Cursor IDE configuration for AI-assisted development:
+
+| Directory/File | Purpose |
+|----------------|---------|
+| `.cursor/rules/` | Project-specific rules for Cursor agents |
+| `.cursor/agents/` | Custom subagent configurations |
+| [.cursor/rules/general.md](.cursor/rules/general.md) | General project standards |
+| [.cursor/rules/testing.md](.cursor/rules/testing.md) | Testing best practices |
+| [.cursor/rules/documentation.md](.cursor/rules/documentation.md) | Documentation standards |
+| [.cursor/rules/code-review.md](.cursor/rules/code-review.md) | Code review guidelines |
+
+See [CURSOR.md](CURSOR.md) for complete Cursor framework documentation.
+
 ### GitHub Copilot Agents (`.github/agents/`)
 
 **Main Index**: [.github/agents/README.md](.github/agents/README.md)
