@@ -48,10 +48,10 @@ Cursor IDE configuration for AI-assisted development:
 |----------------|---------|
 | `.cursor/rules/` | Project-specific rules for Cursor agents |
 | `.cursor/agents/` | Custom subagent configurations |
-| `rules/general.md` | General project standards |
-| `rules/testing.md` | Testing best practices |
-| `rules/documentation.md` | Documentation standards |
-| `rules/code-review.md` | Code review guidelines |
+| [.cursor/rules/general.md](.cursor/rules/general.md) | General project standards |
+| [.cursor/rules/testing.md](.cursor/rules/testing.md) | Testing best practices |
+| [.cursor/rules/documentation.md](.cursor/rules/documentation.md) | Documentation standards |
+| [.cursor/rules/code-review.md](.cursor/rules/code-review.md) | Code review guidelines |
 
 See [CURSOR.md](CURSOR.md) for complete Cursor framework documentation.
 

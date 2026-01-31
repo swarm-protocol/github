@@ -47,13 +47,13 @@ For this repository (documentation-focused):
 ### Good Feedback
 
 ✅ **Constructive and specific:**
-```
+```text
 Consider adding an example here to clarify the usage.
 The current description might be unclear to new users.
 ```
 
 ✅ **Educational:**
-```
+```text
 This glob pattern might not match all intended files.
 Consider using `**/*{.test,.spec}.*` to catch both patterns.
 ```

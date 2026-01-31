@@ -25,8 +25,8 @@ Rules in `.cursor/rules/` provide persistent instructions that shape how Cursor 
 | Rule File | Purpose | Glob Pattern |
 |-----------|---------|--------------|
 | `general.md` | General project standards and commands | `**/*` |
-| `testing.md` | Testing best practices | `**/*.test.*`, `**/*.spec.*` |
-| `documentation.md` | Documentation standards | `**/*.md` |
+| `testing.md` | Testing best practices | `**/*.test.*`, `**/*.spec.*`, `**/test/**`, `**/tests/**`, `**/__tests__/**` |
+| `documentation.md` | Documentation standards | `**/*.md`, `docs/**/*` |
 | `code-review.md` | Code review guidelines | `**/*` |
 
 ## Agents

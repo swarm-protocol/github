@@ -33,7 +33,7 @@ doctoc README.md
 
 ### Markdown Structure
 
-```markdown
+````markdown
 # Main Title
 
 Brief introduction paragraph.
@@ -58,7 +58,7 @@ const example = 'code';
 ## Related
 
 - [Link to related doc](path/to/doc.md)
-```
+````
 
 ### Headers
 
@@ -103,7 +103,7 @@ description: Brief description (under 100 characters)
 Role and expertise description.
 
 ## Commands
-## Code Style  
+## Code Style
 ## Best Practices
 ## Boundaries
 ```

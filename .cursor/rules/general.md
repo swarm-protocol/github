@@ -7,17 +7,17 @@ globs: ["**/*"]
 
 ## Project Overview
 
-This repository provides templates and examples for creating GitHub Copilot custom agents. It's primarily a documentation repository with no runtime code.
+This repository provides templates and examples for creating GitHub Copilot custom agents. It is documentation-first but also includes runnable example code and supporting tooling (see the `src/` and related directories).
 
 ## Commands
 
 ```bash
-# No build process - documentation only repository
+# No global build process required for documentation; see src/ and tooling dirs for code-specific workflows
 
 # Validate markdown files
 markdownlint **/*.md
 
-# Check for broken links (if mdl is available)
+# Check for broken links (if markdown-link-check is installed)
 markdown-link-check README.md
 
 # View directory structure

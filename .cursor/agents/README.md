@@ -33,7 +33,7 @@ Detailed instructions for the agent...
 
 ## Available Subagents
 
-Currently, this repository defines subagents through the parent `.cursor/rules/` directory. For task-specific agents, see the [GitHub Copilot agents](../../.github/agents/) which provide equivalent functionality.
+Currently, this repository does not define any subagents in this directory. Shared Cursor rules are configured in the parent `.cursor/rules/` directory. For task-specific agents, see the [GitHub Copilot agents](../../.github/agents/) which provide equivalent functionality.
 
 ## Mapping to GitHub Copilot Agents
 
