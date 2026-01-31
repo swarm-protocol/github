@@ -50,10 +50,10 @@ More detailed content.
 
 ## Code Examples
 
-\`\`\`javascript
+```javascript
 // Always include language identifier
 const example = 'code';
-\`\`\`
+```
 
 ## Related
 

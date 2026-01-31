@@ -55,7 +55,7 @@ The current description might be unclear to new users.
 ✅ **Educational:**
 ```
 This glob pattern might not match all intended files.
-Consider using `**/*.{test,spec}.*` to catch both patterns.
+Consider using `**/*{.test,.spec}.*` to catch both patterns.
 ```
 
 ### Avoid
