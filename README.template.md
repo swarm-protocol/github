@@ -35,35 +35,35 @@ See [.github/agents/README.md](.github/agents/README.md) for detailed instructio
 
 ## Available Templates
 
-### 📋 TEMPLATE.agent.md
+### TEMPLATE.agent.md
 Comprehensive blank template with all recommended sections for creating custom agents from scratch.
 
-### 🧪 test-specialist.agent.md
+### test-specialist.agent.md
 Specialized agent for writing comprehensive tests without modifying production code.
 
-### 📝 documentation-expert.agent.md
+### documentation-expert.agent.md
 Expert agent for creating clear, comprehensive documentation, READMEs, and guides.
 
-### 👀 code-reviewer.agent.md
+### code-reviewer.agent.md
 Code review specialist focused on quality, security, and best practices.
 
-### 🔧 refactoring-assistant.agent.md
+### refactoring-assistant.agent.md
 Ready-to-use agent for safe code refactoring and improving maintainability (uncommented and ready to use!).
 
-### 📄 documentation-builder.agent.md
+### documentation-builder.agent.md
 Ready-to-use agent for building README.md and AGENTS.md from template files with variable substitution (uncommented and ready to use!).
 
 ## Features
 
-✅ **Well-structured templates** following GitHub's best practices  
-✅ **Real-world examples** demonstrating different agent types  
-✅ **Comprehensive documentation** with step-by-step guides  
-✅ **Customizable** for any language, framework, or workflow  
-✅ **Production-ready** agents you can use immediately  
+**Well-structured templates** following GitHub's best practices  
+**Real-world examples** demonstrating different agent types  
+**Comprehensive documentation** with step-by-step guides  
+**Customizable** for any language, framework, or workflow  
+**Production-ready** agents you can use immediately  
 
 ## Getting Started
 
-**⚡ New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+**New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
 
 ### For Your Repository
 
@@ -84,11 +84,11 @@ Create a `.github-private` repository in your organization and add agent files t
 
 ## Documentation
 
-- [⚡ Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
-- [📖 Detailed Setup Guide](.github/agents/README.md) - Complete instructions
-- [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute
-- [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
-- [💡 Example Agents](.github/agents/) - Pre-built examples
+- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
+- [ Detailed Setup Guide](.github/agents/README.md) - Complete instructions
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
+- [Example Agents](.github/agents/) - Pre-built examples
 
 ## Use Cases
 

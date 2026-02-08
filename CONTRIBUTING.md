@@ -96,13 +96,13 @@ Your agent template should include:
 
 All agent templates should:
 
-- ✅ Be properly formatted Markdown
-- ✅ Include complete YAML front matter
-- ✅ Have tested, working code examples
-- ✅ Specify clear boundaries and restrictions
-- ✅ Follow GitHub's agent guidelines
-- ✅ Be useful for real-world scenarios
-- ✅ Not duplicate existing templates
+- Be properly formatted Markdown
+- Include complete YAML front matter
+- Have tested, working code examples
+- Specify clear boundaries and restrictions
+- Follow GitHub's agent guidelines
+- Be useful for real-world scenarios
+- Not duplicate existing templates
 
 ## Agent Template Checklist
 
@@ -218,4 +218,4 @@ By contributing, you agree that your contributions will be released into the pub
 
 ## Thank You!
 
-Your contributions help developers worldwide create better custom agents. We appreciate your time and effort in making this project better for everyone! 🙏
+Your contributions help developers worldwide create better custom agents. We appreciate your time and effort in making this project better for everyone! 

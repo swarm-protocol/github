@@ -13,11 +13,11 @@ This is a template for AGENTS.md - a comprehensive AI agent framework and contex
 
 **Last Updated**: {{DATE}}
 
-> 🤖 **For GitHub Copilot, Cursor, n8n & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks and serves as a complete repository sitemap.
+> **For GitHub Copilot, Cursor, n8n & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks and serves as a complete repository sitemap.
 
 ---
 
-## 📋 Purpose
+## Purpose
 
 This unified documentation helps AI assistants and developers:
 1. **Understand AI Agent Frameworks** - GitHub Copilot, Cursor, n8n, and other platforms

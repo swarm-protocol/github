@@ -6,9 +6,9 @@ This directory contains comprehensive documentation for the agent framework repo
 
 ```
 docs/
-├── api/           # API documentation and reference materials
-├── guides/        # Step-by-step guides and tutorials
-└── reference/     # Technical reference documentation
+ api/           # API documentation and reference materials
+ guides/        # Step-by-step guides and tutorials
+ reference/     # Technical reference documentation
 ```
 
 ## Purpose

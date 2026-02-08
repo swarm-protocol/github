@@ -821,12 +821,12 @@ ansible-project/
 - ❌ Never use raw/shell modules when built-in modules exist
 - ❌ Never run ansible as root on control node
 - ❌ Never ignore failed hosts without explicit handling
-- ✅ Always use ansible-vault for sensitive data
-- ✅ Always use fully qualified collection names (FQCN)
-- ✅ Always implement idempotent tasks
-- ✅ Always use check mode (--check) before applying changes
-- ✅ Always test playbooks with molecule before deployment
-- ✅ Always use tags for selective task execution
+- Always use ansible-vault for sensitive data
+- Always use fully qualified collection names (FQCN)
+- Always implement idempotent tasks
+- Always use check mode (--check) before applying changes
+- Always test playbooks with molecule before deployment
+- Always use tags for selective task execution
 
 ## Git Workflow
 

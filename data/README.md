@@ -6,9 +6,9 @@ This directory contains data files, configurations, schemas, and examples used b
 
 ```
 data/
-├── schemas/     # JSON Schema, OpenAPI specs, data models
-├── configs/     # Configuration files and templates
-└── examples/    # Example data and sample files
+ schemas/     # JSON Schema, OpenAPI specs, data models
+ configs/     # Configuration files and templates
+ examples/    # Example data and sample files
 ```
 
 ## Purpose
@@ -27,9 +27,9 @@ Store data validation schemas, API specifications (OpenAPI/Swagger), and databas
 
 ```bash
 data/schemas/
-├── agent-config.schema.json
-├── api-spec.openapi.yaml
-└── database-models.json
+ agent-config.schema.json
+ api-spec.openapi.yaml
+ database-models.json
 ```
 
 ### Configs
@@ -38,9 +38,9 @@ Configuration templates and example files:
 
 ```bash
 data/configs/
-├── .env.example
-├── agent-defaults.yaml
-└── deployment-config.json
+ .env.example
+ agent-defaults.yaml
+ deployment-config.json
 ```
 
 ### Examples
@@ -49,9 +49,9 @@ Sample data for testing and documentation:
 
 ```bash
 data/examples/
-├── sample-agent-response.json
-├── example-workflow.yaml
-└── test-data.csv
+ sample-agent-response.json
+ example-workflow.yaml
+ test-data.csv
 ```
 
 ## Guidelines

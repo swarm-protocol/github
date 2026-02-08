@@ -2,11 +2,11 @@
 
 This directory contains APT package lists for setting up development environments on Debian/Ubuntu systems that correspond to each GitHub Copilot agent type. These package lists mirror the Nix environments in the `nix/` directory but use APT packages instead.
 
-## 📋 Overview
+## Overview
 
 Each subdirectory contains a `packages.txt` file listing packages available through APT that can be installed to set up an environment for a specific agent type.
 
-## 🗂️ Available Environments
+##  Available Environments
 
 | Environment | Description | Packages File |
 |------------|-------------|---------------|
@@ -20,7 +20,7 @@ Each subdirectory contains a `packages.txt` file listing packages available thro
 | **terraform** | Infrastructure as Code tools | [`terraform/packages.txt`](terraform/packages.txt) |
 | **ansible** | Ansible automation and configuration management | [`ansible/packages.txt`](ansible/packages.txt) |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Install All Packages from an Environment
 
@@ -48,7 +48,7 @@ cat apt/common/packages.txt apt/test/packages.txt apt/docker/packages.txt \
   | xargs sudo apt install -y
 ```
 
-## 📦 Package Format
+##  Package Format
 
 Each `packages.txt` file:
 - Lists one package per line
@@ -69,7 +69,7 @@ nano
 # Note: Some tools require additional installation steps
 ```
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Not All Tools Available via APT
 
@@ -94,7 +94,7 @@ Some environments require additional setup beyond APT packages:
 
 Package names and availability may differ slightly between Debian and Ubuntu. These lists are optimized for Ubuntu LTS versions but should work on Debian with minor adjustments.
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Create a Setup Script
 
@@ -152,7 +152,7 @@ Use in CI/CD workflows:
     sudo apt-get install -y $(cat apt/test/packages.txt | grep -v '^#' | tr '\n' ' ')
 ```
 
-## 🆚 APT vs Nix
+##  APT vs Nix
 
 ### When to Use APT
 
@@ -181,14 +181,14 @@ Use in CI/CD workflows:
 | **Package availability** | Moderate | Excellent |
 | **Cross-platform** | Debian/Ubuntu only | Most Linux + macOS |
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Nix environments](../nix/) - Declarative, reproducible alternatives
 - [GitHub Copilot Agents](../.github/agents/) - Agent templates
 - [Terraform templates](../terraform/) - Infrastructure as Code
 - [Main README](../README.md) - Project overview
 
-## 🤝 Contributing
+## Contributing
 
 To add or update packages:
 
@@ -198,7 +198,7 @@ To add or update packages:
 4. Include installation notes for non-APT packages
 5. Test on Ubuntu LTS before committing
 
-## 📝 License
+## License
 
 This project is part of the GitHub Copilot Agents Templates repository.
 

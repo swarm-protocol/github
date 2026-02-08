@@ -6,15 +6,15 @@ This directory contains Nix flakes and shell configurations for development envi
 
 ```
 nix/
-├── common/          # Common tools for all agents
-├── test/            # Test Specialist agent environment
-├── docker/          # Docker Specialist agent environment
-├── documentation/   # Documentation agents environment
-├── code-review/     # Code Review agent environment
-├── refactoring/     # Refactoring Assistant agent environment
-├── wrangler/        # Cloudflare Workers development environment
-├── terraform/       # Infrastructure as Code environment
-└── ansible/         # Ansible automation environment
+ common/          # Common tools for all agents
+ test/            # Test Specialist agent environment
+ docker/          # Docker Specialist agent environment
+ documentation/   # Documentation agents environment
+ code-review/     # Code Review agent environment
+ refactoring/     # Refactoring Assistant agent environment
+ wrangler/        # Cloudflare Workers development environment
+ terraform/       # Infrastructure as Code environment
+ ansible/         # Ansible automation environment
 ```
 
 ## Prerequisites

@@ -6,9 +6,9 @@ This directory contains source code, scripts, and utilities for the agent framew
 
 ```
 src/
-├── agents/      # Agent implementation code
-├── utils/       # Utility functions and helpers
-└── scripts/     # Automation scripts and tools
+ agents/      # Agent implementation code
+ utils/       # Utility functions and helpers
+ scripts/     # Automation scripts and tools
 ```
 
 ## Purpose
@@ -27,9 +27,9 @@ Custom agent implementations that extend the base agent framework:
 
 ```bash
 src/agents/
-├── custom-agent.js
-├── specialized-agent.py
-└── agent-extensions.ts
+ custom-agent.js
+ specialized-agent.py
+ agent-extensions.ts
 ```
 
 ### Utils (`src/utils/`)
@@ -38,9 +38,9 @@ Reusable utility functions:
 
 ```bash
 src/utils/
-├── file-utils.js
-├── string-helpers.py
-└── validation.ts
+ file-utils.js
+ string-helpers.py
+ validation.ts
 ```
 
 ### Scripts (`src/scripts/`)
@@ -49,9 +49,9 @@ Automation and deployment scripts:
 
 ```bash
 src/scripts/
-├── deploy.sh
-├── setup-environment.py
-└── generate-docs.js
+ deploy.sh
+ setup-environment.py
+ generate-docs.js
 ```
 
 ## Development Guidelines

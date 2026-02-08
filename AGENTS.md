@@ -1,12 +1,12 @@
 # AGENTS.md - AI Agent Framework & Repository Navigation
 
-> 🤖 **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
+> **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
 
 **Last Updated**: 2026-02-08
 
 ---
 
-## 📋 Purpose
+## Purpose
 
 This unified documentation helps AI assistants and developers:
 1. **Understand AI Agent Frameworks** - GitHub Copilot, Cursor, and n8n capabilities
@@ -173,7 +173,7 @@ Expert in Ansible automation, playbooks, roles, and infrastructure configuration
 
 Comprehensive guide for building agent frameworks with **Cursor** - a powerful AI-powered code editor with advanced agent capabilities.
 
-> **📁 This Repository's Configuration**: See [`.cursor/README.md`](.cursor/README.md) for the actual Cursor configuration used in this repository.
+> ** This Repository's Configuration**: See [`.cursor/README.md`](.cursor/README.md) for the actual Cursor configuration used in this repository.
 
 ## 1. Cursor Agent Architecture
 
@@ -187,7 +187,7 @@ An agent in Cursor is built on **three core components**:
 
 Cursor orchestrates these components for each model, tuning instructions and tools specifically for every frontier model.
 
-📚 **Documentation:** [Agent Overview](https://cursor.com/docs/agent/overview)
+**Documentation:** [Agent Overview](https://cursor.com/docs/agent/overview)
 
 ## 2. Agent Tools (The Arsenal!)
 
@@ -209,7 +209,7 @@ Here's the complete toolkit available to Cursor agents:
 - Terminal commands can be executed with full access
 - File operations are context-aware and safe
 
-📚 **Documentation:** [Terminal Execution](https://cursor.com/docs/agent/terminal)
+**Documentation:** [Terminal Execution](https://cursor.com/docs/agent/terminal)
 
 ## 3. Rules System (Static Context)
 
@@ -221,7 +221,7 @@ Rules provide **persistent instructions** that shape how the agent works with yo
 - **Alternative**: `AGENTS.md` in project root for simpler use cases
 - **User Rules**: Global to your Cursor environment (in settings)
 
-> **📁 This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
+> ** This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
 > - [`general.md`](.cursor/rules/general.md) - General project standards
 > - [`testing.md`](.cursor/rules/testing.md) - Testing best practices
 > - [`documentation.md`](.cursor/rules/documentation.md) - Documentation standards
@@ -264,7 +264,7 @@ globs: ["**/*.ts", "**/*.tsx"]
 - Check rules into git for team sharing
 - Use glob patterns to scope rules to specific file types
 
-📚 **Documentation:** [Rules](https://cursor.com/docs/context/rules)
+**Documentation:** [Rules](https://cursor.com/docs/context/rules)
 
 ## 4. Agent Skills (Dynamic Capabilities)
 
@@ -308,7 +308,7 @@ Configure hooks in `.cursor/hooks.json`:
 - **Deployment**: Build and deploy with verification steps
 - **Documentation**: Auto-generate docs from code changes
 
-📚 **Documentation:** [Agent Skills](https://cursor.com/docs/context/skills)
+**Documentation:** [Agent Skills](https://cursor.com/docs/context/skills)
 
 ## 5. Subagents (Parallel Specialists)
 
@@ -345,7 +345,7 @@ Cursor includes built-in subagents for:
 - Customize for your specific needs
 - Use hooks for file output processing
 
-📚 **Documentation:** [Subagents](https://cursor.com/docs/context/subagents)
+**Documentation:** [Subagents](https://cursor.com/docs/context/subagents)
 
 ## 6. Agent Modes
 
@@ -383,7 +383,7 @@ Agent offers **different modes** optimized for specific tasks:
 - Type `/ask` to switch to Ask mode
 - Agent Mode is the default
 
-📚 **Documentation:** [Modes](https://cursor.com/docs/agent/modes)
+**Documentation:** [Modes](https://cursor.com/docs/agent/modes)
 
 ## 7. MCP Integration (External Tools)
 
@@ -430,7 +430,7 @@ MCP supports:
 - API key management
 - Secure credential storage
 
-📚 **Documentation:**
+**Documentation:**
 - [MCP](https://cursor.com/docs/context/mcp)
 - [MCP Directory](https://cursor.com/docs/context/mcp/directory)
 - [MCP in CLI](https://cursor.com/docs/cli/mcp)
@@ -460,7 +460,7 @@ Spawn **asynchronous agents** that edit and run code in a **remote environment**
 - Persistent execution
 - Easy collaboration and sharing
 
-📚 **Documentation:** [Cloud Agents](https://cursor.com/docs/cloud-agent)
+**Documentation:** [Cloud Agents](https://cursor.com/docs/cloud-agent)
 
 ## 9. CLI Agent
 
@@ -505,7 +505,7 @@ The CLI respects:
 - Integration with existing tools
 - Remote server access
 
-📚 **Documentation:** [Using Agent in CLI](https://cursor.com/docs/cli/using)
+**Documentation:** [Using Agent in CLI](https://cursor.com/docs/cli/using)
 
 ## 10. Cursor Best Practices
 
@@ -591,7 +591,7 @@ The CLI respects:
 - Review subagent capabilities
 - Monitor external tool integrations
 
-📚 **Documentation:** [Best Practices for Coding with Agents](https://cursor.com/blog/agent-best-practices)
+**Documentation:** [Best Practices for Coding with Agents](https://cursor.com/blog/agent-best-practices)
 
 ## Cursor Quick Reference Links
 
@@ -644,7 +644,7 @@ The **AI Agent node** is the heart of building agents in n8n. It's an autonomous
 | Uses Tools/APIs | No | Yes |
 | Workflow Complexity | Single-step | Multi-step |
 
-📚 **Documentation**: [AI Agent Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/)
+**Documentation**: [AI Agent Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/)
 
 ## 2. LangChain Integration (Cluster Nodes Architecture)
 
@@ -662,7 +662,7 @@ n8n uses **Cluster Nodes** - node groups that work together. A **root node** + o
 | **Text Classifier** | Classify text |
 | **LangChain Code** | Custom LangChain functionality |
 
-📚 **Documentation**: [LangChain Concepts in n8n](https://docs.n8n.io/advanced-ai/langchain/langchain-n8n/)
+**Documentation**: [LangChain Concepts in n8n](https://docs.n8n.io/advanced-ai/langchain/langchain-n8n/)
 
 ## 3. Sub-Nodes (The Arsenal!)
 
@@ -776,7 +776,7 @@ Several AI agents collaborate on sophisticated tasks.
 
 **Use Case**: Software development team with agents for requirements analysis, coding, testing, and documentation
 
-📚 **Documentation**: [AI Agentic Workflows Guide](https://blog.n8n.io/ai-agentic-workflows/)
+**Documentation**: [AI Agentic Workflows Guide](https://blog.n8n.io/ai-agentic-workflows/)
 
 ## 5. n8n MCP Integration (Model Context Protocol)
 
@@ -793,9 +793,9 @@ N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
 
 | Type | Status |
 |------|--------|
-| **HTTP Streamable** | ✅ Recommended |
-| **STDIO (Command-line)** | ✅ Supported |
-| **SSE** | ⚠️ Deprecated (legacy) |
+| **HTTP Streamable** | Recommended |
+| **STDIO (Command-line)** | Supported |
+| **SSE** |  Deprecated (legacy) |
 
 **Operations**:
 - Execute Tool
@@ -816,7 +816,7 @@ services:
       - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
 ```
 
-📚 **Documentation**: 
+**Documentation**: 
 - [n8n-nodes-mcp GitHub](https://github.com/nerding-io/n8n-nodes-mcp)
 - [MCP Integrations Page](https://n8n.io/integrations/categories/ai/model-context-protocol/)
 
@@ -837,7 +837,7 @@ Document Loader → Text Splitter → Embeddings → Vector Store
 User Query → AI Agent → Vector Store Tool → Generate Response
 ```
 
-📚 **Documentation**: [RAG in n8n](https://docs.n8n.io/advanced-ai/rag-in-n8n/)
+**Documentation**: [RAG in n8n](https://docs.n8n.io/advanced-ai/rag-in-n8n/)
 
 ## 7. n8n Tutorials & Templates
 
@@ -935,11 +935,11 @@ n8n start
 5. Configure the agent with instructions
 6. Test and iterate
 
-📚 **Follow the Tutorial**: [Build an AI workflow](https://docs.n8n.io/advanced-ai/intro-tutorial/)
+**Follow the Tutorial**: [Build an AI workflow](https://docs.n8n.io/advanced-ai/intro-tutorial/)
 
 ---
 
-## 🗺️ Documentation Sitemap
+## Documentation Sitemap
 
 ### Root Level Documentation
 
@@ -1081,7 +1081,7 @@ All agent files are in `.github/agents/` directory:
 
 ---
 
-## 🔧 Common Bash Commands
+## Common Bash Commands
 
 ### Environment Setup
 
@@ -1391,7 +1391,7 @@ echo $PATH
 
 ---
 
-## 🚀 Getting Started Quick Commands
+## Getting Started Quick Commands
 
 ```bash
 # 1. Clone repository (if not already cloned)
@@ -1429,7 +1429,7 @@ ls -la
 
 ---
 
-## 🎯 Quick Navigation Shortcuts
+## Quick Navigation Shortcuts
 
 ### For GitHub Copilot
 
@@ -1466,7 +1466,7 @@ Common command patterns to use:
 
 ---
 
-## 🔍 How to Use This File
+## How to Use This File
 
 ### For GitHub Copilot
 
@@ -1491,7 +1491,7 @@ Common command patterns to use:
 
 ---
 
-## 📚 Related Files
+## Related Files
 
 - **[README.md](README.md)**: Main project documentation
 - **[QUICKSTART.md](QUICKSTART.md)**: Get started quickly
@@ -1500,7 +1500,7 @@ Common command patterns to use:
 
 ---
 
-## 🚀 Getting Started Quick Commands
+## Getting Started Quick Commands
 
 ```bash
 # 1. Clone repository (if not already cloned)
@@ -1528,7 +1528,7 @@ ls -la
 
 ---
 
-## 💡 Tips
+## Tips
 
 - **Keep this file updated**: As new directories/READMEs are added, update the sitemap
 - **Use as reference**: This file is designed to be comprehensive, not exhaustive

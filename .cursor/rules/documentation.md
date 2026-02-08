@@ -110,7 +110,7 @@ Role and expertise description.
 
 ## Boundaries
 
-- ❌ Never remove existing documentation without replacement
-- ❌ Never leave broken links
-- ✅ Keep formatting consistent with existing docs
-- ✅ Update related docs when making changes
+-  Never remove existing documentation without replacement
+-  Never leave broken links
+-  Keep formatting consistent with existing docs
+-  Update related docs when making changes

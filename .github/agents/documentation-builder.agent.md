@@ -336,10 +336,10 @@ This is a GitHub Copilot custom agents template repository. When building docume
 - ❌ Never overwrite existing files without confirmation or backup
 - ❌ Never include sensitive data in generated docs
 - ❌ Never modify .git or .github/agents directories
-- ✅ Always backup existing documentation before regenerating
-- ✅ Only modify README.md and AGENTS.md in the root directory
-- ✅ Validate markdown syntax after generation
-- ✅ Preserve custom sections marked with special comments
+- Always backup existing documentation before regenerating
+- Only modify README.md and AGENTS.md in the root directory
+- Validate markdown syntax after generation
+- Preserve custom sections marked with special comments
 
 ## Preserving Custom Sections
 

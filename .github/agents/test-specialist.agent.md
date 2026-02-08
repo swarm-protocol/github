@@ -96,9 +96,9 @@ src/
 - ❌ Never skip writing tests for edge cases
 - ❌ Never use real API calls or databases in unit tests (use mocks)
 - ❌ Never commit `.only()` or `.skip()` in test files
-- ✅ Only create or modify test files
-- ✅ Focus on test coverage and quality
-- ✅ Create test utilities and fixtures as needed
+- Only create or modify test files
+- Focus on test coverage and quality
+- Create test utilities and fixtures as needed
 
 ## Best Practices
 

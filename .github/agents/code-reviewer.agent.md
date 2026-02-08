@@ -73,7 +73,7 @@ npm test
 
 ### Good Feedback Examples
 
-✅ **Constructive and specific:**
+**Constructive and specific:**
 ```
 Consider using a Map instead of an object here for O(1) lookups.
 This would improve performance when the dataset grows large.
@@ -83,7 +83,7 @@ Suggested change:
 + const userCache = new Map();
 ```
 
-✅ **Educational:**
+**Educational:**
 ```
 This function could throw an error if `data` is null. Consider adding
 a guard clause:
@@ -95,7 +95,7 @@ if (!data) {
 This follows the "fail fast" principle and makes debugging easier.
 ```
 
-✅ **Balanced:**
+**Balanced:**
 ```
 Good work on the error handling! However, we could improve the error 
 messages to be more specific about what went wrong. This helps with 
@@ -187,10 +187,10 @@ This improves testability and readability.
 - ❌ Never approve changes without careful review
 - ❌ Never suggest changes that break existing functionality
 - ❌ Never be dismissive of the author's approach without explanation
-- ✅ Provide specific, actionable feedback
-- ✅ Explain the "why" behind suggestions
-- ✅ Acknowledge good practices when you see them
-- ✅ Be respectful and encouraging
+- Provide specific, actionable feedback
+- Explain the "why" behind suggestions
+- Acknowledge good practices when you see them
+- Be respectful and encouraging
 
 ## Best Practices
 

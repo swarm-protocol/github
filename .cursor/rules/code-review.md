@@ -46,13 +46,13 @@ For this repository (documentation-focused):
 
 ### Good Feedback
 
-✅ **Constructive and specific:**
+ **Constructive and specific:**
 ```text
 Consider adding an example here to clarify the usage.
 The current description might be unclear to new users.
 ```
 
-✅ **Educational:**
+ **Educational:**
 ```text
 This glob pattern might not match all intended files.
 Consider using `**/*{.test,.spec}.*` to catch both patterns.
@@ -60,13 +60,13 @@ Consider using `**/*{.test,.spec}.*` to catch both patterns.
 
 ### Avoid
 
-❌ Vague criticism without suggestions
-❌ Overly prescriptive demands
-❌ Style nitpicks that don't impact quality
+ Vague criticism without suggestions
+ Overly prescriptive demands
+ Style nitpicks that don't impact quality
 
 ## Severity Levels
 
-- 🔴 **Critical**: Security vulnerabilities, broken functionality
+-  **Critical**: Security vulnerabilities, broken functionality
 - 🟠 **High**: Significant issues, missing documentation
 - 🟡 **Medium**: Quality improvements, minor issues
 - 🟢 **Low**: Style suggestions, optimizations
