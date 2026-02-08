@@ -325,7 +325,6 @@ and footer.template.md into README.md
 
 Common template variables:
 
-
 - `{{PROJECT_NAME}}` - Project name
 - `{{DESCRIPTION}}` - Short description
 - `{{VERSION}}` - Version number
@@ -434,7 +433,6 @@ From AGENTS.md:
 #### Step 3: Structure the QUICKSTART.md
 
 Organize content into these sections:
-
 
 ```markdown
 # Quick Start Guide: [Project Name]
@@ -905,6 +903,7 @@ Rules provide **persistent instructions** that shape how the agent works with yo
 - **User Rules**: Global to your Cursor environment (in settings)
 
 > **This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
+>
 > - [`general.md`](.cursor/rules/general.md) - General project standards
 > - [`testing.md`](.cursor/rules/testing.md) - Testing best practices
 > - [`documentation.md`](.cursor/rules/documentation.md) - Documentation standards
@@ -2747,6 +2746,7 @@ All agent files are in `.github/agents/` directory:
 > **Symlink Design**: All subdirectory README.md files now symlink to this AGENTS.md file. When you navigate to any subdirectory and view its README.md, you'll see this entire AGENTS.md content. This is intentional - AGENTS.md serves as a comprehensive navigation hub for the entire repository. Use your browser/editor's search functionality (Ctrl+F / Cmd+F) to quickly find the section relevant to your current directory, or use the Table of Contents at the top of this file.
 >
 > **Quick Navigation Tips**:
+>
 > - Press Ctrl+F (Cmd+F on Mac) and search for the directory name (e.g., "nix", "terraform", "docs")
 > - Use the [Table of Contents](#table-of-contents) at the top
 > - Look for the section heading matching your current directory
@@ -2971,11 +2971,13 @@ This directory contains Nix flakes and shell configurations for development envi
 To use these Nix environments, you need:
 
 1. **Nix package manager** installed:
+
    ```bash
    curl -L https://nixos.org/nix/install | sh
    ```
 
 2. **Enable flakes** (for flake.nix usage):
+
    ```bash
    mkdir -p ~/.config/nix
    echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
@@ -3418,6 +3420,7 @@ This directory contains Terraform templates for deploying infrastructure to Clou
 #### Prerequisites
 
 1. **Terraform**: Install Terraform >= 1.0
+
    ```bash
    # Using nix (recommended)
    nix develop ../nix/terraform
@@ -3565,6 +3568,7 @@ This subdirectory contains example configurations and scripts for CloudFlare dep
 **Using the Examples:**
 
 1. Copy the worker script to your project:
+
    ```bash
    cp examples/worker.js ./my-worker.js
    ```
@@ -3572,6 +3576,7 @@ This subdirectory contains example configurations and scripts for CloudFlare dep
 2. Customize the worker script for your needs
 
 3. Reference it in your `terraform.tfvars`:
+
    ```hcl
    worker_script_path = "./my-worker.js"
    ```
