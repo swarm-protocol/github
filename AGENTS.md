@@ -1,3 +1,8 @@
+<!-- markdownlint-disable MD013 MD024 MD025 MD036 MD060 -->
+<!-- MD013: long lines in tables/URLs; MD024: duplicate headings across sections;
+     MD025: multiple H1s for major sections; MD036: bold used as inline labels;
+     MD060: compact table style throughout -->
+
 # AGENTS.md - AI Agent Framework & Repository Navigation
 
 > **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n, Supabase) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
@@ -9,6 +14,7 @@
 ## Purpose
 
 This unified documentation helps AI assistants and developers:
+
 1. **Understand AI Agent Frameworks** - GitHub Copilot, Cursor, n8n, and Supabase capabilities
 2. **Navigate** the entire repository structure efficiently
 3. **Build and Deploy** custom agents for various platforms
@@ -54,18 +60,20 @@ This is a documentation-focused repository containing template files for GitHub 
 Each agent is defined in a `.agent.md` file with:
 
 1. **YAML Front Matter**:
-```yaml
----
-name: agent-name
-description: Brief description of what the agent does
----
-```
+
+   ```yaml
+   ---
+   name: agent-name
+   description: Brief description of what the agent does
+   ---
+   ```
 
 2. **Markdown Content**: Instructions, commands, examples, boundaries
 
 ### Template Structure
 
 Agents follow this structure:
+
 - Role and expertise definition
 - Commands to execute
 - Code style guidelines with examples
@@ -79,27 +87,35 @@ Agents follow this structure:
 ## Agent Types Included
 
 ### 1. TEMPLATE.agent.md
+
 Blank template with all sections - starting point for custom agents.
 
 ### 2. test-specialist.agent.md (ready to use)
+
 Focuses on writing tests without modifying production code - uncommented and production-ready.
 
 ### 3. documentation-expert.agent.md (ready to use)
+
 Specializes in creating documentation, READMEs, and guides - uncommented and production-ready.
 
 ### 4. code-reviewer.agent.md (ready to use)
+
 Reviews code for quality, security, and best practices - uncommented and production-ready.
 
 ### 5. refactoring-assistant.agent.md (ready to use)
+
 Helps with safe code refactoring - uncommented and production-ready.
 
 ### 6. documentation-builder.agent.md (ready to use)
+
 Builds README.md and AGENTS.md from templates - uncommented and production-ready.
 
 ### 7. docker-specialist.agent.md (ready to use)
+
 Expert in Docker, Dockerfiles, docker-compose, and Kubernetes YAML - uncommented and production-ready.
 
 ### 8. ansible-specialist.agent.md (ready to use)
+
 Expert in Ansible automation, playbooks, roles, and infrastructure configuration management.
 
 ## Development Workflow
@@ -171,6 +187,7 @@ Expert in Ansible automation, playbooks, roles, and infrastructure configuration
 name: your-agent-name
 description: A brief description of what this agent does (REQUIRED)
 ---
+
 ```
 
 ### All Available Properties
@@ -197,6 +214,7 @@ description: A brief description of what this agent does (REQUIRED)
 ### Example Configurations
 
 **Example with Optional Properties:**
+
 ```yaml
 ---
 name: python-test-expert
@@ -205,9 +223,11 @@ tools: ["read", "edit", "execute"]
 target: vscode
 infer: true
 ---
+
 ```
 
 **Example with MCP Servers (Enterprise/Org only):**
+
 ```yaml
 ---
 name: github-integration-agent
@@ -217,9 +237,11 @@ mcp-servers:
     read: true
     write: false
 ---
+
 ```
 
 **Important naming rules:**
+
 - Use only letters, numbers, hyphens, and underscores
 - Keep it descriptive but concise
 - Example: `python-test-expert`, `api-documentation-writer`
@@ -249,24 +271,27 @@ Create template files with placeholders (e.g., `my-readme.template.md`):
 
 Version: {{VERSION}}
 Last Updated: {{DATE}}
+
 ```
 
 #### Step 2: Invoke the Agent
 
 In GitHub Copilot Chat:
 
-```
-@documentation-builder Generate README.md and AGENTS.md from the template files. 
+```text
+@documentation-builder Generate README.md and AGENTS.md from the template files.
 Use these values:
 - PROJECT_NAME: "My Awesome Project"
 - DESCRIPTION: "A tool that does amazing things"
 - VERSION: "1.0.0"
 - DATE: "2026-02-08"
+
 ```
 
 #### Step 3: Review Generated Files
 
 The agent will:
+
 1. Read the template files
 2. Replace all `{{VARIABLE}}` placeholders
 3. Generate README.md and AGENTS.md
@@ -275,9 +300,11 @@ The agent will:
 ### Advanced Usage
 
 **Using Package.json Values**:
-```
-@documentation-builder Generate docs from templates, extracting 
+
+```text
+@documentation-builder Generate docs from templates, extracting
 PROJECT_NAME and VERSION from package.json
+
 ```
 
 **Preserving Custom Sections**:
@@ -287,12 +314,15 @@ Add special markers in your generated files to preserve manual edits:
 <!-- BEGIN CUSTOM SECTION -->
 This content won't be replaced during regeneration.
 <!-- END CUSTOM SECTION -->
+
 ```
 
 **Multiple Template Sources**:
-```
-@documentation-builder Combine header.template.md, features.template.md, 
+
+```text
+@documentation-builder Combine header.template.md, features.template.md,
 and footer.template.md into README.md
+
 ```
 
 ### Available Variables
@@ -321,6 +351,7 @@ Common template variables:
 **Variables Not Replaced**
 
 If you see `{{VARIABLE}}` in output:
+
 - Check variable name spelling
 - Ensure value was provided to the agent
 - Verify template file has correct syntax
@@ -328,6 +359,7 @@ If you see `{{VARIABLE}}` in output:
 **Markdown Invalid**
 
 If generated markdown has issues:
+
 - Run `npx markdownlint README.md` to check
 - Verify template syntax is valid
 - Check for unescaped special characters
@@ -335,6 +367,7 @@ If generated markdown has issues:
 **Agent Not Found**
 
 If `@documentation-builder` doesn't work:
+
 - Ensure file is in `.github/agents/`
 - File must be named `documentation-builder.agent.md`
 - Must be committed to default branch
@@ -351,6 +384,7 @@ This protocol provides step-by-step instructions for generating a QUICKSTART.md 
 ### Purpose
 
 A QUICKSTART.md file helps new users get started with a codebase in under 5 minutes by providing:
+
 - Minimal setup instructions
 - Simple working examples
 - Common troubleshooting tips
@@ -370,12 +404,14 @@ Read the codebase's README.md and extract:
 6. **Documentation links** (where to find more detailed info)
 
 **Example extraction:**
+
 ```markdown
 From README.md:
 - Project: "MyApp - A fast API framework"
 - Prerequisites: Node.js 18+, npm 9+
 - Install: npm install myapp
 - Basic usage: import { App } from 'myapp'; new App().start();
+
 ```
 
 #### Step 2: Analyze AGENTS.md (if present)
@@ -388,12 +424,14 @@ If the codebase has an AGENTS.md file, extract:
 4. **Repository structure** (key directories and their purposes)
 
 **Example extraction:**
+
 ```markdown
 From AGENTS.md:
 - Environment: nix develop or npm install
 - Build: npm run build
 - Test: npm test
 - Agents: @test-specialist for tests, @code-reviewer for reviews
+
 ```
 
 #### Step 3: Structure the QUICKSTART.md
@@ -464,6 +502,7 @@ Organize content into these sections:
 - [Link to issues/discussions]
 - [Link to community chat]
 - [Link to contributing guide]
+
 ```
 
 #### Step 4: Write Section Content
@@ -471,27 +510,32 @@ Organize content into these sections:
 For each section, follow these guidelines:
 
 **Prerequisites:**
+
 - List only essential requirements, not nice-to-haves
 - Include version numbers
 - Mention OS-specific requirements
 
 **Installation:**
+
 - Provide copy-paste commands
 - Show the fastest/easiest method first
 - Include verification steps (e.g., `--version` checks)
 
 **First [Project Type]:**
+
 - Use the simplest possible example that works
 - Show complete, runnable code
 - Include expected output
 - Keep it under 20 lines of code
 
 **Common Issues:**
+
 - Only include issues that 50%+ of new users encounter
 - Provide specific, actionable solutions
 - Link to detailed troubleshooting if needed
 
 **Next Steps:**
+
 - Prioritize links by user journey
 - Link to progressive learning resources
 - Keep to 4-5 most important links
@@ -575,6 +619,7 @@ Visit http://127.0.0.1:8000 in your browser to see `{"Hello": "World"}`
 
 - [GitHub Discussions](https://github.com/tiangolo/fastapi/discussions)
 - [Discord Community](https://discord.gg/fastapi)
+
 ```
 
 #### Example 2: CLI Tool QUICKSTART.md
@@ -639,23 +684,28 @@ sudo npm install -g mytool
 
 - [GitHub Issues](https://github.com/author/mytool/issues)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/mytool)
+
 ```
 
 ### Agent Invocation Examples
 
 **Using documentation-builder:**
-```
-@documentation-builder Generate a QUICKSTART.md for this codebase. 
-Follow the protocol in AGENTS.md. Extract information from README.md 
+
+```text
+@documentation-builder Generate a QUICKSTART.md for this codebase.
+Follow the protocol in AGENTS.md. Extract information from README.md
 and AGENTS.md. Make it completable in under 5 minutes.
+
 ```
 
 **Using documentation-expert:**
-```
-@documentation-expert Create a QUICKSTART.md that helps new users 
-get started in 5 minutes. Analyze README.md and AGENTS.md to extract 
-setup steps, examples, and common issues. Use the QUICKSTART.md 
+
+```text
+@documentation-expert Create a QUICKSTART.md that helps new users
+get started in 5 minutes. Analyze README.md and AGENTS.md to extract
+setup steps, examples, and common issues. Use the QUICKSTART.md
 protocol from AGENTS.md.
+
 ```
 
 ### Best Practices
@@ -678,15 +728,18 @@ When working with both README.md and QUICKSTART.md:
 3. **AGENTS.md** = Repository navigation and AI agent framework context
 
 **Relationship:**
-```
-README.md (comprehensive) 
+
+```text
+README.md (comprehensive)
     ↓ extract minimal path
 QUICKSTART.md (5-minute success)
     ↓ reference for details
 README.md sections
+
 ```
 
 **Maintenance:**
+
 - When README.md installation changes → Update QUICKSTART.md
 - When new common issues arise → Add to QUICKSTART.md
 - When prerequisites change → Update both files
@@ -836,6 +889,7 @@ Here's the complete toolkit available to Cursor agents:
 | `delete_file` | Remove files from project |
 
 **Key Features:**
+
 - Tools are intelligently selected based on the task
 - Terminal commands can be executed with full access
 - File operations are context-aware and safe
@@ -852,7 +906,8 @@ Rules provide **persistent instructions** that shape how the agent works with yo
 - **Alternative**: `AGENTS.md` in project root for simpler use cases
 - **User Rules**: Global to your Cursor environment (in settings)
 
-> ** This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
+> **This Repository's Rules**: See [`.cursor/rules/`](.cursor/rules/) for the actual rules configured in this repository:
+>
 > - [`general.md`](.cursor/rules/general.md) - General project standards
 > - [`testing.md`](.cursor/rules/testing.md) - Testing best practices
 > - [`documentation.md`](.cursor/rules/documentation.md) - Documentation standards
@@ -874,16 +929,19 @@ globs: ["**/*.ts", "**/*.tsx"]
 - Use ES modules (import/export), not CommonJS
 - Destructure imports when possible
 - Use TypeScript strict mode
+
 ```
 
 ### Rule Types
 
 **Project Rules** (`.cursor/rules/`)
+
 - Specific to the current project
 - Checked into version control
 - Shared with team members
 
 **User Rules** (Cursor settings)
+
 - Global across all projects
 - Personal preferences
 - Not shared via git
@@ -924,9 +982,11 @@ Configure hooks in `.cursor/hooks.json`:
     "stop": [{ "command": "bun run .cursor/hooks/grind.ts" }]
   }
 }
+
 ```
 
 **Hooks Enable:**
+
 - Pre-action validation
 - Post-action cleanup
 - Long-running agent loops that iterate until goals are met
@@ -955,6 +1015,7 @@ Subagents are **independent agents** specialized to handle discrete parts of a p
 ### Default Subagents
 
 Cursor includes built-in subagents for:
+
 - Researching your codebase
 - Running terminal commands
 - Executing parallel work streams
@@ -964,6 +1025,7 @@ Cursor includes built-in subagents for:
 **Location:** `.cursor/agents/`
 
 **Configuration:**
+
 - Define custom prompts
 - Restrict tool access
 - Choose specific models
@@ -991,18 +1053,21 @@ Agent offers **different modes** optimized for specific tasks:
 ### Mode Details
 
 **Agent Mode**
+
 - Full access to all tools
 - Can edit files, run commands
 - Autonomous execution
 - Best for implementation tasks
 
 **Ask Mode**
+
 - Read-only access
 - No file modifications
 - Fast research and answers
 - Use for questions and exploration
 
 **Plan Mode**
+
 - Creates detailed plans before execution
 - Saves plans to `.cursor/plans/`
 - Allows review before implementation
@@ -1023,6 +1088,7 @@ Connect Cursor to **external tools and data sources** using Model Context Protoc
 ### What is MCP?
 
 MCP (Model Context Protocol) enables Cursor to:
+
 - Connect to databases
 - Integrate with APIs
 - Access third-party services
@@ -1044,6 +1110,7 @@ Create an `mcp.json` file in your project:
     }
   }
 }
+
 ```
 
 ### Capabilities
@@ -1056,12 +1123,14 @@ Create an `mcp.json` file in your project:
 ### Authentication
 
 MCP supports:
+
 - Environment variables
 - OAuth flows with automatic callback handling
 - API key management
 - Secure credential storage
 
 **Documentation:**
+
 - [MCP](https://cursor.com/docs/context/mcp)
 - [MCP Directory](https://cursor.com/docs/context/mcp/directory)
 - [MCP in CLI](https://cursor.com/docs/cli/mcp)
@@ -1111,11 +1180,13 @@ cursor --mode=ask
 
 # Run a specific command
 cursor "Create a new React component called Button"
+
 ```
 
 ### Configuration
 
 The CLI respects:
+
 - Your `mcp.json` configuration
 - `.cursor/rules/` directory
 - User preferences from Cursor settings
@@ -1143,12 +1214,14 @@ The CLI respects:
 ### Plan Before Coding
 
 **Use Plan Mode** (`Shift+Tab`) for complex tasks:
+
 - Research phase: Agent explores codebase
 - Clarification phase: Ask questions before starting
 - Planning phase: Create detailed implementation plan
 - Approval phase: Review and approve before execution
 
 **Benefits:**
+
 - Better results for large changes
 - Plans save to `.cursor/plans/` for documentation
 - Review and adjust before implementation
@@ -1157,16 +1230,19 @@ The CLI respects:
 ### Context Management
 
 **Let agent find context:**
+
 - Use search tools instead of pasting code
 - Agent can discover relevant files automatically
 - Semantic search finds similar patterns
 
 **Start fresh when switching tasks:**
+
 - New conversations for new features
 - Prevents context pollution
 - Clearer focus on current task
 
 **Reference previous work:**
+
 - Use `@Past Chats` to reference earlier conversations
 - Use `@Branch` for current branch context
 - Link related work together
@@ -1174,16 +1250,19 @@ The CLI respects:
 ### Rules Best Practices
 
 **Keep focused:**
+
 - Essential guidelines only
 - Avoid redundant information
 - Update as project evolves
 
 **Reference, don't duplicate:**
+
 - Link to documentation
 - Reference configuration files
 - Avoid copying entire files
 
 **Version control:**
+
 - Check rules into git
 - Share with team
 - Review and update regularly
@@ -1191,16 +1270,19 @@ The CLI respects:
 ### Performance Tips
 
 **Efficient prompts:**
+
 - Be specific about what you want
 - Provide relevant context upfront
 - Break large tasks into smaller steps
 
 **Tool usage:**
+
 - Let agent choose appropriate tools
 - Trust semantic search for exploration
 - Use grep for specific pattern matching
 
 **Iteration:**
+
 - Review agent's work incrementally
 - Provide feedback early and often
 - Adjust instructions based on results
@@ -1208,16 +1290,19 @@ The CLI respects:
 ### Security Considerations
 
 **API Keys and Secrets:**
+
 - Never include in rules or skills
 - Use environment variables
 - Configure through MCP securely
 
 **Code Review:**
+
 - Always review agent-generated code
 - Test thoroughly before deployment
 - Understand what the agent changed
 
 **Access Control:**
+
 - Limit terminal command permissions
 - Review subagent capabilities
 - Monitor external tool integrations
@@ -1252,6 +1337,7 @@ The CLI respects:
 n8n is a workflow automation platform with comprehensive AI agent capabilities. It enables building autonomous systems that receive data, make decisions, and act to achieve goals through a visual workflow editor or code.
 
 **Key Features**:
+
 - Visual workflow builder with AI Agent nodes
 - LangChain integration via cluster nodes architecture
 - Multi-agent collaboration patterns
@@ -1264,6 +1350,7 @@ n8n is a workflow automation platform with comprehensive AI agent capabilities. 
 The **AI Agent node** is the heart of building agents in n8n. It's an autonomous system that receives data, makes decisions, and acts to achieve goals.
 
 **Key Points**:
+
 - All AI Agent nodes now work as **Tools Agent** (since v1.82.0)
 - Must connect at least **one tool sub-node** to function
 - Can understand tool capabilities and determine which to use
@@ -1414,10 +1501,12 @@ Several AI agents collaborate on sophisticated tasks.
 Connect n8n to external tools via MCP using the **community node**.
 
 **Installation**:
+
 ```bash
 # Install via n8n community nodes
 # Set environment variable:
 N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+
 ```
 
 **Connection Types**:
@@ -1429,6 +1518,7 @@ N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
 | **SSE** |  Deprecated (legacy) |
 
 **Operations**:
+
 - Execute Tool
 - List Tools
 - List Resources
@@ -1437,6 +1527,7 @@ N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
 - Read Resource
 
 **Example Docker Setup**:
+
 ```yaml
 services:
   n8n:
@@ -1445,9 +1536,11 @@ services:
       - MCP_BRAVE_API_KEY=your-api-key
       - MCP_OPENAI_API_KEY=your-openai-key
       - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+
 ```
 
-**Documentation**: 
+**Documentation**:
+
 - [n8n-nodes-mcp GitHub](https://github.com/nerding-io/n8n-nodes-mcp)
 - [MCP Integrations Page](https://n8n.io/integrations/categories/ai/model-context-protocol/)
 
@@ -1462,10 +1555,12 @@ Build RAG systems by combining vector stores with AI agents:
 5. **Query with agent** → AI Agent + Vector Store Tool
 
 **Example Workflow**:
-```
+
+```text
 Document Loader → Text Splitter → Embeddings → Vector Store
                                                       ↓
 User Query → AI Agent → Vector Store Tool → Generate Response
+
 ```
 
 **Documentation**: [RAG in n8n](https://docs.n8n.io/advanced-ai/rag-in-n8n/)
@@ -1541,20 +1636,24 @@ User Query → AI Agent → Vector Store Tool → Generate Response
 ### Installation
 
 **Self-Hosted (Docker)**:
+
 ```bash
 docker run -it --rm \
   --name n8n \
   -p 5678:5678 \
   -v ~/.n8n:/home/node/.n8n \
   n8nio/n8n
+
 ```
 
 **Cloud**: Sign up at [n8n.cloud](https://n8n.cloud)
 
 **npm**:
+
 ```bash
 npm install n8n -g
 n8n start
+
 ```
 
 ### Your First AI Agent
@@ -1577,6 +1676,7 @@ n8n start
 Supabase is an open-source Firebase alternative that provides a complete backend-as-a-service platform. It offers a PostgreSQL database, authentication, instant APIs, edge functions, real-time subscriptions, storage, and vector embeddings — all with a generous free tier and self-hosting options.
 
 **Key Features**:
+
 - PostgreSQL database with Row Level Security (RLS)
 - Authentication and authorization (email, OAuth, magic links, SSO)
 - Auto-generated RESTful APIs (PostgREST), plus optional GraphQL APIs via PostgreSQL extensions
@@ -1607,7 +1707,7 @@ Supabase is built on a modular architecture of open-source tools:
 
 ### How It Works
 
-```
+```text
 Client SDK (JS/Python/Flutter/Swift/Kotlin)
     ↓
 API Gateway (Kong)
@@ -1616,6 +1716,7 @@ API Gateway (Kong)
     ├── Realtime → WebSocket Channels
     ├── Storage → S3-compatible Store
     └── Edge Functions → Deno Runtime
+
 ```
 
 ## 2. Project Setup
@@ -1623,11 +1724,13 @@ API Gateway (Kong)
 ### Creating a Project
 
 **Cloud (Recommended for getting started)**:
+
 1. Sign up at [supabase.com](https://supabase.com)
 2. Create a new project
 3. Note your project URL and API keys from Settings > API
 
 **Self-Hosted (Docker)**:
+
 ```bash
 # Clone the Supabase repository
 git clone --depth 1 https://github.com/supabase/supabase
@@ -1641,9 +1744,11 @@ docker compose pull
 docker compose up -d
 
 # Studio is available at http://localhost:8000
+
 ```
 
 **Local Development with Supabase CLI**:
+
 ```bash
 # Install Supabase CLI
 npm install -g supabase
@@ -1656,6 +1761,7 @@ supabase start
 
 # Status of local services
 supabase status
+
 ```
 
 ### Client Libraries
@@ -1672,6 +1778,7 @@ supabase status
 ### Client Initialization
 
 **JavaScript/TypeScript**:
+
 ```typescript
 import { createClient } from '@supabase/supabase-js'
 
@@ -1679,9 +1786,11 @@ const supabase = createClient(
   'https://your-project.supabase.co',
   'your-anon-key'
 )
+
 ```
 
 **Python**:
+
 ```python
 from supabase import create_client
 
@@ -1689,6 +1798,7 @@ supabase = create_client(
     "https://your-project.supabase.co",
     "your-anon-key"
 )
+
 ```
 
 ## 3. Database (PostgreSQL)
@@ -1698,6 +1808,7 @@ Supabase provides a full PostgreSQL database with extensions and Row Level Secur
 ### Schema Management
 
 **Using SQL Editor (Studio)**:
+
 ```sql
 -- Create a table
 CREATE TABLE public.todos (
@@ -1717,9 +1828,11 @@ CREATE POLICY "Users can manage their own todos"
   FOR ALL
   USING (auth.uid() = user_id)
   WITH CHECK (auth.uid() = user_id);
+
 ```
 
 **Using Migrations (CLI)**:
+
 ```bash
 # Create a new migration
 supabase migration new create_todos_table
@@ -1732,6 +1845,7 @@ supabase db push
 
 # Pull remote schema changes
 supabase db pull
+
 ```
 
 ### Row Level Security (RLS)
@@ -1763,6 +1877,7 @@ CREATE POLICY "Users can update their own posts"
 CREATE POLICY "Users can delete their own posts"
   ON public.posts FOR DELETE
   USING (auth.uid() = author_id);
+
 ```
 
 ### Common PostgreSQL Extensions
@@ -1776,6 +1891,7 @@ CREATE EXTENSION IF NOT EXISTS "pg_stat_statements"; -- Query statistics
 CREATE EXTENSION IF NOT EXISTS "vector";          -- pgvector for embeddings
 CREATE EXTENSION IF NOT EXISTS "pg_trgm";         -- Trigram similarity search
 CREATE EXTENSION IF NOT EXISTS "http";            -- HTTP requests from SQL
+
 ```
 
 ### Database Functions
@@ -1795,6 +1911,7 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
 ```
 
 ## 4. Authentication
@@ -1818,6 +1935,7 @@ const { data, error } = await supabase.auth.signInWithPassword({
 
 // Sign out
 await supabase.auth.signOut()
+
 ```
 
 ### OAuth Providers
@@ -1835,6 +1953,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 const { data, error } = await supabase.auth.signInWithOAuth({
   provider: 'google',
 })
+
 ```
 
 **Supported OAuth Providers**: Apple, Azure, Bitbucket, Discord, Facebook, Figma, GitHub, GitLab, Google, Kakao, Keycloak, LinkedIn, Notion, Slack, Spotify, Twitch, Twitter, WorkOS
@@ -1845,6 +1964,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 const { data, error } = await supabase.auth.signInWithOtp({
   email: 'user@example.com',
 })
+
 ```
 
 ### Session Management
@@ -1860,6 +1980,7 @@ const { data: { user } } = await supabase.auth.getUser()
 supabase.auth.onAuthStateChange((event, session) => {
   console.log(event, session)
 })
+
 ```
 
 ## 5. APIs (Auto-Generated)
@@ -1895,6 +2016,7 @@ const { error } = await supabase
   .from('todos')
   .delete()
   .eq('id', todoId)
+
 ```
 
 ### Advanced Queries
@@ -1933,6 +2055,7 @@ const { data } = await supabase
     lng: -74.0060,
     radius_km: 10,
   })
+
 ```
 
 ## 6. Real-Time
@@ -1982,6 +2105,7 @@ const channel = supabase
     }
   )
   .subscribe()
+
 ```
 
 ### Broadcast (Client-to-Client)
@@ -2004,6 +2128,7 @@ channel.subscribe((status) => {
 channel.on('broadcast', { event: 'cursor-pos' }, (payload) => {
   console.log('Cursor position:', payload)
 })
+
 ```
 
 ### Presence (Online Status)
@@ -2027,6 +2152,7 @@ channel
       await channel.track({ user_id: userId, online_at: new Date().toISOString() })
     }
   })
+
 ```
 
 ## 7. Edge Functions
@@ -2047,6 +2173,7 @@ supabase functions deploy hello-world
 
 # Deploy all functions
 supabase functions deploy
+
 ```
 
 ### Edge Function Example
@@ -2087,6 +2214,7 @@ serve(async (req: Request) => {
     status,
   })
 })
+
 ```
 
 ### Edge Function with CORS
@@ -2108,6 +2236,7 @@ serve(async (req: Request) => {
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   })
 })
+
 ```
 
 ## 8. Storage
@@ -2119,6 +2248,7 @@ Supabase Storage provides S3-compatible object storage with CDN.
 ```sql
 -- Create a storage bucket (via SQL)
 INSERT INTO storage.buckets (id, name, public) VALUES ('avatars', 'avatars', true);
+
 ```
 
 ```typescript
@@ -2128,6 +2258,7 @@ const { data, error } = await supabase.storage.createBucket('avatars', {
   fileSizeLimit: 1024 * 1024 * 2, // 2MB
   allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif'],
 })
+
 ```
 
 ### File Operations
@@ -2165,6 +2296,7 @@ const { error } = await supabase.storage
 const { data, error } = await supabase.storage
   .from('avatars')
   .list('user-1', { limit: 100, offset: 0 })
+
 ```
 
 ### Storage Policies (RLS)
@@ -2181,6 +2313,7 @@ CREATE POLICY "Public avatar access"
   ON storage.objects FOR SELECT
   TO public
   USING (bucket_id = 'avatars');
+
 ```
 
 ## 9. Vector Embeddings and AI
@@ -2208,6 +2341,7 @@ CREATE INDEX ON public.documents USING ivfflat (embedding vector_cosine_ops)
 
 -- Or use HNSW index (recommended for most cases)
 CREATE INDEX ON public.documents USING hnsw (embedding vector_cosine_ops);
+
 ```
 
 ### Similarity Search
@@ -2235,6 +2369,7 @@ AS $$
   ORDER BY documents.embedding <=> query_embedding
   LIMIT match_count;
 $$;
+
 ```
 
 ### Using with OpenAI
@@ -2258,6 +2393,7 @@ const { data } = await supabase.rpc('match_documents', {
   match_threshold: 0.78,
   match_count: 10,
 })
+
 ```
 
 ## 10. Supabase CLI Reference
@@ -2311,6 +2447,7 @@ supabase inspect db long-running-queries
 supabase inspect db table-sizes
 supabase inspect db index-usage
 supabase inspect db cache-hit
+
 ```
 
 ### Configuration File
@@ -2365,6 +2502,7 @@ policy = "per_worker"
 enabled = true
 port = 54327
 backend = "postgres"
+
 ```
 
 ## 11. MCP Integration
@@ -2376,6 +2514,7 @@ A community-maintained MCP (Model Context Protocol) server is available for inte
 ```bash
 # Install the Supabase MCP community server
 npx @supabase/mcp-server-supabase@latest init
+
 ```
 
 ### Configuration for Cursor/VS Code
@@ -2394,6 +2533,7 @@ Add to your MCP configuration (e.g., `.cursor/mcp.json`):
     }
   }
 }
+
 ```
 
 ### Available MCP Tools
@@ -2605,11 +2745,12 @@ All agent files are in `.github/agents/` directory:
 
 ## Detailed Directory Documentation
 
-> **Note**: This section contains detailed documentation previously found in subdirectory README.md files. 
-> 
+> **Note**: This section contains detailed documentation previously found in subdirectory README.md files.
+>
 > **Symlink Design**: All subdirectory README.md files now symlink to this AGENTS.md file. When you navigate to any subdirectory and view its README.md, you'll see this entire AGENTS.md content. This is intentional - AGENTS.md serves as a comprehensive navigation hub for the entire repository. Use your browser/editor's search functionality (Ctrl+F / Cmd+F) to quickly find the section relevant to your current directory, or use the Table of Contents at the top of this file.
 >
 > **Quick Navigation Tips**:
+>
 > - Press Ctrl+F (Cmd+F on Mac) and search for the directory name (e.g., "nix", "terraform", "docs")
 > - Use the [Table of Contents](#table-of-contents) at the top
 > - Look for the section heading matching your current directory
@@ -2623,7 +2764,7 @@ This directory contains [Cursor](https://cursor.com) editor configurations for A
 
 #### Directory Structure
 
-```
+```text
 .cursor/
 ├── README.md → ../AGENTS.md (symlink)
 ├── rules/              # Project-specific rules for Cursor agents
@@ -2633,6 +2774,7 @@ This directory contains [Cursor](https://cursor.com) editor configurations for A
 │   └── code-review.md  # Code review rules
 └── agents/             # Custom subagent configurations
     └── README.md → ../../AGENTS.md (symlink)
+
 ```
 
 #### Rules
@@ -2655,6 +2797,7 @@ Custom subagents in `.cursor/agents/` define specialized AI assistants for speci
 #### Cursor Subagents
 
 Subagents are independent agents specialized to handle discrete parts of a task. They:
+
 - Run in parallel for faster completion
 - Use their own context and instructions
 - Can be specialized for specific domains
@@ -2679,6 +2822,7 @@ Detailed instructions for the agent...
 
 ## Restrictions
 - What it should NOT do
+
 ```
 
 **Available Subagents:**
@@ -2696,6 +2840,7 @@ Currently, this repository does not define any subagents in this directory. Shar
 #### Usage
 
 When using Cursor IDE:
+
 1. Rules are automatically loaded based on file patterns
 2. Use `/` commands to invoke custom skills
 3. Use `Shift+Tab` to toggle Plan Mode for complex tasks
@@ -2743,6 +2888,7 @@ sudo apt install -y $(cat apt/test/packages.txt | grep -v '^#' | tr '\n' ' ')
 
 # Install docker environment packages
 sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
+
 ```
 
 **Install Packages from Multiple Environments:**
@@ -2752,11 +2898,13 @@ sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
 cat apt/common/packages.txt apt/test/packages.txt apt/docker/packages.txt \
   | grep -v '^#' | sort -u \
   | xargs sudo apt install -y
+
 ```
 
 #### Package Format
 
 Each `packages.txt` file:
+
 - Lists one package per line
 - Uses `#` for comments
 - Includes installation notes for packages not available in standard repositories
@@ -2790,6 +2938,7 @@ Package names and availability may differ slightly between Debian and Ubuntu. Th
 #### APT vs Nix
 
 **When to Use APT:**
+
 - Running on Debian/Ubuntu systems
 - Prefer system package manager
 - Need stable, tested package versions
@@ -2797,6 +2946,7 @@ Package names and availability may differ slightly between Debian and Ubuntu. Th
 - Using Docker containers based on Debian/Ubuntu
 
 **When to Use Nix:**
+
 - Need reproducible, declarative environments
 - Want isolated, conflict-free package installations
 - Working across different Linux distributions
@@ -2825,11 +2975,13 @@ This directory contains Nix flakes and shell configurations for development envi
 To use these Nix environments, you need:
 
 1. **Nix package manager** installed:
+
    ```bash
    curl -L https://nixos.org/nix/install | sh
    ```
 
 2. **Enable flakes** (for flake.nix usage):
+
    ```bash
    mkdir -p ~/.config/nix
    echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
@@ -2853,6 +3005,7 @@ nix develop
 # Documentation environment
 cd nix/documentation
 nix develop
+
 ```
 
 **Quick Access from Repository Root:**
@@ -2864,6 +3017,7 @@ You can also enter any environment from the repository root:
 nix develop ./nix/test
 nix develop ./nix/docker
 nix develop ./nix/documentation
+
 ```
 
 #### Environment Details
@@ -2930,7 +3084,7 @@ This directory contains data files, configurations, schemas, and examples used b
 
 #### Structure
 
-```
+```text
 data/
 ├── README.md → ../AGENTS.md (symlink)
 ├── schemas/     # JSON Schema, OpenAPI specs, data models
@@ -2939,6 +3093,7 @@ data/
 │   └── README.md → ../../AGENTS.md (symlink)
 └── examples/    # Example data and sample files
     └── README.md → ../../AGENTS.md (symlink)
+
 ```
 
 #### Purpose
@@ -2960,6 +3115,7 @@ data/schemas/
 ├── agent-config.schema.json
 ├── api-spec.openapi.yaml
 └── database-models.json
+
 ```
 
 **Configs:**
@@ -2971,6 +3127,7 @@ data/configs/
 ├── .env.example
 ├── agent-defaults.yaml
 └── deployment-config.json
+
 ```
 
 **Examples:**
@@ -2982,6 +3139,7 @@ data/examples/
 ├── sample-agent-response.json
 ├── example-workflow.yaml
 └── test-data.csv
+
 ```
 
 #### Guidelines
@@ -3020,7 +3178,7 @@ This directory contains comprehensive documentation for the agent framework repo
 
 #### Structure
 
-```
+```text
 docs/
 ├── README.md → ../AGENTS.md (symlink)
 ├── api/           # API documentation and reference materials
@@ -3029,6 +3187,7 @@ docs/
 │   └── README.md → ../../AGENTS.md (symlink)
 └── reference/     # Technical reference documentation
     └── README.md → ../../AGENTS.md (symlink)
+
 ```
 
 #### Purpose
@@ -3044,12 +3203,14 @@ The `docs/` directory serves as the central hub for all project documentation:
 This subdirectory contains API reference documentation.
 
 **Planned Documentation:**
+
 - Agent API Reference
 - Configuration API
 - Tool API Reference
 - Extension Points
 
 **When adding API documentation:**
+
 1. Use consistent formatting
 2. Include code examples
 3. Document all parameters and return values
@@ -3061,6 +3222,7 @@ This subdirectory contains API reference documentation.
 This subdirectory contains step-by-step guides and tutorials.
 
 **Planned Guides:**
+
 - Getting Started with Agents
 - Creating Custom Agents
 - Setting Up Development Environment
@@ -3068,6 +3230,7 @@ This subdirectory contains step-by-step guides and tutorials.
 - Troubleshooting Common Issues
 
 **When adding guides:**
+
 1. Start with prerequisites
 2. Use numbered steps
 3. Include screenshots where helpful
@@ -3079,6 +3242,7 @@ This subdirectory contains step-by-step guides and tutorials.
 This subdirectory contains technical reference materials.
 
 **Planned Documentation:**
+
 - Architecture Overview
 - Design Decisions
 - Configuration Reference
@@ -3086,6 +3250,7 @@ This subdirectory contains technical reference materials.
 - Diagrams and Visualizations
 
 **When adding reference documentation:**
+
 1. Be technically precise
 2. Include diagrams for complex concepts
 3. Define technical terms
@@ -3100,7 +3265,7 @@ This directory contains source code, scripts, and utilities for the agent framew
 
 #### Structure
 
-```
+```text
 src/
 ├── README.md → ../AGENTS.md (symlink)
 ├── agents/      # Agent implementation code
@@ -3109,6 +3274,7 @@ src/
 │   └── README.md → ../../AGENTS.md (symlink)
 └── scripts/     # Automation scripts and tools
     └── README.md → ../../AGENTS.md (symlink)
+
 ```
 
 #### Purpose
@@ -3128,15 +3294,18 @@ src/agents/
 ├── custom-agent.js
 ├── specialized-agent.py
 └── agent-extensions.ts
+
 ```
 
 **Planned Agents:**
+
 - Custom agent implementations
 - Agent extensions and plugins
 - Specialized agent workflows
 - Agent utilities
 
 **When creating agents:**
+
 1. Follow the agent template pattern
 2. Implement required interfaces
 3. Add comprehensive tests
@@ -3152,9 +3321,11 @@ src/utils/
 ├── file-utils.js
 ├── string-helpers.py
 └── validation.ts
+
 ```
 
 **Planned Utilities:**
+
 - File operation utilities
 - String manipulation helpers
 - Data validation functions
@@ -3162,6 +3333,7 @@ src/utils/
 - Logging and debugging tools
 
 **When creating utilities:**
+
 1. Keep functions small and focused
 2. Make them reusable across projects
 3. Add comprehensive documentation
@@ -3177,9 +3349,11 @@ src/scripts/
 ├── deploy.sh
 ├── setup-environment.py
 └── generate-docs.js
+
 ```
 
 **Planned Scripts:**
+
 - Deployment automation
 - Environment setup scripts
 - Database migration scripts
@@ -3197,9 +3371,11 @@ src/scripts/
 
 # Run migrations
 ./scripts/migrate.sh
+
 ```
 
 **When creating scripts:**
+
 1. Make scripts idempotent (safe to run multiple times)
 2. Add error handling and validation
 3. Include usage documentation
@@ -3209,6 +3385,7 @@ src/scripts/
 #### Development Guidelines
 
 **Code Style:**
+
 - Follow language-specific style guides
 - Use meaningful variable and function names
 - Add comments for complex logic
@@ -3216,12 +3393,14 @@ src/scripts/
 - Keep functions small and focused
 
 **Testing:**
+
 - Write unit tests for all functions
 - Include integration tests for workflows
 - Test edge cases and error conditions
 - Maintain high test coverage
 
 **Documentation:**
+
 - Document public APIs
 - Include usage examples
 - Explain complex algorithms
@@ -3230,6 +3409,7 @@ src/scripts/
 **Language Support:**
 
 This repository supports multiple languages:
+
 - **JavaScript/TypeScript**: Node.js scripts and tools
 - **Python**: Data processing and utilities
 - **Bash**: Shell scripts for automation
@@ -3244,6 +3424,7 @@ This directory contains Terraform templates for deploying infrastructure to Clou
 #### Prerequisites
 
 1. **Terraform**: Install Terraform >= 1.0
+
    ```bash
    # Using nix (recommended)
    nix develop ../nix/terraform
@@ -3256,7 +3437,7 @@ This directory contains Terraform templates for deploying infrastructure to Clou
    - API token with appropriate permissions
 
 3. **CloudFlare API Token**: Create an API token at:
-   - https://dash.cloudflare.com/profile/api-tokens
+   - <https://dash.cloudflare.com/profile/api-tokens>
    - Required permissions:
      - Account - Workers Scripts - Edit
      - Account - Workers KV Storage - Edit
@@ -3270,6 +3451,7 @@ This directory contains Terraform templates for deploying infrastructure to Clou
 ```bash
 cd terraform
 terraform init
+
 ```
 
 **2. Configure Variables:**
@@ -3278,6 +3460,7 @@ Copy the example variables file and customize it:
 
 ```bash
 cp terraform.tfvars.example terraform.tfvars
+
 ```
 
 Edit `terraform.tfvars` with your CloudFlare settings:
@@ -3291,6 +3474,7 @@ zone_name               = "yourdomain.com"
 deploy_workers = true
 deploy_pages   = false
 deploy_dns     = false
+
 ```
 
 **3. Plan and Apply:**
@@ -3301,11 +3485,12 @@ terraform plan
 
 # Apply the configuration
 terraform apply
+
 ```
 
 #### Module Structure
 
-```
+```text
 terraform/
 ├── README.md → ../AGENTS.md (symlink)
 ├── main.tf                      # Main configuration
@@ -3320,6 +3505,7 @@ terraform/
 │   └── dns/                     # CloudFlare DNS module
 └── examples/
     └── README.md → ../../AGENTS.md (symlink)
+
 ```
 
 #### Modules
@@ -3362,6 +3548,7 @@ terraform show
 
 # List Resources
 terraform state list
+
 ```
 
 #### Security Best Practices
@@ -3379,11 +3566,13 @@ terraform state list
 This subdirectory contains example configurations and scripts for CloudFlare deployments.
 
 **Files:**
+
 - `worker.js` - Example CloudFlare Worker script with routing and KV usage
 
 **Using the Examples:**
 
 1. Copy the worker script to your project:
+
    ```bash
    cp examples/worker.js ./my-worker.js
    ```
@@ -3391,6 +3580,7 @@ This subdirectory contains example configurations and scripts for CloudFlare dep
 2. Customize the worker script for your needs
 
 3. Reference it in your `terraform.tfvars`:
+
    ```hcl
    worker_script_path = "./my-worker.js"
    ```
@@ -3420,6 +3610,7 @@ nix flake update
 
 # Check flake status
 nix flake check
+
 ```
 
 #### APT (Ubuntu/Debian)
@@ -3435,6 +3626,7 @@ sudo apt update
 
 # Upgrade all packages
 sudo apt upgrade -y
+
 ```
 
 ### Git Workflows
@@ -3466,6 +3658,7 @@ git diff
 
 # View diff of staged changes
 git diff --cached
+
 ```
 
 ### Docker Operations
@@ -3499,6 +3692,7 @@ docker exec -it <container-id> /bin/bash
 docker-compose up -d
 docker-compose down
 docker-compose logs -f
+
 ```
 
 ### Terraform Operations
@@ -3535,6 +3729,7 @@ terraform state list
 terraform workspace list
 terraform workspace new development
 terraform workspace select production
+
 ```
 
 ### Testing Commands
@@ -3561,6 +3756,7 @@ go test -cover ./...
 # Watch mode
 npm test -- --watch
 pytest-watch
+
 ```
 
 ### Documentation Generation
@@ -3578,6 +3774,7 @@ jsdoc src/**/*.js -d docs/api/         # JavaScript
 sphinx-build -b html docs/ docs/_build # Python
 godoc -http=:6060                      # Go
 cargo doc --open                       # Rust
+
 ```
 
 ### Code Quality
@@ -3598,6 +3795,7 @@ cargo fmt                                           # Rust
 # Type checking
 tsc --noEmit               # TypeScript
 mypy src/                  # Python
+
 ```
 
 ### CloudFlare Operations
@@ -3615,6 +3813,7 @@ wrangler secret put API_KEY # Set secret
 cloudflare dns list
 cloudflare pages list
 cloudflare workers list
+
 ```
 
 ### Search & Navigation
@@ -3635,6 +3834,7 @@ cloc .                     # If cloc is installed
 # List directory tree
 tree -L 3                  # Show 3 levels deep
 tree -I 'node_modules|.git' # Ignore directories
+
 ```
 
 ### File Operations
@@ -3660,6 +3860,7 @@ cat file.txt
 less file.txt
 head -n 20 file.txt
 tail -f logfile.txt        # Follow file updates
+
 ```
 
 ### Process Management
@@ -3680,6 +3881,7 @@ killall python
 # View port usage
 lsof -i :8080
 netstat -tulpn | grep :8080
+
 ```
 
 ### System Information
@@ -3703,6 +3905,7 @@ cat /etc/os-release
 # Check environment variables
 env
 echo $PATH
+
 ```
 
 ---
@@ -3741,6 +3944,7 @@ ls -la
 @test-specialist help me write tests
 @docker-specialist create a Dockerfile
 @documentation-builder generate README.md
+
 ```
 
 ---
@@ -3751,12 +3955,13 @@ ls -la
 
 When you need to understand a specific area, reference these files:
 
-```
+```text
 "Read .github/agents/README.md for agent documentation"
 "See Nix Development Environments section in AGENTS.md for development environment setup"
 "See Terraform Infrastructure section in AGENTS.md for infrastructure configuration"
 "See Documentation Directory section in AGENTS.md for documentation structure"
 "See Source Code Directory section in AGENTS.md for source code organization"
+
 ```
 
 ### Command Templates
@@ -3778,6 +3983,7 @@ Common command patterns to use:
 
 # Generate documentation
 "Use @documentation-builder to generate docs"
+
 ```
 
 ---
@@ -3837,6 +4043,7 @@ ls -la
 @test-specialist help me write tests
 @docker-specialist create a Dockerfile
 @documentation-builder generate README.md
+
 ```
 
 ---
