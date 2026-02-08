@@ -41,11 +41,8 @@ docs/
 # -----------------------------------------------------------------------------
 # Docker Files
 # -----------------------------------------------------------------------------
-# Exclude Docker-related files to prevent recursive inclusion
-Dockerfile
-Dockerfile.*
+# Exclude non-essential Docker tooling files from the build context
 docker-compose*.yml
-.dockerignore
 
 # -----------------------------------------------------------------------------
 # Editor and IDE Files
@@ -121,7 +118,6 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 .venv/
-Pipfile.lock
 
 # Ruby
 vendor/bundle/
@@ -130,15 +126,12 @@ vendor/bundle/
 
 # Go
 vendor/
-go.sum
 
 # Rust
 target/
-Cargo.lock
 
 # PHP
 vendor/
-composer.lock
 
 # -----------------------------------------------------------------------------
 # Build Artifacts and Output Directories

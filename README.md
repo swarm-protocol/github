@@ -88,7 +88,8 @@ Production-ready Dockerfile template and comprehensive `.dockerignore` file foll
 ```bash
 # Copy and customize for your project
 cp Dockerfile.template Dockerfile
-# Edit the Dockerfile to match your application
+# Ensure you also create or copy an appropriate .dockerignore to avoid sending large/unsafe build contexts
+# Edit the Dockerfile and .dockerignore to match your application
 ```
 
 ### ansible-specialist.agent.md 
