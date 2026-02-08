@@ -34,8 +34,11 @@ show_help() {
     echo "  -y, --yes           Assume yes to all prompts (non-interactive)"
     echo "  --help              Show this help message"
     echo
-    echo "Available environments: common, test, docker, documentation, code-review,"
-    echo "                        refactoring, wrangler, terraform, ansible, security, all"
+    echo "Available environments:"
+    echo "  Environments are detected from the apt/ or nix/ directories."
+    echo "  Common environments: common, test, docker, documentation, code-review,"
+    echo "                       refactoring, wrangler, terraform, ansible, security"
+    echo "  Special: all (APT only - installs all environments)"
 }
 
 print_header() {
@@ -168,6 +171,13 @@ prepare_apt_environment() {
     return 0
 }
 
+# Parse packages from a packages.txt file
+# Removes comments (including trailing ones) and empty lines
+parse_packages() {
+    local packages_file=$1
+    sed 's/#.*//' "$packages_file" | xargs
+}
+
 # Setup environment using APT
 setup_apt_environment() {
     local env_type=$1
@@ -184,9 +194,9 @@ setup_apt_environment() {
     print_info "Installing packages from apt/$env_type/packages.txt"
     print_warning "This requires sudo privileges"
     
-    # Use sed to remove comments (including trailing ones) and empty lines
+    # Use the centralized package parsing function
     local pkgs
-    pkgs=$(sed 's/#.*//' "apt/$env_type/packages.txt" | xargs)
+    pkgs=$(parse_packages "apt/$env_type/packages.txt")
 
     if [ -n "$pkgs" ]; then
         if sudo apt install -y $pkgs; then
@@ -202,10 +212,28 @@ setup_apt_environment() {
     fi
 }
 
+# Get list of available environments dynamically from apt/ directory
+get_available_environments() {
+    local envs=()
+    if [ -d "apt" ]; then
+        while IFS= read -r -d '' env_dir; do
+            local env_name
+            env_name="${env_dir#apt/}"
+            env_name="${env_name%/}"
+            envs+=("$env_name")
+        done < <(find apt -mindepth 1 -maxdepth 1 -type d -print0 2>/dev/null | sort -z)
+    fi
+    echo "${envs[@]}"
+}
+
 # Show environment menu
 show_environment_menu() {
     local setup_method=$1
     local env_type=$ENV_TYPE
+    
+    # Get available environments dynamically
+    local -a envs
+    IFS=' ' read -r -a envs <<< "$(get_available_environments)"
     
     if [ -z "$env_type" ]; then
         if [ "$ASSUME_YES" = true ]; then
@@ -215,53 +243,51 @@ show_environment_menu() {
         print_header "Choose Development Environment"
 
         echo "Available environments:"
-        echo "  1) common        - Core development tools (git, editors, etc.)"
-        echo "  2) test          - Testing frameworks and tools"
-        echo "  3) docker        - Docker and container tools"
-        echo "  4) documentation - Documentation generation tools"
-        echo "  5) code-review   - Linters, formatters, analyzers"
-        echo "  6) refactoring   - Code transformation tools"
-        echo "  7) wrangler      - CloudFlare Workers development"
-        echo "  8) terraform     - Infrastructure as Code tools"
-        echo "  9) ansible       - Ansible automation tools"
-        echo "  10) security      - Security auditing and scanning tools"
-        echo "  11) all           - Install all environments (APT only)"
+        local i=1
+        for env in "${envs[@]}"; do
+            # Format environment names for display
+            local description=""
+            case "$env" in
+                common) description="Core development tools (git, editors, etc.)" ;;
+                test) description="Testing frameworks and tools" ;;
+                docker) description="Docker and container tools" ;;
+                documentation) description="Documentation generation tools" ;;
+                code-review) description="Linters, formatters, analyzers" ;;
+                refactoring) description="Code transformation tools" ;;
+                wrangler) description="CloudFlare Workers development" ;;
+                terraform) description="Infrastructure as Code tools" ;;
+                ansible) description="Ansible automation tools" ;;
+                security) description="Security auditing and scanning tools" ;;
+                *) description="$env environment" ;;
+            esac
+            printf "  %2d) %-15s - %s\n" "$i" "$env" "$description"
+            ((i++))
+        done
+        
+        # Add "all" option for APT
+        if [ "$setup_method" = "apt" ]; then
+            printf "  %2d) %-15s - %s\n" "$i" "all" "Install all environments (APT only)"
+            local all_option=$i
+            ((i++))
+        fi
+        
         echo "  0) exit          - Exit setup"
         echo
 
-        read -p "Select environment (1-11, 0 to exit): " choice
+        read -p "Select environment (0-$((i-1))): " choice
 
-        case $choice in
-            1) env_type="common" ;;
-            2) env_type="test" ;;
-            3) env_type="docker" ;;
-            4) env_type="documentation" ;;
-            5) env_type="code-review" ;;
-            6) env_type="refactoring" ;;
-            7) env_type="wrangler" ;;
-            8) env_type="terraform" ;;
-            9) env_type="ansible" ;;
-            10) env_type="security" ;;
-            11)
-                if [ "$setup_method" = "apt" ]; then
-                    env_type="all"
-                else
-                    print_error "Installing all environments is only supported with APT"
-                    return 1
-                fi
-                ;;
-            0)
-                print_info "Exiting setup"
-                exit 0
-                ;;
-            *)
-                print_error "Invalid choice"
-                return 1
-                ;;
-        esac
+        if [ "$choice" = "0" ]; then
+            print_info "Exiting setup"
+            exit 0
+        elif [ "$choice" -ge 1 ] && [ "$choice" -le "${#envs[@]}" ]; then
+            env_type="${envs[$((choice-1))]}"
+        elif [ "$setup_method" = "apt" ] && [ "$choice" = "$all_option" ]; then
+            env_type="all"
+        else
+            print_error "Invalid choice"
+            return 1
+        fi
     fi
-    
-    local envs=("common" "test" "docker" "documentation" "code-review" "refactoring" "wrangler" "terraform" "ansible" "security")
 
     if [ "$setup_method" = "nix" ]; then
         setup_nix_environment "$env_type" || return 1
@@ -280,8 +306,8 @@ show_environment_menu() {
                 if [ -f "apt/$env/packages.txt" ]; then
                     # Call preparation logic for each environment to preserve abstraction
                     prepare_apt_environment "$env"
-                    # Collect packages while handling comments
-                    all_packages+="$(sed 's/#.*//' "apt/$env/packages.txt") "
+                    # Collect packages using the centralized parsing function
+                    all_packages+="$(parse_packages "apt/$env/packages.txt") "
                 fi
             done
 
