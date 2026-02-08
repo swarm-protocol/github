@@ -822,9 +822,18 @@ The `cleanup.sh` script is fully commented out by default. To activate it:
 1. Open `cleanup.sh` in your editor
 2. Remove the leading `# ` from all lines in the **CONFIGURATION** section (`EXPECTED_FILES` array)
 3. Remove the leading `# ` from all lines in the **ACTIVE CODE** section
+4. **Confirm that the `EXPECTED_FILES` array is uncommented and non-empty before running the script.**
 
-#### Step 4: Run the Script
+> **Warning:** If `EXPECTED_FILES` is empty or still commented out, the script will treat **every file in the repository** as a leftover. If you confirm deletion in that state, you can delete the entire repo.
 
+#### Step 4: Run the Script (with a sanity check)
+
+Before allowing any deletion:
+
+- Visually confirm that `EXPECTED_FILES` contains a reasonable list of expected files/directories.
+- On the first run, you can treat the script as a *dry run* by answering **“no”** at the deletion confirmation prompt. This lets you inspect the list of “leftover” files without deleting anything.
+
+When you are satisfied with the configuration, run:
 ```bash
 bash cleanup.sh
 ```
