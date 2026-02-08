@@ -854,14 +854,14 @@ The script will:
 
 #### Step 6: Re-comment the Script
 
-After use, re-comment the active code in `cleanup.sh` to prevent accidental execution:
+After use, restore `cleanup.sh` to its default, fully commented state using Git so it remains inert by default:
 
 ```bash
 # Verify the cleanup results
 git status
 
-# Re-comment cleanup.sh to its default (fully commented) state
-# This prevents accidental future execution
+# Restore cleanup.sh to its default (fully commented, inert) state
+git restore cleanup.sh       # or: git checkout -- cleanup.sh  (for older Git versions)
 ```
 
 #### Step 7: Commit the Cleanup
