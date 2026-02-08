@@ -376,7 +376,7 @@ show_next_steps() {
     echo
     echo " Documentation:"
     echo "   • Read AGENTS.md for a complete sitemap and bash commands"
-    echo "   • Read QUICKSTART.md for quick onboarding"
+    echo "   • Read README.md Quick Start section for quick onboarding"
     echo "   • Read README.md for project overview"
     echo
     echo "Using GitHub Copilot Agents:"
