@@ -236,9 +236,9 @@ For more troubleshooting help, see [AGENTS.md](AGENTS.md) comprehensive troubles
 - [Detailed Setup Guide](.github/agents/README.md) - Complete instructions
 - [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [Example Agents](.github/agents/) - Pre-built examples
-- [Nix Development Environments](nix/README.md) - Reproducible dev environments
-- [APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
-- [Cursor IDE Configuration](.cursor/README.md) - Cursor rules and agents
+- [Nix Development Environments](AGENTS.md#nix-development-environments-nix) - Reproducible dev environments
+- [APT Package Lists](AGENTS.md#apt-package-lists-apt) - Debian/Ubuntu package lists
+- [Cursor IDE Configuration](AGENTS.md#cursor-ide-configuration-cursor) - Cursor rules and agents
 
 ## Development Environments
 
@@ -272,7 +272,7 @@ nix develop ./nix/terraform
 nix develop ./nix/ansible
 ```
 
-See [nix/README.md](nix/README.md) for complete setup instructions and environment details.
+See [AGENTS.md - Nix Development Environments](AGENTS.md#nix-development-environments-nix) for complete setup instructions and environment details.
 
 ### APT Package Lists (Debian/Ubuntu)
 
@@ -289,7 +289,7 @@ sudo apt install -y $(cat apt/test/packages.txt | grep -v '^#' | tr '\n' ' ')
 sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
 ```
 
-See [apt/README.md](apt/README.md) for all available environments and detailed usage instructions.
+See [AGENTS.md - APT Package Lists](AGENTS.md#apt-package-lists-apt) for all available environments and detailed usage instructions.
 
 ## Repository Structure
 
@@ -301,7 +301,7 @@ Comprehensive documentation for the agent framework:
 - **`docs/guides/`** - Step-by-step guides and tutorials
 - **`docs/reference/`** - Technical specifications and architecture
 
-See [docs/README.md](docs/README.md) and [docs/AGENT_PROMPTS.md](docs/AGENT_PROMPTS.md) for working with documentation.
+See [AGENTS.md - Documentation Directory](AGENTS.md#documentation-directory-docs) and [docs/AGENT_PROMPTS.md](docs/AGENT_PROMPTS.md) for working with documentation.
 
 ### Data (`data/`)
 
@@ -311,7 +311,7 @@ Data files, configurations, and schemas:
 - **`data/configs/`** - Configuration templates and examples
 - **`data/examples/`** - Sample data for testing and demos
 
-See [data/README.md](data/README.md) and [data/AGENT_PROMPTS.md](data/AGENT_PROMPTS.md) for working with data files.
+See [AGENTS.md - Data Directory](AGENTS.md#data-directory-data) and [data/AGENT_PROMPTS.md](data/AGENT_PROMPTS.md) for working with data files.
 
 ### Source Code (`src/`)
 
@@ -321,7 +321,7 @@ Source code and automation scripts:
 - **`src/utils/`** - Utility functions and libraries
 - **`src/scripts/`** - Automation and deployment scripts
 
-See [src/README.md](src/README.md) and [src/AGENT_PROMPTS.md](src/AGENT_PROMPTS.md) for development guidelines.
+See [AGENTS.md - Source Code Directory](AGENTS.md#source-code-directory-src) and [src/AGENT_PROMPTS.md](src/AGENT_PROMPTS.md) for development guidelines.
 
 ### Infrastructure
 
