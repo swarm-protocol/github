@@ -61,7 +61,7 @@ Ready-to-use agent for safe code refactoring and improving maintainability.
 Ready-to-use agent for building README.md and AGENTS.md from template files with variable substitution.
 **Status:** Ready to use immediately!
 
-See [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) for usage examples.
+See [AGENTS.md - Using the Documentation-Builder Agent](AGENTS.md#using-the-documentation-builder-agent) for usage examples.
 
 ### docker-specialist.agent.md 
 Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML configurations.
@@ -96,7 +96,7 @@ Expert agent for Ansible automation, playbooks, roles, and infrastructure config
 
 ## Getting Started
 
-**New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+**New to custom agents?** See the sections below to get up and running quickly!
 
 ### For Your Repository
 
@@ -115,10 +115,124 @@ cp TEMPLATE.agent.md your-agent-name.agent.md
 
 Create a `.github-private` repository in your organization and add agent files to the `.github/agents/` directory. All organization repositories can then use these agents.
 
+## Usage Examples
+
+### With Test Specialist
+
+```
+@test-specialist write unit tests for the UserService class
+```
+
+The agent will create comprehensive tests without modifying production code.
+
+### With Documentation Expert
+
+```
+@documentation-expert create API documentation for the /api/users endpoint
+```
+
+The agent will generate clear, comprehensive API documentation.
+
+### With Code Reviewer
+
+```
+@code-reviewer review this pull request for security issues
+```
+
+The agent will analyze code for quality, security vulnerabilities, and best practices.
+
+### With Refactoring Assistant
+
+```
+@refactoring-assistant this function is too complex, help me break it down
+```
+
+The agent will safely refactor code while maintaining functionality.
+
+### With Docker Specialist
+
+```
+@docker-specialist create an optimized Dockerfile for this Node.js application
+```
+
+The agent will create multi-stage Dockerfiles following best practices.
+
+## Best Practices
+
+### Starting Out
+
+- **Start Simple**: Begin with basic instructions and refine based on results
+- **Test Incrementally**: Use your agent for small tasks first, then gradually increase complexity
+- **Provide Context**: Give your agent relevant code snippets or file names in your requests
+- **Use Examples**: The more examples you include in your agent file, the better it performs
+- **Set Clear Boundaries**: Explicitly tell your agent what NOT to do to avoid unwanted changes
+
+### Agent Design
+
+- **Specialization**: One agent should do one thing well - avoid "do everything" agents
+- **Concrete Examples**: Provide specific code examples, not just general descriptions
+- **Clear Commands**: List exact commands to run (build, test, lint)
+- **Explicit Boundaries**: State what the agent should NOT do
+- **Real-World Testing**: Test agents in actual scenarios before sharing with your team
+
+### Maintenance
+
+- **Keep Updated**: Update agent instructions as your project evolves
+- **Version Control**: Always commit agents to version control
+- **Team Collaboration**: Share successful agents with your team
+- **Iterate**: Refine agents based on feedback and usage patterns
+
+## Troubleshooting
+
+### Agent Not Responding
+
+**Symptoms**: Agent doesn't respond when invoked with `@agent-name`
+
+**Solutions**:
+1. Verify the file is named `*.agent.md`
+2. Check it's in `.github/agents/` directory
+3. Ensure YAML front matter is uncommented and valid
+4. Confirm the file is committed and pushed to the default branch
+5. Wait a few minutes for GitHub to process the new agent
+6. Check that you have a GitHub Copilot Pro+ subscription
+
+### Agent Doesn't Follow Instructions
+
+**Symptoms**: Agent ignores your instructions or behaves unexpectedly
+
+**Solutions**:
+1. Be more specific in your agent instructions
+2. Add concrete code examples to the agent file
+3. Explicitly state boundaries (what NOT to do)
+4. Test with simple requests first
+5. Remove conflicting or unclear instructions
+6. Provide more context in your prompts
+
+### Can't Find My Agent
+
+**Symptoms**: Agent doesn't appear in autocomplete
+
+**Solutions**:
+1. Type `@` in Copilot Chat to see all available agents
+2. Check the agent name matches the YAML `name` field exactly
+3. Verify you have access to custom agents (requires GitHub Copilot Pro, Business, or Enterprise)
+4. Ensure the agent file is on the repository's default branch
+
+### Variables Not Replaced (Documentation Builder)
+
+**Symptoms**: Generated files contain `{{VARIABLE}}` instead of values
+
+**Solutions**:
+1. Check variable name spelling in templates
+2. Ensure values were provided to the agent
+3. Verify template file syntax is correct
+4. Make sure you're using the correct variable format: `{{VARIABLE_NAME}}`
+
+For more troubleshooting help, see [AGENTS.md](AGENTS.md) comprehensive troubleshooting section.
+
 ## Documentation
 
 - [**AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap and bash command reference**
-- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
 - [ Detailed Setup Guide](.github/agents/README.md) - Complete instructions
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute
 - [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
@@ -282,7 +396,36 @@ See [N8N.md](N8N.md) for complete n8n agent documentation.
 
 ## Contributing
 
-Contributions are welcome! Share your useful agent templates by submitting a pull request.
+We welcome contributions! Here's how you can help:
+
+### Ways to Contribute
+
+- **New Agent Templates**: Create agents for new use cases and share them
+- **Template Improvements**: Enhance existing agents with better examples
+- **Documentation**: Improve guides, add tutorials, fix typos
+- **Bug Fixes**: Fix errors in templates or documentation
+- **Best Practices**: Share insights that make agents more effective
+
+### Contribution Process
+
+1. Fork this repository
+2. Create a new branch: `git checkout -b add-agent-name`
+3. Make your changes following our guidelines
+4. Test your agent in real scenarios
+5. Update documentation (README.md, AGENTS.md)
+6. Submit a pull request with clear description
+
+### Agent Template Requirements
+
+Your agent template should include:
+- Valid YAML front matter with `name` and `description`
+- Well-defined role and responsibilities
+- Specific commands relevant to the agent's purpose
+- Code examples demonstrating style
+- Clear boundaries (what NOT to do)
+- Real-world usage examples
+
+For detailed guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

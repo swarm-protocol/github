@@ -63,7 +63,7 @@ Ready-to-use agent for building README.md and AGENTS.md from template files with
 
 ## Getting Started
 
-**New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+**New to custom agents?** See the sections below to get up and running quickly!
 
 ### For Your Repository
 
@@ -84,8 +84,8 @@ Create a `.github-private` repository in your organization and add agent files t
 
 ## Documentation
 
-- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
-- [ Detailed Setup Guide](.github/agents/README.md) - Complete instructions
+- [**AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap and bash command reference**
+- [Detailed Setup Guide](.github/agents/README.md) - Quick reference
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute
 - [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [Example Agents](.github/agents/) - Pre-built examples
