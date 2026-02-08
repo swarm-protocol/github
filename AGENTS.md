@@ -765,6 +765,142 @@ Use this checklist when generating QUICKSTART.md:
 - [ ] Verified all links work
 - [ ] Ensured consistency with README.md
 
+## Protocol: Cleanup Leftover Files
+
+This protocol provides instructions for cleaning up leftover files that do not match the original repository's expected file structure. This commonly occurs when a new codebase is scaffolded or generated from this template and produces files that diverge from the canonical layout.
+
+> **IMPORTANT**: This protocol should **only** be executed when explicitly prompted by a user or LLM. Do not run the cleanup script automatically or as part of CI/CD pipelines.
+
+### Purpose
+
+When creating a new codebase from this template repository, the generated project may contain files that are not part of the original repo structure. These leftover files can cause confusion, bloat the repository, and lead to inconsistencies. The `cleanup.sh` script identifies and removes them.
+
+### Prerequisites
+
+- A cloned copy of the repository
+- The `cleanup.sh` script in the repository root
+- All work committed or backed up (the script deletes files permanently)
+
+### When to Use This Protocol
+
+Use this protocol **only** when:
+
+1. An LLM or developer explicitly requests a cleanup of leftover files
+2. A new codebase has been generated from this template and contains extra files
+3. You need to verify that the current file structure matches the expected layout
+
+**Do NOT** use this protocol:
+
+- Automatically during CI/CD
+- Without first committing or backing up current work
+- Without reviewing the list of files to be deleted
+
+### Protocol Steps
+
+#### Step 1: Commit Current Work
+
+Before running any cleanup, ensure all work is saved:
+
+```bash
+git add .
+git commit -m "chore: save work before cleanup"
+```
+
+#### Step 2: Review the Expected File List
+
+Open `cleanup.sh` and review the `EXPECTED_FILES` array. Update it if the canonical repository structure has changed:
+
+```bash
+# Open and review the expected files list
+cat cleanup.sh | grep -A 100 'EXPECTED_FILES=('
+```
+
+#### Step 3: Uncomment the Script
+
+The `cleanup.sh` script is fully commented out by default. To activate it:
+
+1. Open `cleanup.sh` in your editor
+2. Remove the leading `# ` from all lines in the **CONFIGURATION** section (`EXPECTED_FILES` array)
+3. Remove the leading `# ` from all lines in the **ACTIVE CODE** section
+
+#### Step 4: Run the Script
+
+```bash
+chmod +x cleanup.sh
+./cleanup.sh
+```
+
+The script will:
+
+1. Verify you are in a git repository root
+2. Scan all files (excluding `.git/`)
+3. Compare them against the `EXPECTED_FILES` list
+4. Display any leftover files that do not match
+5. Prompt for confirmation before deleting
+
+#### Step 5: Review and Confirm
+
+- Review the list of leftover files displayed by the script
+- Only confirm deletion if you are certain the listed files are not needed
+- After deletion, the script also removes any empty directories
+
+#### Step 6: Re-comment the Script
+
+After use, re-comment the active code in `cleanup.sh` to prevent accidental execution:
+
+```bash
+# Verify the cleanup results
+git status
+
+# Re-comment cleanup.sh to its default (fully commented) state
+# This prevents accidental future execution
+```
+
+#### Step 7: Commit the Cleanup
+
+```bash
+git add .
+git commit -m "chore: clean up leftover files from scaffolding"
+```
+
+### Agent Invocation
+
+This protocol should only be triggered when a user or LLM explicitly requests it:
+
+```text
+@documentation-builder Run the cleanup leftover files protocol.
+Remove files that don't match the original repository structure.
+```
+
+```text
+@refactoring-assistant Clean up leftover files in the repository
+using the cleanup protocol from AGENTS.md. Follow all steps including
+backup, review, and confirmation.
+```
+
+### Protocol Checklist
+
+Use this checklist when running the cleanup protocol:
+
+- [ ] Committed or backed up all current work
+- [ ] Reviewed the `EXPECTED_FILES` list in `cleanup.sh`
+- [ ] Updated `EXPECTED_FILES` if the canonical structure has changed
+- [ ] Uncommented the active code sections in `cleanup.sh`
+- [ ] Ran the script and reviewed the list of leftover files
+- [ ] Confirmed deletion only after careful review
+- [ ] Verified results with `git status`
+- [ ] Re-commented `cleanup.sh` to its default state
+- [ ] Committed the cleanup changes
+
+### Best Practices
+
+1. **Always back up first**: Commit all work before running the cleanup
+2. **Review before confirming**: Never blindly confirm file deletion
+3. **Keep the script commented**: The default state should be fully commented out
+4. **Update the expected list**: Keep `EXPECTED_FILES` current as the repo evolves
+5. **Only run when prompted**: This protocol is on-demand only, never automatic
+6. **Re-comment after use**: Always return the script to its inert state after cleanup
+
 ## Agent Ideas and Use Cases
 
 Here are ideas for agents you might create to enhance your development workflow:
