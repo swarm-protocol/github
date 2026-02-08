@@ -1234,8 +1234,7 @@ n8n start
 
 | File | Purpose | Key Topics |
 |------|---------|------------|
-| [README.md](README.md) | Main repository overview | Project intro, quick start, features |
-| [QUICKSTART.md](QUICKSTART.md) | Fast onboarding guide | Installation, first steps, examples |
+| [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines | How to contribute, PR process, standards |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **AI frameworks, navigation hub, bash commands** |
 | [CLAUDE.md](CLAUDE.md) → AGENTS.md | Symlink to AGENTS.md | GitHub Copilot agent context |
@@ -1243,7 +1242,6 @@ n8n start
 | [N8N.md](N8N.md) → AGENTS.md | Symlink to AGENTS.md | n8n workflow automation |
 | [GEMINI.md](GEMINI.md) → AGENTS.md | Symlink to AGENTS.md | Gemini AI agent integration |
 | [QWEN.md](QWEN.md) → AGENTS.md | Symlink to AGENTS.md | Qwen AI agent integration |
-| [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) | Template system guide | Variable substitution, examples |
 
 ### Configuration Files
 
@@ -1782,8 +1780,7 @@ Common command patterns to use:
 
 ## Related Files
 
-- **[README.md](README.md)**: Main project documentation
-- **[QUICKSTART.md](QUICKSTART.md)**: Get started quickly
+- **[README.md](README.md)**: Main project documentation with quick start and usage examples
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
 - **[CLAUDE.md](CLAUDE.md)**, **[CURSOR.md](CURSOR.md)**, **[N8N.md](N8N.md)**, **[GEMINI.md](GEMINI.md)**, **[QWEN.md](QWEN.md)**: Symlinks to this file for AI framework compatibility
 
