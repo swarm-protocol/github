@@ -120,6 +120,14 @@ Clearly define what this agent should NOT do:
 - Only work on files in [allowed directories]
 - Only make changes related to [specific scope]
 
+## Security Considerations
+
+Define security-related guidelines and requirements:
+
+- [ ] [Security check 1]
+- [ ] [Security check 2]
+- [ ] [Security check 3]
+
 ## Git Workflow
 
 Define commit and PR conventions:

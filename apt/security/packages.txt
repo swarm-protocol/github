@@ -1,0 +1,23 @@
+# Security auditing tools for GitHub Copilot Agents
+# Install with: sudo apt install $(cat packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# System Auditing
+lynis
+
+# Secret Scanning
+# Note: gitleaks and git-secrets often require manual installation or separate repos
+git
+
+# Dependency Scanning (Note: pip-audit requires pip)
+python3-pip
+
+# Utilities
+jq
+curl
+gh
+
+# Note: For specialized security tools like Semgrep, Trivy, or Snyk,
+# it's recommended to follow their official installation guides:
+# - Semgrep: pip3 install semgrep
+# - Trivy: https://aquasecurity.github.io/trivy/latest/getting-started/installation/
+# - Snyk: npm install -g snyk

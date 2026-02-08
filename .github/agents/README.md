@@ -32,6 +32,7 @@ cp TEMPLATE.agent.md your-agent-name.agent.md
 | **documentation-builder.agent.md** | ✅ Ready | Build docs from templates |
 | **docker-specialist.agent.md** | ✅ Ready | Docker & Kubernetes expert |
 | **ansible-specialist.agent.md** | ✅ Ready | Ansible automation expert |
+| **security-auditor.agent.md** | ✅ Ready | Security audit & remediation expert |
 
 ## YAML Front Matter (Required)
 
