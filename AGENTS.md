@@ -948,11 +948,13 @@ n8n start
 | [README.md](README.md) | Main repository overview | Project intro, quick start, features |
 | [QUICKSTART.md](QUICKSTART.md) | Fast onboarding guide | Installation, first steps, examples |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines | How to contribute, PR process, standards |
-| [CLAUDE.md](CLAUDE.md) | Claude AI context file | Architecture, components, development workflow |
-| [CURSOR.md](CURSOR.md) | Cursor agent documentation | Rules, skills, subagents, MCP integration |
-| [N8N.md](N8N.md) | n8n agent framework | Visual workflows, AI agents, LangChain, MCP |
+| **[AGENTS.md](AGENTS.md)** | **This file** | **AI frameworks, navigation hub, bash commands** |
+| [CLAUDE.md](CLAUDE.md) → AGENTS.md | Symlink to AGENTS.md | GitHub Copilot agent context |
+| [CURSOR.md](CURSOR.md) → AGENTS.md | Symlink to AGENTS.md | Cursor agent framework |
+| [N8N.md](N8N.md) → AGENTS.md | Symlink to AGENTS.md | n8n workflow automation |
+| [GEMINI.md](GEMINI.md) → AGENTS.md | Symlink to AGENTS.md | Gemini AI agent integration |
+| [QWEN.md](QWEN.md) → AGENTS.md | Symlink to AGENTS.md | Qwen AI agent integration |
 | [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) | Template system guide | Variable substitution, examples |
-| **[AGENTS.md](AGENTS.md)** | **This file** | **Navigation hub, bash commands** |
 
 ### Configuration Files
 
@@ -978,7 +980,7 @@ Cursor IDE configuration for AI-assisted development:
 | [.cursor/rules/documentation.md](.cursor/rules/documentation.md) | Documentation standards |
 | [.cursor/rules/code-review.md](.cursor/rules/code-review.md) | Code review guidelines |
 
-See [CURSOR.md](CURSOR.md) for complete Cursor framework documentation.
+See [Cursor Agent Framework](#cursor-agent-framework) section for complete documentation.
 
 ### GitHub Copilot Agents (`.github/agents/`)
 
@@ -1493,10 +1495,8 @@ Common command patterns to use:
 
 - **[README.md](README.md)**: Main project documentation
 - **[QUICKSTART.md](QUICKSTART.md)**: Get started quickly
-- **[CLAUDE.md](CLAUDE.md)**: Claude AI context
-- **[CURSOR.md](CURSOR.md)**: Cursor IDE integration
-- **[N8N.md](N8N.md)**: n8n workflow automation
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
+- **[CLAUDE.md](CLAUDE.md)**, **[CURSOR.md](CURSOR.md)**, **[N8N.md](N8N.md)**, **[GEMINI.md](GEMINI.md)**, **[QWEN.md](QWEN.md)**: Symlinks to this file for AI framework compatibility
 
 ---
 
@@ -1537,6 +1537,6 @@ ls -la
 
 ---
 
-**Last Updated**: 2026-01-30
+**Last Updated**: 2026-02-08
 
 **Repository**: swarm-protocol/github

@@ -110,13 +110,13 @@ A refactoring specialist agent focused on:
 
 A documentation builder specialist agent focused on:
 - Generating README.md from template files
-- Building CLAUDE.md for AI context
+- Building AGENTS.md for AI context
 - Processing template variables and substitutions
 - Maintaining consistent documentation structure
 
 **Status:** Uncommented and ready to use immediately!
 
-**Use this when:** You need to build or regenerate README.md and CLAUDE.md files from templates with variable substitution.
+**Use this when:** You need to build or regenerate README.md and AGENTS.md files from templates with variable substitution.
 
 ### 7. docker-specialist.agent.md ✅ READY TO USE
 
@@ -156,7 +156,7 @@ An Ansible automation specialist agent focused on:
     ├── documentation-expert.agent.md  # ✅ Documentation agent (READY)
     ├── code-reviewer.agent.md         # ✅ Code review agent (READY)
     ├── refactoring-assistant.agent.md # ✅ Refactoring agent (READY)
-    ├── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
+    ├── documentation-builder.agent.md # ✅ README/AGENTS.md builder (READY)
     ├── docker-specialist.agent.md     # ✅ Docker & YAML expert (READY)
     └── ansible-specialist.agent.md    # ✅ Ansible automation (READY)
 ```

@@ -51,7 +51,7 @@ Code review specialist focused on quality, security, and best practices.
 Ready-to-use agent for safe code refactoring and improving maintainability (uncommented and ready to use!).
 
 ### 📄 documentation-builder.agent.md
-Ready-to-use agent for building README.md and CLAUDE.md from template files with variable substitution (uncommented and ready to use!).
+Ready-to-use agent for building README.md and AGENTS.md from template files with variable substitution (uncommented and ready to use!).
 
 ## Features
 
