@@ -21,6 +21,27 @@ Run the bootstrap script to set up your development environment:
 ./bootstrap.sh
 ```
 
+### Automated Setup (Non-interactive)
+
+For automated or CI/CD setup, use the command-line flags to bypass interactive prompts:
+
+```bash
+# General automated setup (auto-detects method)
+./bootstrap.sh --env common --yes
+
+# Specific method and environment
+./bootstrap.sh --method nix --env security --yes
+
+# Install all available APT environments
+./bootstrap.sh --method apt --env all --yes
+```
+
+#### Available Flags:
+- `--method <nix|apt>`: Specify the setup method (Nix is recommended for reproducible environments).
+- `--env <name>`: Specify the environment type (e.g., `common`, `test`, `security`, `all`).
+- `-y`, `--yes`: Assume yes to all prompts and run non-interactively.
+- `--help`: Show all available options and environments.
+
 The script will:
 - Detect your system (Nix or APT)
 - Install required dependencies
@@ -30,9 +51,10 @@ The script will:
 ### Manual Setup
 
 1. **Explore the templates** in the `.github/agents/` directory
-2. **Copy a template** that fits your needs
+2. **Copy a template** that fits your needs from `.github/agents/`
 3. **Customize** the agent for your specific requirements
-4. **Use in your repository** or organization
+4. **Verify** the template using the validation script: `python3 src/scripts/validate_agents.py`
+5. **Use in your repository** or organization
 
 See [.github/agents/README.md](.github/agents/README.md) for detailed instructions.
 
@@ -62,6 +84,17 @@ Ready-to-use agent for building README.md and AGENTS.md from template files with
 **Status:** Ready to use immediately!
 
 See [AGENTS.md - Using the Documentation-Builder Agent](AGENTS.md#using-the-documentation-builder-agent) for usage examples.
+
+### security-auditor.agent.md
+Specialized agent for identifying security vulnerabilities and recommending remediations.
+**Status:** Ready to use immediately!
+
+**Specializes in:**
+- OWASP Top 10 vulnerabilities
+- Hardcoded secrets and credentials detection
+- Input validation and sanitization
+- Dependency security audits
+- Secure coding patterns and best practices
 
 ### docker-specialist.agent.md 
 Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML configurations.
@@ -174,6 +207,14 @@ The agent will safely refactor code while maintaining functionality.
 ```
 
 The agent will create multi-stage Dockerfiles following best practices.
+
+### With Security Auditor
+
+```
+@security-auditor audit this code for OWASP Top 10 vulnerabilities
+```
+
+The agent will perform a comprehensive security audit and recommend remediations.
 
 ## Best Practices
 
@@ -288,6 +329,9 @@ nix develop ./nix/terraform
 
 # Ansible environment (Configuration Management)
 nix develop ./nix/ansible
+
+# Security environment (Auditing and Scanning)
+nix develop ./nix/security
 ```
 
 See [AGENTS.md - Nix Development Environments](AGENTS.md#nix-development-environments-nix) for complete setup instructions and environment details.

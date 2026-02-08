@@ -2,13 +2,13 @@
 
 This file contains instructions and prompts for AI coding agents working in the `data/` directory.
 
-## Code Reviewer Agent
+## Code Reviewer & Security Auditor Agents
 
-When working with data files, schemas, and configurations, use **@code-reviewer** to ensure data integrity:
+When working with data files, schemas, and configurations, use **@code-reviewer** for integrity and **@security-auditor** for security:
 
 ```
 @code-reviewer validate schemas in data/schemas/
-@code-reviewer check configuration files for security issues
+@security-auditor check configuration files for security issues
 ```
 
 ## Tasks for Agents
@@ -39,7 +39,7 @@ When working with data files, schemas, and configurations, use **@code-reviewer*
 
 **Review Security:**
 ```
-@code-reviewer check for hardcoded secrets in config files
+@security-auditor check for hardcoded secrets in config files
 ```
 
 **Update Config:**
@@ -128,7 +128,7 @@ agent:
 @code-reviewer check YAML syntax in data/configs/
 
 # Verify no secrets committed
-@code-reviewer scan data/ for potential secrets or credentials
+@security-auditor scan data/ for potential secrets or credentials
 
 # Ensure consistent formatting
 @refactoring-assistant format all JSON files in data/

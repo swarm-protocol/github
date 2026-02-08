@@ -19,7 +19,25 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Global variables for non-interactive mode
+SETUP_METHOD=""
+ENV_TYPE=""
+ASSUME_YES=false
+
 # Helper functions
+show_help() {
+    echo "Usage: ./bootstrap.sh [options]"
+    echo
+    echo "Options:"
+    echo "  --method <nix|apt>  Set the setup method"
+    echo "  --env <name>        Set the environment type (e.g., security, common, all)"
+    echo "  -y, --yes           Assume yes to all prompts (non-interactive)"
+    echo "  --help              Show this help message"
+    echo
+    echo "Available environments: common, test, docker, documentation, code-review,"
+    echo "                        refactoring, wrangler, terraform, ansible, security, all"
+}
+
 print_header() {
     echo -e "\n${BLUE}${NC}"
     echo -e "${BLUE}  $1${NC}"
@@ -90,10 +108,19 @@ install_nix() {
     print_header "Installing Nix"
     
     print_info "This will install Nix using the Determinate Systems installer"
-    read -p "Continue? (y/n) " -n 1 -r
-    echo
     
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    local proceed=false
+    if [ "$ASSUME_YES" = true ]; then
+        proceed=true
+    else
+        read -p "Continue? (y/n) " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            proceed=true
+        fi
+    fi
+
+    if [ "$proceed" = true ]; then
         curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
         
         if [ $? -eq 0 ]; then
@@ -147,7 +174,7 @@ setup_apt_environment() {
     print_info "Installing packages from apt/$env_type/packages.txt"
     print_warning "This requires sudo privileges"
     
-    if xargs -a "apt/$env_type/packages.txt" sudo apt install -y; then
+    if grep -v '^#' "apt/$env_type/packages.txt" | xargs -r sudo apt install -y; then
         print_success "Packages installed successfully"
         return 0
     else
@@ -159,62 +186,80 @@ setup_apt_environment() {
 # Show environment menu
 show_environment_menu() {
     local setup_method=$1
+    local env_type=$ENV_TYPE
     
-    print_header "Choose Development Environment"
-    
-    echo "Available environments:"
-    echo "  1) common        - Core development tools (git, editors, etc.)"
-    echo "  2) test          - Testing frameworks and tools"
-    echo "  3) docker        - Docker and container tools"
-    echo "  4) documentation - Documentation generation tools"
-    echo "  5) code-review   - Linters, formatters, analyzers"
-    echo "  6) refactoring   - Code transformation tools"
-    echo "  7) wrangler      - CloudFlare Workers development"
-    echo "  8) terraform     - Infrastructure as Code tools"
-    echo "  9) all           - Install all environments (APT only)"
-    echo "  0) exit          - Exit setup"
-    echo
-    
-    read -p "Select environment (1-9, 0 to exit): " choice
-    
-    case $choice in
-        1) env_type="common" ;;
-        2) env_type="test" ;;
-        3) env_type="docker" ;;
-        4) env_type="documentation" ;;
-        5) env_type="code-review" ;;
-        6) env_type="refactoring" ;;
-        7) env_type="wrangler" ;;
-        8) env_type="terraform" ;;
-        9) 
-            if [ "$setup_method" = "apt" ]; then
-                env_type="all"
-            else
-                print_error "Installing all environments is only supported with APT"
-                return 1
-            fi
-            ;;
-        0) 
-            print_info "Exiting setup"
-            exit 0
-            ;;
-        *)
-            print_error "Invalid choice"
+    if [ -z "$env_type" ]; then
+        if [ "$ASSUME_YES" = true ]; then
+            print_error "Environment type (--env) must be specified in non-interactive mode"
             return 1
-            ;;
-    esac
+        fi
+        print_header "Choose Development Environment"
+
+        echo "Available environments:"
+        echo "  1) common        - Core development tools (git, editors, etc.)"
+        echo "  2) test          - Testing frameworks and tools"
+        echo "  3) docker        - Docker and container tools"
+        echo "  4) documentation - Documentation generation tools"
+        echo "  5) code-review   - Linters, formatters, analyzers"
+        echo "  6) refactoring   - Code transformation tools"
+        echo "  7) wrangler      - CloudFlare Workers development"
+        echo "  8) terraform     - Infrastructure as Code tools"
+        echo "  9) ansible       - Ansible automation tools"
+        echo "  10) security      - Security auditing and scanning tools"
+        echo "  11) all           - Install all environments (APT only)"
+        echo "  0) exit          - Exit setup"
+        echo
+
+        read -p "Select environment (1-11, 0 to exit): " choice
+
+        case $choice in
+            1) env_type="common" ;;
+            2) env_type="test" ;;
+            3) env_type="docker" ;;
+            4) env_type="documentation" ;;
+            5) env_type="code-review" ;;
+            6) env_type="refactoring" ;;
+            7) env_type="wrangler" ;;
+            8) env_type="terraform" ;;
+            9) env_type="ansible" ;;
+            10) env_type="security" ;;
+            11)
+                if [ "$setup_method" = "apt" ]; then
+                    env_type="all"
+                else
+                    print_error "Installing all environments is only supported with APT"
+                    return 1
+                fi
+                ;;
+            0)
+                print_info "Exiting setup"
+                exit 0
+                ;;
+            *)
+                print_error "Invalid choice"
+                return 1
+                ;;
+        esac
+    fi
     
     if [ "$setup_method" = "nix" ]; then
-        setup_nix_environment "$env_type"
+        setup_nix_environment "$env_type" || return 1
     elif [ "$setup_method" = "apt" ]; then
         if [ "$env_type" = "all" ]; then
-            for env in common test docker documentation code-review refactoring wrangler terraform; do
-                setup_apt_environment "$env"
+            local failed=false
+            for env in common test docker documentation code-review refactoring wrangler terraform ansible security; do
+                if ! setup_apt_environment "$env"; then
+                    failed=true
+                fi
             done
+            if [ "$failed" = true ]; then
+                return 1
+            fi
         else
-            setup_apt_environment "$env_type"
+            setup_apt_environment "$env_type" || return 1
         fi
     fi
+    return 0
 }
 
 # Verify setup
@@ -287,7 +332,7 @@ show_next_steps() {
     echo "   • Invoke with @agent-name in GitHub Copilot Chat"
     echo "   • Available agents: test-specialist, documentation-expert,"
     echo "     code-reviewer, refactoring-assistant, docker-specialist,"
-    echo "     documentation-builder"
+    echo "     documentation-builder, ansible-specialist, security-auditor"
     echo
     echo "Development Environments:"
     if check_nix > /dev/null 2>&1; then
@@ -310,6 +355,33 @@ show_next_steps() {
 
 # Main function
 main() {
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --method)
+                SETUP_METHOD="$2"
+                shift 2
+                ;;
+            --env)
+                ENV_TYPE="$2"
+                shift 2
+                ;;
+            -y|--yes)
+                ASSUME_YES=true
+                shift
+                ;;
+            --help)
+                show_help
+                exit 0
+                ;;
+            *)
+                print_error "Unknown option: $1"
+                show_help
+                exit 1
+                ;;
+        esac
+    done
+
     print_header "GitHub Copilot Agent Templates - Bootstrap"
     
     echo "This script will help you set up your development environment."
@@ -333,13 +405,55 @@ main() {
     fi
     echo
     
+    # Auto-detect method if env is provided but method is not (for automation)
+    if [ -n "$ENV_TYPE" ] && [ -z "$SETUP_METHOD" ]; then
+        if [ "$has_nix" = true ]; then
+            SETUP_METHOD="nix"
+            print_info "Auto-detected setup method: nix (based on --env)"
+        elif [ "$has_apt" = true ]; then
+            SETUP_METHOD="apt"
+            print_info "Auto-detected setup method: apt (based on --env)"
+        fi
+    fi
+
     # Determine setup method
-    if [ "$has_nix" = true ]; then
-        print_info "Nix is available - recommended for reproducible environments"
-        read -p "Use Nix for setup? (y/n) " -n 1 -r
+    if [ -n "$SETUP_METHOD" ]; then
+        if [ "$SETUP_METHOD" = "nix" ] && [ "$has_nix" = true ]; then
+            if ! show_environment_menu "nix"; then
+                exit 1
+            fi
+        elif [ "$SETUP_METHOD" = "apt" ] && [ "$has_apt" = true ]; then
+            if ! show_environment_menu "apt"; then
+                exit 1
+            fi
+        else
+            print_error "Setup method '$SETUP_METHOD' not available or invalid"
+            exit 1
+        fi
+
         echo
+        if verify_setup; then
+            print_success "Setup verification passed!"
+        else
+            print_warning "Setup verification completed with warnings"
+        fi
+        print_header "Bootstrap Complete (Automated)!"
+        exit 0
+    elif [ "$has_nix" = true ]; then
+        print_info "Nix is available - recommended for reproducible environments"
         
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
+        local use_nix=false
+        if [ "$ASSUME_YES" = true ]; then
+            use_nix=true
+        else
+            read -p "Use Nix for setup? (y/n) " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                use_nix=true
+            fi
+        fi
+
+        if [ "$use_nix" = true ]; then
             show_environment_menu "nix"
         elif [ "$has_apt" = true ]; then
             print_info "Falling back to APT"
@@ -353,10 +467,19 @@ main() {
         show_environment_menu "apt"
     else
         print_warning "Neither Nix nor APT is available"
-        read -p "Would you like to install Nix? (y/n) " -n 1 -r
-        echo
         
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
+        local install_nix_choice=false
+        if [ "$ASSUME_YES" = true ]; then
+            install_nix_choice=true
+        else
+            read -p "Would you like to install Nix? (y/n) " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                install_nix_choice=true
+            fi
+        fi
+
+        if [ "$install_nix_choice" = true ]; then
             if install_nix; then
                 print_success "Nix installed - please restart your shell and run this script again"
                 exit 0

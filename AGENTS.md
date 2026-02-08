@@ -118,6 +118,10 @@ Expert in Docker, Dockerfiles, docker-compose, and Kubernetes YAML - uncommented
 
 Expert in Ansible automation, playbooks, roles, and infrastructure configuration management.
 
+### 9. security-auditor.agent.md (ready to use)
+
+Expert in identifying security vulnerabilities, performing audits, and recommending remediations.
+
 ## Development Workflow
 
 ### For Users
@@ -2660,6 +2664,7 @@ All agent files are in `.github/agents/` directory:
 | Refactoring Assistant | `refactoring-assistant.agent.md` | Safe code refactoring patterns |
 | Docker Specialist | `docker-specialist.agent.md` | Dockerfiles, compose, Kubernetes |
 | Ansible Specialist | `ansible-specialist.agent.md` | Ansible playbooks, roles, automation |
+| Security Auditor | `security-auditor.agent.md` | Security audits, vulnerability remediation |
 
 **Invoke agents**: `@agent-name` in GitHub Copilot Chat
 
@@ -2680,6 +2685,7 @@ All agent files are in `.github/agents/` directory:
 | Wrangler | `nix/wrangler/` | CloudFlare Workers development |
 | Terraform | `nix/terraform/` | Infrastructure as Code tools |
 | Ansible | `nix/ansible/` | Ansible automation tools |
+| Security | `nix/security/` | Security auditing and scanning tools |
 
 #### APT Packages (`apt/`)
 
@@ -2696,6 +2702,7 @@ All agent files are in `.github/agents/` directory:
 | Wrangler | `apt/wrangler/packages.txt` | CloudFlare tools |
 | Terraform | `apt/terraform/packages.txt` | IaC packages |
 | Ansible | `apt/ansible/packages.txt` | Ansible automation packages |
+| Security | `apt/security/packages.txt` | Security auditing packages |
 
 ### Infrastructure (`terraform/`)
 
@@ -2870,6 +2877,7 @@ This directory contains APT package lists for setting up development environment
 | **wrangler** | Cloudflare Workers development tools | [`wrangler/packages.txt`](apt/wrangler/packages.txt) |
 | **terraform** | Infrastructure as Code tools | [`terraform/packages.txt`](apt/terraform/packages.txt) |
 | **ansible** | Ansible automation and configuration management | [`ansible/packages.txt`](apt/ansible/packages.txt) |
+| **security** | Security auditing and scanning tools | [`security/packages.txt`](apt/security/packages.txt) |
 
 #### Quick Start
 
@@ -3075,6 +3083,12 @@ Includes: terraform, terragrunt, tfsec, terrascan, checkov, infracost, awscli2, 
 Purpose: Infrastructure automation
 
 Includes: ansible, ansible-lint, molecule, pytest, awscli2, gcloud, azure-cli, docker, yamllint, openssh
+
+**Security (`nix/security/`):**
+
+Purpose: Security auditing and scanning
+
+Includes: semgrep, trivy, gitleaks, git-secrets, pip-audit, lynis, jq, yq-go, curl
 
 ### Data Directory (`data/`)
 
@@ -3589,6 +3603,48 @@ This subdirectory contains example configurations and scripts for CloudFlare dep
 
 ## Common Bash Commands
 
+### Bootstrap Script Walkthrough (`bootstrap.sh`)
+
+The `bootstrap.sh` script is the primary entry point for setting up development environments. It supports both interactive and automated modes.
+
+#### Command-Line Arguments
+
+| Argument | Values | Description |
+|----------|--------|-------------|
+| `--method` | `nix`, `apt` | Forces a specific setup method. |
+| `--env` | *See below* | Specifies the environment type to install. |
+| `-y`, `--yes` | *None* | Bypasses all confirmation prompts (essential for automation). |
+| `--help` | *None* | Displays the help message with all options. |
+
+#### Available Environments
+
+The `--env` flag accepts the following values:
+
+- `common`: Core development tools (git, editors, shell utilities).
+- `test`: Testing frameworks for JS, Python, Go, Rust, Java.
+- `docker`: Container tools (Docker, K8s, Helm, Trivy).
+- `documentation`: Doc generation tools (Pandoc, Markdownlint).
+- `code-review`: Static analysis and linting tools.
+- `refactoring`: Code transformation and search tools.
+- `wrangler`: CloudFlare Workers development.
+- `terraform`: IaC tools (Terraform, TFLint, Cloud CLIs).
+- `ansible`: Infrastructure automation (Ansible, Molecule).
+- `security`: Security auditing (Semgrep, Trivy, Gitleaks, Lynis).
+- `all`: (APT only) Installs all of the above.
+
+#### Automation Workflow (CI/CD)
+
+To use `bootstrap.sh` in a non-interactive pipeline:
+
+1. **Auto-detection**: If you only provide `--env <name> --yes`, the script will auto-detect the best available method (Nix first, then APT).
+2. **Explicit Method**: Use `--method <nix|apt>` to ensure a consistent environment.
+3. **Verification**: The script returns exit code `0` on success and `1` on failure, and automatically runs a verification check at the end of the setup.
+
+Example for a security CI job:
+```bash
+./bootstrap.sh --env security --yes
+```
+
 ### Environment Setup
 
 #### Nix (Recommended for Reproducibility)
@@ -3919,6 +3975,11 @@ cd github
 
 # 2. Run automated setup (RECOMMENDED)
 ./bootstrap.sh
+
+# Or run in non-interactive mode for automation:
+./bootstrap.sh --env common --yes
+./bootstrap.sh --method nix --env security --yes
+./bootstrap.sh --method apt --env all --yes
 
 # The bootstrap script will:
 # - Detect your system (Nix or APT)

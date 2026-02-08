@@ -6,7 +6,8 @@ This file contains instructions and prompts for AI coding agents working in the 
 
 ### Code Development
 - **@refactoring-assistant**: For refactoring existing code
-- **@code-reviewer**: For code review and security
+- **@code-reviewer**: For code review and quality
+- **@security-auditor**: For security audits and vulnerability remediation
 - **@test-specialist**: For writing tests
 
 ### Language-Specific Tasks
@@ -214,20 +215,20 @@ Before committing code:
 
 ## Security Considerations
 
-Use **@code-reviewer** to check for:
+Use **@security-auditor** to check for:
 
 ```bash
 # Check for security issues
-@code-reviewer scan src/ for security vulnerabilities
+@security-auditor scan src/ for security vulnerabilities
 
 # Check for secrets
-@code-reviewer verify no credentials in src/
+@security-auditor verify no credentials in src/
 
 # Review dependencies
-@code-reviewer check dependencies for known vulnerabilities
+@security-auditor check dependencies for known vulnerabilities
 
 # Validate input handling
-@code-reviewer review input validation in src/agents/
+@security-auditor review input validation in src/agents/
 ```
 
 ## Performance Optimization
