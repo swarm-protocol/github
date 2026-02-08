@@ -2941,15 +2941,4 @@ ls -la
 
 ---
 
-## Tips
-
-- **Keep this file updated**: As new directories/READMEs are added, update the sitemap
-- **Use as reference**: This file is designed to be comprehensive, not exhaustive
-- **Command customization**: Adapt bash commands to your specific project needs
-- **Agent context**: GitHub Copilot reads this file to understand repository structure
-
----
-
-**Last Updated**: 2026-02-08
-
-**Repository**: swarm-protocol/github
+# EOF
