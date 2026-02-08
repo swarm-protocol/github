@@ -34,6 +34,11 @@
 # CONFIGURATION
 # Define the expected file structure of the original repository.
 # Update this list to match your project's canonical files and directories.
+#
+# TIP: You can generate this list from the original repo with:
+#   git ls-files | sort
+# or:
+#   find . -not -path './.git/*' -type f | sed 's|^\./||' | sort
 ###############################################################################
 
 # EXPECTED_FILES=(
