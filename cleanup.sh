@@ -201,7 +201,7 @@
 
 # --- Clean Up Empty Directories ---
 # # Remove any directories that are now empty after file deletion
-# find . -not -path './.git/*' -type d -empty -delete 2>/dev/null
+# find . -path './.git' -prune -o -type d -empty -delete 2>/dev/null
 
 # --- Summary ---
 # echo ""
