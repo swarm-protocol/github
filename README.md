@@ -62,7 +62,7 @@ This repository provides ready-to-use templates for creating specialized GitHub 
 Run the bootstrap script to set up your development environment:
 
 ```bash
-./bootstrap.sh
+bash bootstrap.sh
 ```
 
 ### Automated Setup (Non-interactive)
@@ -71,13 +71,13 @@ For automated or CI/CD setup, use the command-line flags to bypass interactive p
 
 ```bash
 # General automated setup (auto-detects method)
-./bootstrap.sh --env common --yes
+bash bootstrap.sh --env common --yes
 
 # Specific method and environment
-./bootstrap.sh --method nix --env security --yes
+bash bootstrap.sh --method nix --env security --yes
 
 # Install all available APT environments
-./bootstrap.sh --method apt --env all --yes
+bash bootstrap.sh --method apt --env all --yes
 ```
 
 #### Available Flags:

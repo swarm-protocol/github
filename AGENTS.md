@@ -3785,7 +3785,7 @@ To use `bootstrap.sh` in a non-interactive pipeline:
 
 Example for a security CI job:
 ```bash
-./bootstrap.sh --env security --yes
+bash bootstrap.sh --env security --yes
 ```
 
 ### Environment Setup
@@ -4117,12 +4117,12 @@ git clone https://github.com/swarm-protocol/github.git
 cd github
 
 # 2. Run automated setup (RECOMMENDED)
-./bootstrap.sh
+bash bootstrap.sh
 
 # Or run in non-interactive mode for automation:
-./bootstrap.sh --env common --yes
-./bootstrap.sh --method nix --env security --yes
-./bootstrap.sh --method apt --env all --yes
+bash bootstrap.sh --env common --yes
+bash bootstrap.sh --method nix --env security --yes
+bash bootstrap.sh --method apt --env all --yes
 
 # The bootstrap script will:
 # - Detect your system (Nix or APT)
