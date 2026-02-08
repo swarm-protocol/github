@@ -26,7 +26,7 @@ ASSUME_YES=false
 
 # Helper functions
 show_help() {
-    echo "Usage: ./bootstrap.sh [options]"
+    echo "Usage: bash bootstrap.sh [options]"
     echo
     echo "Options:"
     echo "  --method <nix|apt>  Set the setup method"
