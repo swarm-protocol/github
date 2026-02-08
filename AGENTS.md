@@ -159,6 +159,70 @@ Expert in Ansible automation, playbooks, roles, and infrastructure configuration
 - File must end with `.agent.md`
 - YAML front matter must be valid
 
+## YAML Configuration Reference
+
+**⚠️ CRITICAL:** The YAML front matter MUST NOT be commented out! Custom agents require valid YAML to work.
+
+### Required Properties
+
+```yaml
+---
+name: your-agent-name
+description: A brief description of what this agent does (REQUIRED)
+---
+```
+
+### All Available Properties
+
+| Property | Required | Description | Example |
+|----------|----------|-------------|---------|
+| `name` | Yes | Display name for the agent | `test-specialist` |
+| `description` | **Yes** | Agent's purpose and specialization | `"Expert in writing tests"` |
+| `tools` | No | List of available tools (omit for all tools) | `["read", "edit", "search"]` |
+| `target` | No | Where agent runs: `vscode`, `github-copilot`, or both | `vscode` |
+| `infer` | No | Auto-select agent based on context | `true` |
+| `mcp-servers` | No | MCP server configurations (org/enterprise only) | See below |
+
+### Available Tool Aliases
+
+- `execute` - Run shell commands
+- `read` - Read files
+- `edit` - Modify files
+- `search` - Search codebase
+- `agent` - Call other agents
+- `web` - Web requests
+- `todo` - Task management
+
+### Example Configurations
+
+**Example with Optional Properties:**
+```yaml
+---
+name: python-test-expert
+description: Expert in Python testing with pytest and unittest
+tools: ["read", "edit", "execute"]
+target: vscode
+infer: true
+---
+```
+
+**Example with MCP Servers (Enterprise/Org only):**
+```yaml
+---
+name: github-integration-agent
+description: Agent with GitHub API access
+mcp-servers:
+  github:
+    read: true
+    write: false
+---
+```
+
+**Important naming rules:**
+- Use only letters, numbers, hyphens, and underscores
+- Keep it descriptive but concise
+- Example: `python-test-expert`, `api-documentation-writer`
+
 ## Best Practices
 
 1. **Specialization**: One agent should do one thing well
@@ -166,6 +230,231 @@ Expert in Ansible automation, playbooks, roles, and infrastructure configuration
 3. **Boundaries**: Explicitly state what agent should NOT do
 4. **Commands**: List exact commands to run
 5. **Testing**: Test agents in real scenarios before sharing
+
+## Using the Documentation-Builder Agent
+
+The `documentation-builder` agent generates README.md and AGENTS.md files from templates with variable substitution.
+
+### Quick Example
+
+#### Step 1: Create Template Files
+
+Create template files with placeholders:
+
+**README.template.md**:
+```markdown
+# {{PROJECT_NAME}}
+
+{{DESCRIPTION}}
+
+Version: {{VERSION}}
+Last Updated: {{DATE}}
+```
+
+**AGENTS.template.md**:
+```markdown
+# {{PROJECT_NAME}} - AI Agent Context
+
+Last Updated: {{DATE}}
+
+## Overview
+{{DESCRIPTION}}
+```
+
+#### Step 2: Invoke the Agent
+
+In GitHub Copilot Chat:
+
+```
+@documentation-builder Generate README.md and AGENTS.md from the template files. 
+Use these values:
+- PROJECT_NAME: "My Awesome Project"
+- DESCRIPTION: "A tool that does amazing things"
+- VERSION: "1.0.0"
+- DATE: "2026-02-08"
+```
+
+#### Step 3: Review Generated Files
+
+The agent will:
+1. Read the template files
+2. Replace all `{{VARIABLE}}` placeholders
+3. Generate README.md and AGENTS.md
+4. Validate the markdown
+
+### Advanced Usage
+
+**Using Package.json Values**:
+```
+@documentation-builder Generate docs from templates, extracting 
+PROJECT_NAME and VERSION from package.json
+```
+
+**Preserving Custom Sections**:
+Add special markers in your generated files to preserve manual edits:
+
+```markdown
+<!-- BEGIN CUSTOM SECTION -->
+This content won't be replaced during regeneration.
+<!-- END CUSTOM SECTION -->
+```
+
+**Multiple Template Sources**:
+```
+@documentation-builder Combine header.template.md, features.template.md, 
+and footer.template.md into README.md
+```
+
+### Available Variables
+
+Common template variables:
+
+- `{{PROJECT_NAME}}` - Project name
+- `{{DESCRIPTION}}` - Short description
+- `{{VERSION}}` - Version number
+- `{{DATE}}` - Current date
+- `{{LICENSE}}` - License type
+- `{{AUTHOR}}` - Author name
+- `{{REPOSITORY_STRUCTURE}}` - Directory tree
+- `{{TECH_STACK}}` - Technologies used
+
+### Template Examples
+
+See the repository root for example templates:
+- `README.template.md` - Example README template
+- `AGENTS.template.md` - Example AGENTS template
+
+### Tips
+
+1. **Backup First**: Always commit before regenerating
+2. **Test Variables**: Check that all variables are replaced
+3. **Validate Output**: Use markdown linter to check syntax
+4. **Preserve Custom Content**: Use special markers for manual sections
+5. **Version Control**: Keep templates in version control
+
+### Troubleshooting
+
+**Variables Not Replaced**
+
+If you see `{{VARIABLE}}` in output:
+- Check variable name spelling
+- Ensure value was provided to the agent
+- Verify template file has correct syntax
+
+**Markdown Invalid**
+
+If generated markdown has issues:
+- Run `npx markdownlint README.md` to check
+- Verify template syntax is valid
+- Check for unescaped special characters
+
+**Agent Not Found**
+
+If `@documentation-builder` doesn't work:
+- Ensure file is in `.github/agents/`
+- File must be named `documentation-builder.agent.md`
+- Must be committed to default branch
+- Wait a few minutes for GitHub to process
+
+### Real-World Example
+
+This repository uses the documentation-builder agent! Check:
+- `README.template.md` - Template with variables
+- `AGENTS.template.md` - Template for AI agent framework context
+- `README.md` - Generated from template
+- `AGENTS.md` - Generated from template
+
+The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.
+
+## Agent Ideas and Use Cases
+
+Here are ideas for agents you might create to enhance your development workflow:
+
+### Development Agents
+
+- **backend-api-developer**: Backend API development with RESTful best practices
+- **frontend-component-builder**: React/Vue/Angular component creation
+- **database-migration-specialist**: Database schema changes and migrations
+- **performance-optimizer**: Performance analysis and optimization
+
+### Quality Agents
+
+- **security-auditor**: Security vulnerability detection and remediation
+- **accessibility-checker**: A11y compliance validation and fixes
+- **test-coverage-improver**: Increase test coverage strategically
+- **code-quality-enforcer**: Code quality standards and linting
+
+### Documentation Agents
+
+- **api-documenter**: API documentation (OpenAPI, Swagger, etc.)
+- **tutorial-writer**: Tutorial and guide creation
+- **changelog-maintainer**: Automated changelog maintenance
+- **readme-improver**: README quality and completeness improvements
+
+### DevOps Agents
+
+- **ci-cd-specialist**: CI/CD pipeline creation and maintenance
+- **docker-expert**: Docker and containerization specialist
+- **deployment-helper**: Deployment automation and verification
+- **monitoring-setup**: Monitoring, logging, and alerting setup
+
+## Troubleshooting GitHub Copilot Agents
+
+### Agent Not Working?
+
+1. **Check the file name**: Must end with `.agent.md`
+2. **Check the location**: Must be in `.github/agents/` directory
+3. **Check the YAML**: Must be valid YAML with `name` and `description`
+4. **Check it's uncommented**: Remove the `<!--` and `-->` wrapper
+5. **Check it's committed**: Must be committed to the repository
+6. **Check permissions**: Ensure you have access to use custom agents
+7. **Wait for processing**: GitHub may take a few minutes to process new agents
+
+### Agent Not Following Instructions?
+
+1. **Be more specific**: Add concrete examples and clear instructions
+2. **Add boundaries**: Explicitly state what NOT to do
+3. **Simplify**: Remove conflicting or unclear instructions
+4. **Test iteratively**: Make small changes and test again
+5. **Provide context**: Include code examples in the agent file
+
+### Can't Find My Agent?
+
+1. Type `@` in Copilot Chat to see available agents
+2. Check the agent name matches the YAML `name` field exactly
+3. Verify you have access to custom agents (Pro+ subscription required)
+4. Ensure the agent file is on the default branch
+
+## Official GitHub Copilot Resources
+
+### Documentation
+
+- [GitHub Copilot Documentation](https://docs.github.com/copilot)
+- [Creating Custom Agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+- [Custom Agents Configuration Reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
+- [About Custom Agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
+- [Custom Agents Template Repository](https://github.com/docs/custom-agents-template)
+- [Best Practices Guide](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
+
+### SDKs and Extensions
+
+- [GitHub Copilot SDK](https://github.com/github/copilot-sdk) - Build programmable agents with Node.js, Python, Go, or .NET
+- [Copilot Extensions Preview SDK](https://github.com/copilot-extensions/preview-sdk.js/) - Build agent-based extensions
+- [Blackbeard Extension Example](https://github.com/copilot-extensions/blackbeard-extension) - Sample pirate-themed agent
+
+### Training and Tutorials
+
+- [Building Applications with GitHub Copilot Agent Mode](https://learn.microsoft.com/en-us/training/modules/github-copilot-agent-mode/) - Microsoft Learn module
+- [Quickstart for Extensions Using Agents](https://docs.github.com/en/copilot/tutorials/try-extensions)
+- [Building Your First Extension](https://resources.github.com/learn/pathways/copilot/extensions/building-your-first-extension/)
+- [VS Code Getting Started with Copilot](https://code.visualstudio.com/docs/copilot/getting-started)
+- [GitHub Copilot Tutorials](https://docs.github.com/en/copilot/tutorials)
+
+### Advanced Topics
+
+- [Enhancing Agent Mode with MCP](https://docs.github.com/en/copilot/tutorials/try-extensions) - Model Context Protocol integration
+- [Microsoft Agent Framework with Copilot](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/github-copilot-agent)
+- [Building Agents with GitHub Copilot SDK](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-agents-with-github-copilot-sdk-a-practical-guide-to-automated-tech-upda/4488948)
 
 ---
 
