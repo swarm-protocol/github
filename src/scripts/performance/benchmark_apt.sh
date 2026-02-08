@@ -25,7 +25,7 @@ for env in "${envs[@]}"; do
         pkgs=$(sed 's/#.*//' "$pkg_file" | xargs)
         if [ -n "$pkgs" ]; then
             printf "Processing %-15s ... " "$env"
-            if apt-get install -s -o Debug::NoLocking=1 $pkgs > /dev/null 2>&1; then
+            if DEBIAN_FRONTEND=noninteractive apt-get install -s -y --no-install-recommends -o Debug::NoLocking=1 $pkgs > /dev/null 2>&1; then
                 echo "OK"
             else
                 echo "FAILED"
@@ -53,7 +53,7 @@ echo "Done ($(echo "$unique_packages" | wc -w) unique packages)"
 
 printf "Executing batch install ... "
 if [ -n "$unique_packages" ]; then
-    if apt-get install -s -o Debug::NoLocking=1 $unique_packages > /dev/null 2>&1; then
+    if DEBIAN_FRONTEND=noninteractive apt-get install -s -y --no-install-recommends -o Debug::NoLocking=1 $unique_packages > /dev/null 2>&1; then
         echo "OK"
     else
         echo "FAILED"

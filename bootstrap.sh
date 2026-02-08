@@ -189,7 +189,8 @@ setup_apt_environment() {
     pkgs=$(sed 's/#.*//' "apt/$env_type/packages.txt" | xargs)
 
     if [ -n "$pkgs" ]; then
-        if sudo apt install -y $pkgs; then
+        # Use apt-get for scripting and include --no-install-recommends for a leaner environment
+        if DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends $pkgs; then
             print_success "Packages installed successfully"
             return 0
         else
@@ -289,12 +290,15 @@ show_environment_menu() {
             local unique_packages
             unique_packages=$(echo "$all_packages" | tr ' ' '\n' | grep -v '^$' | sort -u | xargs)
 
+            print_info "Updating package cache..."
+            sudo apt-get update -y
+
             print_info "Installing all unique packages in a single batch..."
             print_warning "This requires sudo privileges and significantly reduces apt overhead"
 
             if [ -n "$unique_packages" ]; then
-                # Perform batch installation
-                if sudo apt install -y $unique_packages; then
+                # Perform batch installation using apt-get for script stability
+                if DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends $unique_packages; then
                     print_success "All packages installed successfully"
                 else
                     print_error "Failed to install some packages"
