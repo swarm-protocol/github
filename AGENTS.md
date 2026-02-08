@@ -1725,14 +1725,14 @@ This directory contains [Cursor](https://cursor.com) editor configurations for A
 
 ```
 .cursor/
-├── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+├── README.md → ../AGENTS.md (symlink)
 ├── rules/              # Project-specific rules for Cursor agents
 │   ├── general.md      # General project rules
 │   ├── testing.md      # Testing-specific rules
 │   ├── documentation.md # Documentation rules
 │   └── code-review.md  # Code review rules
 └── agents/             # Custom subagent configurations
-    └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+    └── README.md → ../../AGENTS.md (symlink)
 ```
 
 #### Rules
@@ -2032,13 +2032,13 @@ This directory contains data files, configurations, schemas, and examples used b
 
 ```
 data/
-├── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+├── README.md → ../AGENTS.md (symlink)
 ├── schemas/     # JSON Schema, OpenAPI specs, data models
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 ├── configs/     # Configuration files and templates
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 └── examples/    # Example data and sample files
-    └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+    └── README.md → ../../AGENTS.md (symlink)
 ```
 
 #### Purpose
@@ -2122,13 +2122,13 @@ This directory contains comprehensive documentation for the agent framework repo
 
 ```
 docs/
-├── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+├── README.md → ../AGENTS.md (symlink)
 ├── api/           # API documentation and reference materials
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 ├── guides/        # Step-by-step guides and tutorials
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 └── reference/     # Technical reference documentation
-    └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+    └── README.md → ../../AGENTS.md (symlink)
 ```
 
 #### Purpose
@@ -2202,13 +2202,13 @@ This directory contains source code, scripts, and utilities for the agent framew
 
 ```
 src/
-├── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+├── README.md → ../AGENTS.md (symlink)
 ├── agents/      # Agent implementation code
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 ├── utils/       # Utility functions and helpers
-│   └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+│   └── README.md → ../../AGENTS.md (symlink)
 └── scripts/     # Automation scripts and tools
-    └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+    └── README.md → ../../AGENTS.md (symlink)
 ```
 
 #### Purpose
@@ -2407,7 +2407,7 @@ terraform apply
 
 ```
 terraform/
-├── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+├── README.md → ../AGENTS.md (symlink)
 ├── main.tf                      # Main configuration
 ├── variables.tf                 # Input variables
 ├── outputs.tf                   # Output values
@@ -2419,7 +2419,7 @@ terraform/
 │   ├── pages/                   # CloudFlare Pages module
 │   └── dns/                     # CloudFlare DNS module
 └── examples/
-    └── README.md → /home/runner/work/github/github/AGENTS.md (symlink)
+    └── README.md → ../../AGENTS.md (symlink)
 ```
 
 #### Modules

@@ -1,1 +1,1 @@
-/home/runner/work/github/github/AGENTS.md
+../AGENTS.md
