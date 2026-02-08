@@ -2621,6 +2621,14 @@ The Supabase MCP server provides tools for:
 |------|---------|------------|
 | [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples, contributing guidelines |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **AI frameworks, navigation hub, bash commands** |
+| [CLAUDE.md](CLAUDE.md) | Symlink → AGENTS.md | AI instruction file for Claude |
+| [CURSOR.md](CURSOR.md) | Symlink → AGENTS.md | AI instruction file for Cursor |
+| [GEMINI.md](GEMINI.md) | Symlink → AGENTS.md | AI instruction file for Gemini |
+| [QWEN.md](QWEN.md) | Symlink → AGENTS.md | AI instruction file for Qwen |
+| [N8N.md](N8N.md) | Symlink → AGENTS.md | AI instruction file for n8n |
+| [SUPABASE.md](SUPABASE.md) | Symlink → AGENTS.md | AI instruction file for Supabase |
+
+> **Symlink Design for Automation**: The files CLAUDE.md, CURSOR.md, GEMINI.md, QWEN.md, N8N.md, and SUPABASE.md are all symlinks to AGENTS.md. This is intentional — many AI tools and platforms automatically look for their own named instruction file (e.g., Claude reads `CLAUDE.md`, Cursor reads `CURSOR.md`). By symlinking them all to a single AGENTS.md, we maintain one source of truth while ensuring every AI assistant automatically receives the same comprehensive repository context, architecture details, and navigation guidance. This simplifies automation and keeps all AI instructions consistent without duplication.
 
 ### Configuration Files
 
