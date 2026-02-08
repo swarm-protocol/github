@@ -220,7 +220,10 @@ get_available_environments() {
             local env_name
             env_name="${env_dir#apt/}"
             env_name="${env_name%/}"
-            envs+=("$env_name")
+            # Validate env_name is not empty
+            if [ -n "$env_name" ]; then
+                envs+=("$env_name")
+            fi
         done < <(find apt -mindepth 1 -maxdepth 1 -type d -print0 2>/dev/null | sort -z)
     fi
     echo "${envs[@]}"
@@ -276,12 +279,18 @@ show_environment_menu() {
 
         read -p "Select environment (0-$((i-1))): " choice
 
+        # Validate choice is numeric
+        if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
+            print_error "Invalid choice: must be a number"
+            return 1
+        fi
+
         if [ "$choice" = "0" ]; then
             print_info "Exiting setup"
             exit 0
         elif [ "$choice" -ge 1 ] && [ "$choice" -le "${#envs[@]}" ]; then
             env_type="${envs[$((choice-1))]}"
-        elif [ "$setup_method" = "apt" ] && [ "$choice" = "$all_option" ]; then
+        elif [ "$setup_method" = "apt" ] && [ -n "${all_option:-}" ] && [ "$choice" = "$all_option" ]; then
             env_type="all"
         else
             print_error "Invalid choice"
