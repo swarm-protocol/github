@@ -239,9 +239,8 @@ The `documentation-builder` agent generates README.md and AGENTS.md files from t
 
 #### Step 1: Create Template Files
 
-Create template files with placeholders:
+Create template files with placeholders (e.g., `my-readme.template.md`):
 
-**README.template.md**:
 ```markdown
 # {{PROJECT_NAME}}
 
@@ -249,16 +248,6 @@ Create template files with placeholders:
 
 Version: {{VERSION}}
 Last Updated: {{DATE}}
-```
-
-**AGENTS.template.md**:
-```markdown
-# {{PROJECT_NAME}} - AI Agent Context
-
-Last Updated: {{DATE}}
-
-## Overview
-{{DESCRIPTION}}
 ```
 
 #### Step 2: Invoke the Agent
@@ -318,12 +307,6 @@ Common template variables:
 - `{{REPOSITORY_STRUCTURE}}` - Directory tree
 - `{{TECH_STACK}}` - Technologies used
 
-### Template Examples
-
-See the repository root for example templates:
-- `README.template.md` - Example README template
-- `AGENTS.template.md` - Example AGENTS template
-
 ### Tips
 
 1. **Backup First**: Always commit before regenerating
@@ -358,13 +341,7 @@ If `@documentation-builder` doesn't work:
 
 ### Real-World Example
 
-This repository uses the documentation-builder agent! Check:
-- `README.template.md` - Template with variables
-- `AGENTS.template.md` - Template for AI agent framework context
-- `README.md` - Generated from template
-- `AGENTS.md` - Generated from template
-
-The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.
+This repository uses the documentation-builder agent to maintain consistency between README.md and AGENTS.md, allowing easy updates through template processing.
 
 ## Protocol: Generating QUICKSTART.md for Any Codebase
 
@@ -826,7 +803,7 @@ Here are ideas for agents you might create to enhance your development workflow:
 
 Comprehensive guide for building agent frameworks with **Cursor** - a powerful AI-powered code editor with advanced agent capabilities.
 
-> ** This Repository's Configuration**: See [`.cursor/README.md`](.cursor/README.md) for the actual Cursor configuration used in this repository.
+> **This Repository's Configuration**: See [Cursor IDE Configuration](#cursor-ide-configuration-cursor) section below for the actual Cursor configuration used in this repository.
 
 ## 1. Cursor Agent Architecture
 
@@ -1598,14 +1575,8 @@ n8n start
 
 | File | Purpose | Key Topics |
 |------|---------|------------|
-| [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines | How to contribute, PR process, standards |
+| [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples, contributing guidelines |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **AI frameworks, navigation hub, bash commands** |
-| [CLAUDE.md](CLAUDE.md) → AGENTS.md | Symlink to AGENTS.md | GitHub Copilot agent context |
-| [CURSOR.md](CURSOR.md) → AGENTS.md | Symlink to AGENTS.md | Cursor agent framework |
-| [N8N.md](N8N.md) → AGENTS.md | Symlink to AGENTS.md | n8n workflow automation |
-| [GEMINI.md](GEMINI.md) → AGENTS.md | Symlink to AGENTS.md | Gemini AI agent integration |
-| [QWEN.md](QWEN.md) → AGENTS.md | Symlink to AGENTS.md | Qwen AI agent integration |
 
 ### Configuration Files
 
@@ -1618,7 +1589,7 @@ n8n start
 
 ### Cursor IDE Configuration (`.cursor/`)
 
-**Main Index**: [.cursor/README.md](.cursor/README.md)
+**Main Index**: [Cursor IDE Configuration](#cursor-ide-configuration-cursor)
 
 Cursor IDE configuration for AI-assisted development:
 
@@ -1656,7 +1627,7 @@ All agent files are in `.github/agents/` directory:
 
 #### Nix Flakes (`nix/`)
 
-**Main Guide**: [nix/README.md](nix/README.md) - Comprehensive Nix setup documentation
+**Main Guide**: [Nix Development Environments](#nix-development-environments-nix) - Comprehensive Nix setup documentation
 
 | Environment | Location | Purpose |
 |-------------|----------|---------|
@@ -1672,7 +1643,7 @@ All agent files are in `.github/agents/` directory:
 
 #### APT Packages (`apt/`)
 
-**Main Guide**: [apt/README.md](apt/README.md) - Ubuntu/Debian package lists
+**Main Guide**: [APT Package Lists](#apt-package-lists-apt) - Ubuntu/Debian package lists
 
 | Environment | Location | Purpose |
 |-------------|----------|---------|
@@ -1688,7 +1659,7 @@ All agent files are in `.github/agents/` directory:
 
 ### Infrastructure (`terraform/`)
 
-**Main Guide**: [terraform/README.md](terraform/README.md) - CloudFlare infrastructure setup
+**Main Guide**: [Terraform Infrastructure](#terraform-infrastructure-terraform) - CloudFlare infrastructure setup
 
 | Module | Location | Purpose |
 |--------|----------|---------|
@@ -1699,7 +1670,7 @@ All agent files are in `.github/agents/` directory:
 
 ### Documentation (`docs/`)
 
-**Main Index**: [docs/README.md](docs/README.md)
+**Main Index**: [Documentation Directory](#documentation-directory-docs)
 
 | Section | Location | Purpose |
 |---------|----------|---------|
@@ -1710,7 +1681,7 @@ All agent files are in `.github/agents/` directory:
 
 ### Data (`data/`)
 
-**Main Index**: [data/README.md](data/README.md)
+**Main Index**: [Data Directory](#data-directory-data)
 
 | Section | Location | Purpose |
 |---------|----------|---------|
@@ -1721,7 +1692,7 @@ All agent files are in `.github/agents/` directory:
 
 ### Source Code (`src/`)
 
-**Main Index**: [src/README.md](src/README.md)
+**Main Index**: [Source Code Directory](#source-code-directory-src)
 
 | Section | Location | Purpose |
 |---------|----------|---------|
@@ -1729,6 +1700,800 @@ All agent files are in `.github/agents/` directory:
 | Utils | `src/utils/` | Utility functions and helpers |
 | Scripts | `src/scripts/` | Automation scripts |
 | Agent Prompts | `src/AGENT_PROMPTS.md` | Instructions for code agents |
+
+---
+
+## Detailed Directory Documentation
+
+> **Note**: This section contains detailed documentation previously found in subdirectory README.md files. 
+> 
+> **Symlink Design**: All subdirectory README.md files now symlink to this AGENTS.md file. When you navigate to any subdirectory and view its README.md, you'll see this entire AGENTS.md content. This is intentional - AGENTS.md serves as a comprehensive navigation hub for the entire repository. Use your browser/editor's search functionality (Ctrl+F / Cmd+F) to quickly find the section relevant to your current directory, or use the Table of Contents at the top of this file.
+>
+> **Quick Navigation Tips**:
+> - Press Ctrl+F (Cmd+F on Mac) and search for the directory name (e.g., "nix", "terraform", "docs")
+> - Use the [Table of Contents](#table-of-contents) at the top
+> - Look for the section heading matching your current directory
+> - All directory sections use the format: "### Directory Name (`path/`)"
+
+### Cursor IDE Configuration (`.cursor/`)
+
+#### Overview
+
+This directory contains [Cursor](https://cursor.com) editor configurations for AI-assisted development.
+
+#### Directory Structure
+
+```
+.cursor/
+├── README.md → ../AGENTS.md (symlink)
+├── rules/              # Project-specific rules for Cursor agents
+│   ├── general.md      # General project rules
+│   ├── testing.md      # Testing-specific rules
+│   ├── documentation.md # Documentation rules
+│   └── code-review.md  # Code review rules
+└── agents/             # Custom subagent configurations
+    └── README.md → ../../AGENTS.md (symlink)
+```
+
+#### Rules
+
+Rules in `.cursor/rules/` provide persistent instructions that shape how Cursor agents work with your code. They are automatically applied based on file glob patterns.
+
+**Available Rules:**
+
+| Rule File | Purpose | Glob Pattern |
+|-----------|---------|--------------|
+| `general.md` | General project standards and commands | `**/*` |
+| `testing.md` | Testing best practices | `**/*.test.*`, `**/*.spec.*`, `**/test/**`, `**/tests/**`, `**/__tests__/**` |
+| `documentation.md` | Documentation standards | `**/*.md`, `docs/**/*` |
+| `code-review.md` | Code review guidelines | `**/*` |
+
+#### Agents
+
+Custom subagents in `.cursor/agents/` define specialized AI assistants for specific tasks.
+
+#### Cursor Subagents
+
+Subagents are independent agents specialized to handle discrete parts of a task. They:
+- Run in parallel for faster completion
+- Use their own context and instructions
+- Can be specialized for specific domains
+- Are configurable with custom prompts and tool access
+
+**Creating a Subagent:**
+
+Create a markdown file in `.cursor/agents/` with your agent configuration:
+
+```markdown
+---
+name: my-agent
+description: What this agent does
+---
+
+# Agent Name
+
+Detailed instructions for the agent...
+
+## Capabilities
+- What it can do
+
+## Restrictions
+- What it should NOT do
+```
+
+**Available Subagents:**
+
+Currently, this repository does not define any subagents in this directory. Shared Cursor rules are configured in the parent `.cursor/rules/` directory. For task-specific agents, see the [GitHub Copilot agents](.github/agents/) which provide equivalent functionality.
+
+**Mapping to GitHub Copilot Agents:**
+
+| Cursor Location | GitHub Copilot Equivalent |
+|-----------------|---------------------------|
+| `.cursor/agents/` | `.github/agents/` |
+| `.cursor/rules/` | Agent file sections |
+| `SKILL.md` | Agent commands |
+
+#### Usage
+
+When using Cursor IDE:
+1. Rules are automatically loaded based on file patterns
+2. Use `/` commands to invoke custom skills
+3. Use `Shift+Tab` to toggle Plan Mode for complex tasks
+
+#### Resources
+
+- [Cursor Documentation](https://cursor.com/docs)
+- [Rules Documentation](https://cursor.com/docs/context/rules)
+- [Subagents Documentation](https://cursor.com/docs/context/subagents)
+
+### APT Package Lists (`apt/`)
+
+#### Overview
+
+This directory contains APT package lists for setting up development environments on Debian/Ubuntu systems that correspond to each GitHub Copilot agent type. These package lists mirror the Nix environments in the `nix/` directory but use APT packages instead.
+
+#### Available Environments
+
+| Environment | Description | Packages File |
+|------------|-------------|---------------|
+| **common** | Common development tools (git, vim, pandoc, etc.) | [`common/packages.txt`](apt/common/packages.txt) |
+| **test** | Multi-language testing frameworks | [`test/packages.txt`](apt/test/packages.txt) |
+| **docker** | Docker, Kubernetes, and container tools | [`docker/packages.txt`](apt/docker/packages.txt) |
+| **documentation** | Documentation generators and markdown tools | [`documentation/packages.txt`](apt/documentation/packages.txt) |
+| **refactoring** | Code refactoring and transformation tools | [`refactoring/packages.txt`](apt/refactoring/packages.txt) |
+| **code-review** | Linters and code review tools | [`code-review/packages.txt`](apt/code-review/packages.txt) |
+| **wrangler** | Cloudflare Workers development tools | [`wrangler/packages.txt`](apt/wrangler/packages.txt) |
+| **terraform** | Infrastructure as Code tools | [`terraform/packages.txt`](apt/terraform/packages.txt) |
+| **ansible** | Ansible automation and configuration management | [`ansible/packages.txt`](apt/ansible/packages.txt) |
+
+#### Quick Start
+
+**Install All Packages from an Environment:**
+
+```bash
+# Navigate to the repository root
+cd /path/to/repository
+
+# Install common development tools
+sudo apt update
+sudo apt install -y $(cat apt/common/packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Install test environment packages
+sudo apt install -y $(cat apt/test/packages.txt | grep -v '^#' | tr '\n' ' ')
+
+# Install docker environment packages
+sudo apt install -y $(cat apt/docker/packages.txt | grep -v '^#' | tr '\n' ' ')
+```
+
+**Install Packages from Multiple Environments:**
+
+```bash
+# Install common + test + docker packages
+cat apt/common/packages.txt apt/test/packages.txt apt/docker/packages.txt \
+  | grep -v '^#' | sort -u \
+  | xargs sudo apt install -y
+```
+
+#### Package Format
+
+Each `packages.txt` file:
+- Lists one package per line
+- Uses `#` for comments
+- Includes installation notes for packages not available in standard repositories
+- Groups related packages together
+
+#### Important Notes
+
+**Not All Tools Available via APT:**
+
+Many specialized development tools are not available in standard APT repositories. For these tools, the `packages.txt` files include notes about alternative installation methods:
+
+- **Language-specific tools**: Use npm, pip, cargo, go install, etc.
+- **HashiCorp tools**: Require HashiCorp's official repositories (Terraform, Vault, Packer)
+- **Cloud CLIs**: AWS, Azure, and GCP CLIs have their own installation methods
+- **Modern CLI tools**: Many Rust/Go tools need manual download or alternative package managers
+
+**Additional Setup Required:**
+
+Some environments require additional setup beyond APT packages:
+
+1. **Docker**: Requires Docker's official repository for latest versions
+2. **Rust**: Best installed via [rustup](https://rustup.rs/) rather than APT
+3. **Node.js**: Consider using [nvm](https://github.com/nvm-sh/nvm) for version management
+4. **Python packages**: Use `pip3 install` for Python tools
+5. **Go tools**: Use `go install` for Go packages
+
+**Debian vs Ubuntu:**
+
+Package names and availability may differ slightly between Debian and Ubuntu. These lists are optimized for Ubuntu LTS versions but should work on Debian with minor adjustments.
+
+#### APT vs Nix
+
+**When to Use APT:**
+- Running on Debian/Ubuntu systems
+- Prefer system package manager
+- Need stable, tested package versions
+- Working in traditional server environments
+- Using Docker containers based on Debian/Ubuntu
+
+**When to Use Nix:**
+- Need reproducible, declarative environments
+- Want isolated, conflict-free package installations
+- Working across different Linux distributions
+- Need specific package versions not in APT
+- Prefer functional package management
+
+**Comparison:**
+
+| Feature | APT | Nix |
+|---------|-----|-----|
+| **Reproducibility** | Limited | Excellent |
+| **Isolation** | System-wide | Per-environment |
+| **Rollback** | Limited | Full support |
+| **Setup complexity** | Low | Medium |
+| **Package availability** | Moderate | Excellent |
+| **Cross-platform** | Debian/Ubuntu only | Most Linux + macOS |
+
+### Nix Development Environments (`nix/`)
+
+#### Overview
+
+This directory contains Nix flakes and shell configurations for development environments tailored to each GitHub Copilot agent type. Each subdirectory provides a reproducible development environment with all necessary tools and dependencies.
+
+#### Prerequisites
+
+To use these Nix environments, you need:
+
+1. **Nix package manager** installed:
+   ```bash
+   curl -L https://nixos.org/nix/install | sh
+   ```
+
+2. **Enable flakes** (for flake.nix usage):
+   ```bash
+   mkdir -p ~/.config/nix
+   echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+   ```
+
+#### Usage
+
+**Using with Flakes (Recommended):**
+
+Enter a development environment using `nix develop`:
+
+```bash
+# Test Specialist environment
+cd nix/test
+nix develop
+
+# Docker Specialist environment
+cd nix/docker
+nix develop
+
+# Documentation environment
+cd nix/documentation
+nix develop
+```
+
+**Quick Access from Repository Root:**
+
+You can also enter any environment from the repository root:
+
+```bash
+# Using flakes
+nix develop ./nix/test
+nix develop ./nix/docker
+nix develop ./nix/documentation
+```
+
+#### Environment Details
+
+**Common (`nix/common/`):**
+
+Purpose: Basic tools shared across all agent types
+
+Includes: Version control (git, gh), text editors (vim, nano), documentation (pandoc, mdl), YAML tools (yq, yamllint), shell utilities
+
+**Test (`nix/test/`):**
+
+Purpose: Comprehensive testing environment
+
+Includes: JavaScript/TypeScript (Node.js 20, Jest, Mocha), Python (pytest), Go, Rust, Java (JDK 21, Maven, Gradle), coverage tools (lcov)
+
+**Docker (`nix/docker/`):**
+
+Purpose: Container and orchestration environment
+
+Includes: docker, docker-compose, podman, kubectl, helm, k9s, trivy, hadolint, skopeo
+
+**Documentation (`nix/documentation/`):**
+
+Purpose: Documentation writing and generation
+
+Includes: Markdown tools (pandoc, mdl, markdownlint), generators (hugo, jekyll, sphinx, mkdocs), diagrams (graphviz, plantuml, mermaid)
+
+**Code Review (`nix/code-review/`):**
+
+Purpose: Multi-language code analysis
+
+Includes: eslint, prettier, pylint, black, golangci-lint, clippy, checkstyle, clang-tools, trivy, semgrep, shellcheck
+
+**Refactoring (`nix/refactoring/`):**
+
+Purpose: Safe code refactoring
+
+Includes: prettier, black, isort, gofmt, rustfmt, comby, tree-sitter, ripgrep, fd, fzf
+
+**Wrangler (`nix/wrangler/`):**
+
+Purpose: Cloudflare Workers development
+
+Includes: Node.js 20, wrangler CLI, TypeScript, vitest, jest, sqlite, redis, curl, httpie
+
+**Terraform (`nix/terraform/`):**
+
+Purpose: Infrastructure as Code
+
+Includes: terraform, terragrunt, tfsec, terrascan, checkov, infracost, awscli2, gcloud, azure-cli, kubectl, vault
+
+**Ansible (`nix/ansible/`):**
+
+Purpose: Infrastructure automation
+
+Includes: ansible, ansible-lint, molecule, pytest, awscli2, gcloud, azure-cli, docker, yamllint, openssh
+
+### Data Directory (`data/`)
+
+#### Overview
+
+This directory contains data files, configurations, schemas, and examples used by the agent framework.
+
+#### Structure
+
+```
+data/
+├── README.md → ../AGENTS.md (symlink)
+├── schemas/     # JSON Schema, OpenAPI specs, data models
+│   └── README.md → ../../AGENTS.md (symlink)
+├── configs/     # Configuration files and templates
+│   └── README.md → ../../AGENTS.md (symlink)
+└── examples/    # Example data and sample files
+    └── README.md → ../../AGENTS.md (symlink)
+```
+
+#### Purpose
+
+The `data/` directory serves as the central location for all data-related files:
+
+- **Schemas**: JSON schemas, API specifications, and data models
+- **Configs**: Configuration templates, environment examples, and settings
+- **Examples**: Sample data files for testing and demonstration
+
+#### Usage
+
+**Schemas:**
+
+Store data validation schemas, API specifications (OpenAPI/Swagger), and database schemas:
+
+```bash
+data/schemas/
+├── agent-config.schema.json
+├── api-spec.openapi.yaml
+└── database-models.json
+```
+
+**Configs:**
+
+Configuration templates and example files:
+
+```bash
+data/configs/
+├── .env.example
+├── agent-defaults.yaml
+└── deployment-config.json
+```
+
+**Examples:**
+
+Sample data for testing and documentation:
+
+```bash
+data/examples/
+├── sample-agent-response.json
+├── example-workflow.yaml
+└── test-data.csv
+```
+
+#### Guidelines
+
+1. **Schemas**: Use JSON Schema format when possible
+2. **Configs**: Never commit secrets or credentials
+3. **Examples**: Keep examples minimal but representative
+4. **Validation**: Validate data files against schemas
+5. **Documentation**: Add comments to explain non-obvious data
+
+#### Repository Configuration Files
+
+The repository includes several root-level configuration files:
+
+| File | Purpose |
+|------|---------|
+| `/.gitignore` | Git ignore patterns for the entire repository |
+| `/.editorconfig` | Editor settings for consistent formatting |
+| `/terraform/.gitignore` | Terraform-specific ignore patterns |
+| `/terraform/terraform.tfvars.example` | Example Terraform variables file |
+
+#### Security
+
+**IMPORTANT**: Never commit actual secrets or credentials to this directory.
+
+- Use `.example` suffix for templates
+- Document all required variables
+- Provide safe default values
+- Add sensitive configs to .gitignore
+
+### Documentation Directory (`docs/`)
+
+#### Overview
+
+This directory contains comprehensive documentation for the agent framework repository.
+
+#### Structure
+
+```
+docs/
+├── README.md → ../AGENTS.md (symlink)
+├── api/           # API documentation and reference materials
+│   └── README.md → ../../AGENTS.md (symlink)
+├── guides/        # Step-by-step guides and tutorials
+│   └── README.md → ../../AGENTS.md (symlink)
+└── reference/     # Technical reference documentation
+    └── README.md → ../../AGENTS.md (symlink)
+```
+
+#### Purpose
+
+The `docs/` directory serves as the central hub for all project documentation:
+
+- **API Documentation**: Detailed API references for programmatic interfaces
+- **Guides**: Practical tutorials and how-to guides for common tasks
+- **Reference**: Technical specifications, architecture diagrams, and design documents
+
+#### API Documentation (`docs/api/`)
+
+This subdirectory contains API reference documentation.
+
+**Planned Documentation:**
+- Agent API Reference
+- Configuration API
+- Tool API Reference
+- Extension Points
+
+**When adding API documentation:**
+1. Use consistent formatting
+2. Include code examples
+3. Document all parameters and return values
+4. Add usage examples
+5. Keep documentation in sync with code
+
+#### Guides (`docs/guides/`)
+
+This subdirectory contains step-by-step guides and tutorials.
+
+**Planned Guides:**
+- Getting Started with Agents
+- Creating Custom Agents
+- Setting Up Development Environment
+- Deploying Agents to Production
+- Troubleshooting Common Issues
+
+**When adding guides:**
+1. Start with prerequisites
+2. Use numbered steps
+3. Include screenshots where helpful
+4. Add troubleshooting section
+5. Link to related resources
+
+#### Reference Documentation (`docs/reference/`)
+
+This subdirectory contains technical reference materials.
+
+**Planned Documentation:**
+- Architecture Overview
+- Design Decisions
+- Configuration Reference
+- Glossary
+- Diagrams and Visualizations
+
+**When adding reference documentation:**
+1. Be technically precise
+2. Include diagrams for complex concepts
+3. Define technical terms
+4. Cross-reference related documents
+5. Keep architecture docs current
+
+### Source Code Directory (`src/`)
+
+#### Overview
+
+This directory contains source code, scripts, and utilities for the agent framework.
+
+#### Structure
+
+```
+src/
+├── README.md → ../AGENTS.md (symlink)
+├── agents/      # Agent implementation code
+│   └── README.md → ../../AGENTS.md (symlink)
+├── utils/       # Utility functions and helpers
+│   └── README.md → ../../AGENTS.md (symlink)
+└── scripts/     # Automation scripts and tools
+    └── README.md → ../../AGENTS.md (symlink)
+```
+
+#### Purpose
+
+The `src/` directory contains executable code and scripts:
+
+- **Agents**: Custom agent implementations and extensions
+- **Utils**: Reusable utility functions and libraries
+- **Scripts**: Automation scripts, deployment tools, and helpers
+
+#### Agents (`src/agents/`)
+
+Custom agent implementations that extend the base agent framework:
+
+```bash
+src/agents/
+├── custom-agent.js
+├── specialized-agent.py
+└── agent-extensions.ts
+```
+
+**Planned Agents:**
+- Custom agent implementations
+- Agent extensions and plugins
+- Specialized agent workflows
+- Agent utilities
+
+**When creating agents:**
+1. Follow the agent template pattern
+2. Implement required interfaces
+3. Add comprehensive tests
+4. Document configuration options
+5. Include usage examples
+
+#### Utils (`src/utils/`)
+
+Reusable utility functions:
+
+```bash
+src/utils/
+├── file-utils.js
+├── string-helpers.py
+└── validation.ts
+```
+
+**Planned Utilities:**
+- File operation utilities
+- String manipulation helpers
+- Data validation functions
+- API client utilities
+- Logging and debugging tools
+
+**When creating utilities:**
+1. Keep functions small and focused
+2. Make them reusable across projects
+3. Add comprehensive documentation
+4. Include unit tests
+5. Follow single responsibility principle
+
+#### Scripts (`src/scripts/`)
+
+Automation and deployment scripts:
+
+```bash
+src/scripts/
+├── deploy.sh
+├── setup-environment.py
+└── generate-docs.js
+```
+
+**Planned Scripts:**
+- Deployment automation
+- Environment setup scripts
+- Database migration scripts
+- CI/CD helper scripts
+- Monitoring and health checks
+
+**Common script patterns:**
+
+```bash
+# Setup environment
+./scripts/setup.sh
+
+# Deploy to environment
+./scripts/deploy.sh production
+
+# Run migrations
+./scripts/migrate.sh
+```
+
+**When creating scripts:**
+1. Make scripts idempotent (safe to run multiple times)
+2. Add error handling and validation
+3. Include usage documentation
+4. Test thoroughly before use
+5. Use shellcheck for bash scripts
+
+#### Development Guidelines
+
+**Code Style:**
+- Follow language-specific style guides
+- Use meaningful variable and function names
+- Add comments for complex logic
+- Include JSDoc/docstrings for functions
+- Keep functions small and focused
+
+**Testing:**
+- Write unit tests for all functions
+- Include integration tests for workflows
+- Test edge cases and error conditions
+- Maintain high test coverage
+
+**Documentation:**
+- Document public APIs
+- Include usage examples
+- Explain complex algorithms
+- Add inline comments for clarity
+
+**Language Support:**
+
+This repository supports multiple languages:
+- **JavaScript/TypeScript**: Node.js scripts and tools
+- **Python**: Data processing and utilities
+- **Bash**: Shell scripts for automation
+- **Go**: High-performance utilities
+
+### Terraform Infrastructure (`terraform/`)
+
+#### Overview
+
+This directory contains Terraform templates for deploying infrastructure to CloudFlare, including Workers, Pages, and DNS configurations.
+
+#### Prerequisites
+
+1. **Terraform**: Install Terraform >= 1.0
+   ```bash
+   # Using nix (recommended)
+   nix develop ../nix/terraform
+
+   # Or download from https://www.terraform.io/downloads
+   ```
+
+2. **CloudFlare Account**: You need a CloudFlare account with:
+   - An active zone (domain)
+   - API token with appropriate permissions
+
+3. **CloudFlare API Token**: Create an API token at:
+   - https://dash.cloudflare.com/profile/api-tokens
+   - Required permissions:
+     - Account - Workers Scripts - Edit
+     - Account - Workers KV Storage - Edit
+     - Zone - DNS - Edit
+     - Account - Cloudflare Pages - Edit
+
+#### Quick Start
+
+**1. Initialize Terraform:**
+
+```bash
+cd terraform
+terraform init
+```
+
+**2. Configure Variables:**
+
+Copy the example variables file and customize it:
+
+```bash
+cp terraform.tfvars.example terraform.tfvars
+```
+
+Edit `terraform.tfvars` with your CloudFlare settings:
+
+```hcl
+cloudflare_api_token    = "your-api-token"
+cloudflare_account_name = "Your Account Name"
+zone_name               = "yourdomain.com"
+
+# Enable the services you want to deploy
+deploy_workers = true
+deploy_pages   = false
+deploy_dns     = false
+```
+
+**3. Plan and Apply:**
+
+```bash
+# Review the changes Terraform will make
+terraform plan
+
+# Apply the configuration
+terraform apply
+```
+
+#### Module Structure
+
+```
+terraform/
+├── README.md → ../AGENTS.md (symlink)
+├── main.tf                      # Main configuration
+├── variables.tf                 # Input variables
+├── outputs.tf                   # Output values
+├── versions.tf                  # Provider versions
+├── terraform.tfvars.example     # Example configuration
+├── .gitignore                   # Git ignore rules
+├── modules/
+│   ├── workers/                 # CloudFlare Workers module
+│   ├── pages/                   # CloudFlare Pages module
+│   └── dns/                     # CloudFlare DNS module
+└── examples/
+    └── README.md → ../../AGENTS.md (symlink)
+```
+
+#### Modules
+
+**Workers Module:**
+
+Deploy CloudFlare Workers with KV namespaces, environment variables, and routes.
+
+**Pages Module:**
+
+Deploy CloudFlare Pages projects with build configuration.
+
+**DNS Module:**
+
+Manage CloudFlare DNS records with proxying support.
+
+#### Common Commands
+
+```bash
+# Initialize
+terraform init
+
+# Format Code
+terraform fmt -recursive
+
+# Validate Configuration
+terraform validate
+
+# Plan Changes
+terraform plan
+
+# Apply Changes
+terraform apply
+
+# Destroy Infrastructure
+terraform destroy
+
+# Show Current State
+terraform show
+
+# List Resources
+terraform state list
+```
+
+#### Security Best Practices
+
+1. **Never commit `terraform.tfvars`** - It's in `.gitignore`
+2. **Use environment variables** for sensitive data
+3. **Enable remote state encryption**
+4. **Use least-privilege API tokens**
+5. **Store secrets in a secrets manager** (AWS Secrets Manager, HashiCorp Vault, etc.)
+6. **Review plans carefully** before applying
+7. **Use workspaces** for different environments (dev, staging, prod)
+
+#### Terraform Examples (`terraform/examples/`)
+
+This subdirectory contains example configurations and scripts for CloudFlare deployments.
+
+**Files:**
+- `worker.js` - Example CloudFlare Worker script with routing and KV usage
+
+**Using the Examples:**
+
+1. Copy the worker script to your project:
+   ```bash
+   cp examples/worker.js ./my-worker.js
+   ```
+
+2. Customize the worker script for your needs
+
+3. Reference it in your `terraform.tfvars`:
+   ```hcl
+   worker_script_path = "./my-worker.js"
+   ```
 
 ---
 
@@ -2088,10 +2853,10 @@ When you need to understand a specific area, reference these files:
 
 ```
 "Read .github/agents/README.md for agent documentation"
-"Read nix/README.md for development environment setup"
-"Read terraform/README.md for infrastructure configuration"
-"Read docs/README.md for documentation structure"
-"Read src/README.md for source code organization"
+"See Nix Development Environments section in AGENTS.md for development environment setup"
+"See Terraform Infrastructure section in AGENTS.md for infrastructure configuration"
+"See Documentation Directory section in AGENTS.md for documentation structure"
+"See Source Code Directory section in AGENTS.md for source code organization"
 ```
 
 ### Command Templates
@@ -2144,9 +2909,7 @@ Common command patterns to use:
 
 ## Related Files
 
-- **[README.md](README.md)**: Main project documentation with quick start and usage examples
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
-- **[CLAUDE.md](CLAUDE.md)**, **[CURSOR.md](CURSOR.md)**, **[N8N.md](N8N.md)**, **[GEMINI.md](GEMINI.md)**, **[QWEN.md](QWEN.md)**: Symlinks to this file for AI framework compatibility
+- **[README.md](README.md)**: Main project documentation with quick start, usage examples, and contributing guidelines
 
 ---
 

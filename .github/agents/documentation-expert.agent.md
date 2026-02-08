@@ -80,7 +80,7 @@ const result = functionName('value1', 'value2');
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+See the Contributing section in [README.md](README.md) for contribution guidelines.
 
 ## License
 

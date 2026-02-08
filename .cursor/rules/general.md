@@ -58,13 +58,8 @@ tree -L 3 -I '.git|node_modules'
  nix/                 # Nix development environments
  src/                 # Source code and scripts
  terraform/           # CloudFlare infrastructure modules
- AGENTS.md            # AI frameworks & navigation hub
- CLAUDE.md            # Symlink to AGENTS.md
- CURSOR.md            # Symlink to AGENTS.md
- N8N.md               # Symlink to AGENTS.md
- GEMINI.md            # Symlink to AGENTS.md
- QWEN.md              # Symlink to AGENTS.md
- README.md            # Main readme
+ AGENTS.md            # AI frameworks & navigation hub (includes all framework docs)
+ README.md            # Main readme with project overview and contributing guidelines
 ```
 
 ## Best Practices
