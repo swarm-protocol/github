@@ -160,6 +160,14 @@ setup_nix_environment() {
     print_info "Navigate to nix/$env_type and run: nix develop"
 }
 
+# Prepare APT environment (repos, keys, etc.)
+prepare_apt_environment() {
+    local env_type=$1
+    # Currently no specific preparation needed, but this preserves the abstraction
+    # for future use (e.g., adding PPA repos, GPG keys).
+    return 0
+}
+
 # Setup environment using APT
 setup_apt_environment() {
     local env_type=$1
@@ -171,15 +179,26 @@ setup_apt_environment() {
         return 1
     fi
     
+    prepare_apt_environment "$env_type"
+
     print_info "Installing packages from apt/$env_type/packages.txt"
     print_warning "This requires sudo privileges"
     
-    if grep -v '^#' "apt/$env_type/packages.txt" | xargs -r sudo apt install -y; then
-        print_success "Packages installed successfully"
-        return 0
+    # Use sed to remove comments (including trailing ones) and empty lines
+    local pkgs
+    pkgs=$(sed 's/#.*//' "apt/$env_type/packages.txt" | xargs)
+
+    if [ -n "$pkgs" ]; then
+        if sudo apt install -y $pkgs; then
+            print_success "Packages installed successfully"
+            return 0
+        else
+            print_error "Failed to install some packages"
+            return 1
+        fi
     else
-        print_error "Failed to install some packages"
-        return 1
+        print_warning "No packages found to install for $env_type"
+        return 0
     fi
 }
 
@@ -242,18 +261,46 @@ show_environment_menu() {
         esac
     fi
     
+    local envs=("common" "test" "docker" "documentation" "code-review" "refactoring" "wrangler" "terraform" "ansible" "security")
+
     if [ "$setup_method" = "nix" ]; then
         setup_nix_environment "$env_type" || return 1
     elif [ "$setup_method" = "apt" ]; then
         if [ "$env_type" = "all" ]; then
-            local failed=false
-            for env in common test docker documentation code-review refactoring wrangler terraform ansible security; do
-                if ! setup_apt_environment "$env"; then
-                    failed=true
+            print_header "Setting up ALL APT environments"
+
+            # ⚡ BOLT OPTIMIZATION: Collect all packages from all environments to install in a single batch.
+            # This is significantly faster than multiple apt invocations because it avoids redundant
+            # lock acquisitions, cache updates, and dependency calculations.
+            local all_packages=""
+
+            print_info "Preparing environments and collecting packages..."
+            for env in "${envs[@]}"; do
+                if [ -f "apt/$env/packages.txt" ]; then
+                    # Call preparation logic for each environment to preserve abstraction
+                    prepare_apt_environment "$env"
+                    # Collect packages while handling comments
+                    all_packages+="$(sed 's/#.*//' "apt/$env/packages.txt") "
                 fi
             done
-            if [ "$failed" = true ]; then
-                return 1
+
+            # Create a unique sorted list of packages
+            local unique_packages
+            unique_packages=$(echo "$all_packages" | tr ' ' '\n' | grep -v '^$' | sort -u | xargs)
+
+            print_info "Installing all unique packages in a single batch..."
+            print_warning "This requires sudo privileges and significantly reduces apt overhead"
+
+            if [ -n "$unique_packages" ]; then
+                # Perform batch installation
+                if sudo apt install -y $unique_packages; then
+                    print_success "All packages installed successfully"
+                else
+                    print_error "Failed to install some packages"
+                    return 1
+                fi
+            else
+                print_warning "No packages found to install"
             fi
         else
             setup_apt_environment "$env_type" || return 1
