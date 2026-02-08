@@ -42,7 +42,7 @@ When using Cursor IDE:
 
 ## Related Documentation
 
-- [AGENTS.md](../AGENTS.md) - Complete navigation hub with all AI framework documentation (GitHub Copilot, Cursor, n8n)
+- [AGENTS.md](../AGENTS.md) - Complete navigation hub and AI framework documentation
 - [.github/agents/](../.github/agents/) - GitHub Copilot agent definitions
 
 ## Resources

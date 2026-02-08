@@ -233,11 +233,11 @@ For more troubleshooting help, see [AGENTS.md](AGENTS.md) comprehensive troubles
 ## Documentation
 
 - [**AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap, bash command reference, and all AI framework documentation (GitHub Copilot, Cursor, n8n)**
-- [ Detailed Setup Guide](.github/agents/README.md) - Complete instructions
+- [Detailed Setup Guide](.github/agents/README.md) - Complete instructions
 - [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
 - [Example Agents](.github/agents/) - Pre-built examples
 - [Nix Development Environments](nix/README.md) - Reproducible dev environments
-- [ APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
+- [APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
 - [Cursor IDE Configuration](.cursor/README.md) - Cursor rules and agents
 
 ## Development Environments
