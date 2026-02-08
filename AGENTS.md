@@ -366,6 +366,370 @@ This repository uses the documentation-builder agent! Check:
 
 The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.
 
+## Protocol: Generating QUICKSTART.md for Any Codebase
+
+This protocol provides step-by-step instructions for generating a QUICKSTART.md file for any codebase by analyzing its README.md and AGENTS.md files. Use the `@documentation-builder` or `@documentation-expert` agents to execute this protocol.
+
+### Purpose
+
+A QUICKSTART.md file helps new users get started with a codebase in under 5 minutes by providing:
+- Minimal setup instructions
+- Simple working examples
+- Common troubleshooting tips
+- Links to comprehensive documentation
+
+### Protocol Steps
+
+#### Step 1: Analyze README.md
+
+Read the codebase's README.md and extract:
+
+1. **Project name and description** (first heading and paragraph)
+2. **Prerequisites** (system requirements, dependencies)
+3. **Installation steps** (package managers, build commands)
+4. **Quick start examples** (minimal working code)
+5. **Key features** (main capabilities users need to know)
+6. **Documentation links** (where to find more detailed info)
+
+**Example extraction:**
+```markdown
+From README.md:
+- Project: "MyApp - A fast API framework"
+- Prerequisites: Node.js 18+, npm 9+
+- Install: npm install myapp
+- Basic usage: import { App } from 'myapp'; new App().start();
+```
+
+#### Step 2: Analyze AGENTS.md (if present)
+
+If the codebase has an AGENTS.md file, extract:
+
+1. **Development environment setup** (Nix, Docker, APT packages)
+2. **Common bash commands** (build, test, lint, run)
+3. **Agent-specific workflows** (which agents to use for what tasks)
+4. **Repository structure** (key directories and their purposes)
+
+**Example extraction:**
+```markdown
+From AGENTS.md:
+- Environment: nix develop or npm install
+- Build: npm run build
+- Test: npm test
+- Agents: @test-specialist for tests, @code-reviewer for reviews
+```
+
+#### Step 3: Structure the QUICKSTART.md
+
+Organize content into these sections:
+
+```markdown
+# Quick Start Guide: [Project Name]
+
+> Get up and running with [Project Name] in under 5 minutes.
+
+## Prerequisites
+
+- [List system requirements]
+- [List required tools/dependencies]
+
+## Installation
+
+### Option 1: [Recommended method]
+\`\`\`bash
+[Installation commands]
+\`\`\`
+
+### Option 2: [Alternative method]
+\`\`\`bash
+[Alternative commands]
+\`\`\`
+
+## Your First [Project Type]
+
+### Step 1: [Initial setup]
+\`\`\`bash
+[Setup commands]
+\`\`\`
+
+### Step 2: [Create basic example]
+\`\`\`[language]
+[Minimal working code example]
+\`\`\`
+
+### Step 3: [Run/test]
+\`\`\`bash
+[Run commands]
+\`\`\`
+
+**Expected output:**
+\`\`\`
+[What users should see]
+\`\`\`
+
+## Common First-Time Issues
+
+### Issue: [Common problem]
+**Solution:** [How to fix it]
+
+### Issue: [Another common problem]
+**Solution:** [How to fix it]
+
+## Next Steps
+
+- [Link to full documentation]
+- [Link to tutorials]
+- [Link to API reference]
+- [Link to examples]
+
+## Need Help?
+
+- [Link to issues/discussions]
+- [Link to community chat]
+- [Link to contributing guide]
+```
+
+#### Step 4: Write Section Content
+
+For each section, follow these guidelines:
+
+**Prerequisites:**
+- List only essential requirements, not nice-to-haves
+- Include version numbers
+- Mention OS-specific requirements
+
+**Installation:**
+- Provide copy-paste commands
+- Show the fastest/easiest method first
+- Include verification steps (e.g., `--version` checks)
+
+**First [Project Type]:**
+- Use the simplest possible example that works
+- Show complete, runnable code
+- Include expected output
+- Keep it under 20 lines of code
+
+**Common Issues:**
+- Only include issues that 50%+ of new users encounter
+- Provide specific, actionable solutions
+- Link to detailed troubleshooting if needed
+
+**Next Steps:**
+- Prioritize links by user journey
+- Link to progressive learning resources
+- Keep to 4-5 most important links
+
+#### Step 5: Validate the QUICKSTART.md
+
+Check that the generated file:
+
+1. **Can be completed in 5 minutes** - Time yourself
+2. **Requires no prior knowledge** - Assume user is brand new
+3. **Uses copy-paste commands** - Every command should work as-is
+4. **Has working examples** - Test every code example
+5. **Links work** - Verify all referenced documentation exists
+6. **Matches README.md** - Ensure consistency with main docs
+
+### Protocol Examples
+
+#### Example 1: Web Framework QUICKSTART.md
+
+```markdown
+# Quick Start Guide: FastAPI
+
+> Get up and running with FastAPI in under 5 minutes.
+
+## Prerequisites
+
+- Python 3.7 or higher
+- pip package manager
+
+## Installation
+
+\`\`\`bash
+pip install fastapi[all]
+\`\`\`
+
+## Your First API
+
+### Step 1: Create a file
+\`\`\`bash
+touch main.py
+\`\`\`
+
+### Step 2: Add this code
+\`\`\`python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+\`\`\`
+
+### Step 3: Run the server
+\`\`\`bash
+uvicorn main:app --reload
+\`\`\`
+
+**Expected output:**
+\`\`\`
+INFO:     Uvicorn running on http://127.0.0.1:8000
+\`\`\`
+
+Visit http://127.0.0.1:8000 in your browser to see `{"Hello": "World"}`
+
+## Common First-Time Issues
+
+### Issue: ModuleNotFoundError: No module named 'fastapi'
+**Solution:** Run `pip install fastapi[all]` to install all dependencies
+
+### Issue: Port 8000 already in use
+**Solution:** Use a different port: `uvicorn main:app --port 8001`
+
+## Next Steps
+
+- [Full Tutorial](https://fastapi.tiangolo.com/tutorial/)
+- [API Documentation](https://fastapi.tiangolo.com/reference/)
+- [Deployment Guide](https://fastapi.tiangolo.com/deployment/)
+
+## Need Help?
+
+- [GitHub Discussions](https://github.com/tiangolo/fastapi/discussions)
+- [Discord Community](https://discord.gg/fastapi)
+```
+
+#### Example 2: CLI Tool QUICKSTART.md
+
+```markdown
+# Quick Start Guide: MyTool
+
+> Get up and running with MyTool in under 5 minutes.
+
+## Prerequisites
+
+- Node.js 18+
+- npm 9+
+
+## Installation
+
+\`\`\`bash
+npm install -g mytool
+\`\`\`
+
+## Your First Command
+
+### Step 1: Initialize a project
+\`\`\`bash
+mytool init my-project
+cd my-project
+\`\`\`
+
+### Step 2: Run the default task
+\`\`\`bash
+mytool run
+\`\`\`
+
+**Expected output:**
+\`\`\`
+✓ Task completed successfully
+Output: results/output.json
+\`\`\`
+
+## Common First-Time Issues
+
+### Issue: Command not found: mytool
+**Solution:** Ensure npm global bin is in your PATH:
+\`\`\`bash
+npm config get prefix  # Check npm prefix
+export PATH="$PATH:$(npm config get prefix)/bin"
+\`\`\`
+
+### Issue: Permission denied
+**Solution:** Run with sudo or fix npm permissions:
+\`\`\`bash
+sudo npm install -g mytool
+\`\`\`
+
+## Next Steps
+
+- [Commands Reference](https://mytool.dev/commands)
+- [Configuration Guide](https://mytool.dev/config)
+- [Plugin System](https://mytool.dev/plugins)
+
+## Need Help?
+
+- [GitHub Issues](https://github.com/author/mytool/issues)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/mytool)
+```
+
+### Agent Invocation Examples
+
+**Using documentation-builder:**
+```
+@documentation-builder Generate a QUICKSTART.md for this codebase. 
+Follow the protocol in AGENTS.md. Extract information from README.md 
+and AGENTS.md. Make it completable in under 5 minutes.
+```
+
+**Using documentation-expert:**
+```
+@documentation-expert Create a QUICKSTART.md that helps new users 
+get started in 5 minutes. Analyze README.md and AGENTS.md to extract 
+setup steps, examples, and common issues. Use the QUICKSTART.md 
+protocol from AGENTS.md.
+```
+
+### Best Practices
+
+1. **Be Ruthlessly Minimal**: Remove anything that isn't essential for first-time success
+2. **Test With Fresh Eyes**: Have someone unfamiliar with the project follow it
+3. **Time It**: Actually time how long it takes - should be under 5 minutes
+4. **One Path to Success**: Don't show multiple ways, show the fastest way
+5. **Copy-Paste Ready**: Every command should work without modification
+6. **Show Output**: Include expected output so users know they succeeded
+7. **Link, Don't Duplicate**: Link to comprehensive docs instead of repeating them
+8. **Update Regularly**: Keep in sync with README.md when installation changes
+
+### Integration with Documentation Workflow
+
+When working with both README.md and QUICKSTART.md:
+
+1. **README.md** = Comprehensive documentation with all features, options, and use cases
+2. **QUICKSTART.md** = Minimal path to first success (subset of README.md)
+3. **AGENTS.md** = Repository navigation and AI agent framework context
+
+**Relationship:**
+```
+README.md (comprehensive) 
+    ↓ extract minimal path
+QUICKSTART.md (5-minute success)
+    ↓ reference for details
+README.md sections
+```
+
+**Maintenance:**
+- When README.md installation changes → Update QUICKSTART.md
+- When new common issues arise → Add to QUICKSTART.md
+- When prerequisites change → Update both files
+
+### Protocol Checklist
+
+Use this checklist when generating QUICKSTART.md:
+
+- [ ] Analyzed README.md for key information
+- [ ] Analyzed AGENTS.md for environment setup (if present)
+- [ ] Included only essential prerequisites
+- [ ] Provided copy-paste installation commands
+- [ ] Created minimal working example (under 20 lines)
+- [ ] Showed expected output for success verification
+- [ ] Documented 2-3 most common first-time issues
+- [ ] Linked to comprehensive documentation
+- [ ] Tested all commands in fresh environment
+- [ ] Timed completion (should be under 5 minutes)
+- [ ] Verified all links work
+- [ ] Ensured consistency with README.md
+
 ## Agent Ideas and Use Cases
 
 Here are ideas for agents you might create to enhance your development workflow:
