@@ -100,6 +100,6 @@ When adding source code:
 
 ## See Also
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines
+- [README.md](../README.md) - Project overview with quick start and contributing guidelines
 - [docs/api/](../docs/api/) - API documentation
 - [Testing Guide](../docs/guides/testing.md) - Testing guidelines

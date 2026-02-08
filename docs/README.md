@@ -31,6 +31,5 @@ When adding documentation:
 
 ## See Also
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines
-- [README.md](../README.md) - Project overview with quick start and usage examples
+- [README.md](../README.md) - Project overview with quick start, usage examples, and contributing guidelines
 - [AGENTS.md](../AGENTS.md) - Complete AI agent framework documentation

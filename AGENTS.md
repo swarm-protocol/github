@@ -239,9 +239,8 @@ The `documentation-builder` agent generates README.md and AGENTS.md files from t
 
 #### Step 1: Create Template Files
 
-Create template files with placeholders:
+Create template files with placeholders (e.g., `my-readme.template.md`):
 
-**README.template.md**:
 ```markdown
 # {{PROJECT_NAME}}
 
@@ -249,16 +248,6 @@ Create template files with placeholders:
 
 Version: {{VERSION}}
 Last Updated: {{DATE}}
-```
-
-**AGENTS.template.md**:
-```markdown
-# {{PROJECT_NAME}} - AI Agent Context
-
-Last Updated: {{DATE}}
-
-## Overview
-{{DESCRIPTION}}
 ```
 
 #### Step 2: Invoke the Agent
@@ -318,12 +307,6 @@ Common template variables:
 - `{{REPOSITORY_STRUCTURE}}` - Directory tree
 - `{{TECH_STACK}}` - Technologies used
 
-### Template Examples
-
-See the repository root for example templates:
-- `README.template.md` - Example README template
-- `AGENTS.template.md` - Example AGENTS template
-
 ### Tips
 
 1. **Backup First**: Always commit before regenerating
@@ -358,13 +341,7 @@ If `@documentation-builder` doesn't work:
 
 ### Real-World Example
 
-This repository uses the documentation-builder agent! Check:
-- `README.template.md` - Template with variables
-- `AGENTS.template.md` - Template for AI agent framework context
-- `README.md` - Generated from template
-- `AGENTS.md` - Generated from template
-
-The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.
+This repository uses the documentation-builder agent to maintain consistency between README.md and AGENTS.md, allowing easy updates through template processing.
 
 ## Protocol: Generating QUICKSTART.md for Any Codebase
 
@@ -1598,14 +1575,8 @@ n8n start
 
 | File | Purpose | Key Topics |
 |------|---------|------------|
-| [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines | How to contribute, PR process, standards |
+| [README.md](README.md) | Main repository overview | Project intro, quick start, features, usage examples, contributing guidelines |
 | **[AGENTS.md](AGENTS.md)** | **This file** | **AI frameworks, navigation hub, bash commands** |
-| [CLAUDE.md](CLAUDE.md) → AGENTS.md | Symlink to AGENTS.md | GitHub Copilot agent context |
-| [CURSOR.md](CURSOR.md) → AGENTS.md | Symlink to AGENTS.md | Cursor agent framework |
-| [N8N.md](N8N.md) → AGENTS.md | Symlink to AGENTS.md | n8n workflow automation |
-| [GEMINI.md](GEMINI.md) → AGENTS.md | Symlink to AGENTS.md | Gemini AI agent integration |
-| [QWEN.md](QWEN.md) → AGENTS.md | Symlink to AGENTS.md | Qwen AI agent integration |
 
 ### Configuration Files
 
@@ -2144,9 +2115,7 @@ Common command patterns to use:
 
 ## Related Files
 
-- **[README.md](README.md)**: Main project documentation with quick start and usage examples
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
-- **[CLAUDE.md](CLAUDE.md)**, **[CURSOR.md](CURSOR.md)**, **[N8N.md](N8N.md)**, **[GEMINI.md](GEMINI.md)**, **[QWEN.md](QWEN.md)**: Symlinks to this file for AI framework compatibility
+- **[README.md](README.md)**: Main project documentation with quick start, usage examples, and contributing guidelines
 
 ---
 

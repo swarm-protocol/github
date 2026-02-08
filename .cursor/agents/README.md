@@ -47,4 +47,4 @@ Currently, this repository does not define any subagents in this directory. Shar
 
 - [Cursor Subagents Documentation](https://cursor.com/docs/context/subagents)
 - [GitHub Copilot Custom Agents](../../.github/agents/README.md)
-- [CURSOR.md](../../CURSOR.md) - Full framework documentation
+- [AGENTS.md](../../AGENTS.md) - All framework documentation

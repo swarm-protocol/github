@@ -42,9 +42,8 @@ When using Cursor IDE:
 
 ## Related Documentation
 
-- [CURSOR.md](../CURSOR.md) - Complete Cursor agent framework documentation
+- [AGENTS.md](../AGENTS.md) - Complete navigation hub with all AI framework documentation (GitHub Copilot, Cursor, n8n)
 - [.github/agents/](../.github/agents/) - GitHub Copilot agent definitions
-- [AGENTS.md](../AGENTS.md) - Navigation hub for all agent documentation
 
 ## Resources
 

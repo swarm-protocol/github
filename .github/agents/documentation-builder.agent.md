@@ -30,7 +30,7 @@ npx markdownlint README.md AGENTS.md
 1. **Template Processing**: Read and process template markdown files
 2. **Variable Substitution**: Replace placeholders with actual values
 3. **Content Assembly**: Combine multiple template sections into complete documents
-4. **README Generation**: Build README.md from README.template.md or similar sources
+4. **README Generation**: Build README.md from template sources
 5. **AGENTS.md Generation**: Build AGENTS.md for AI agent framework and context from templates
 6. **Consistency**: Ensure both files follow the same structure and style
 
@@ -38,11 +38,7 @@ npx markdownlint README.md AGENTS.md
 
 ### Template Files Expected
 
-The agent looks for these template files in the repository root or designated templates directory:
-
-- `README.template.md` - Template for generating README.md
-- `AGENTS.template.md` - Template for generating AGENTS.md
-- Or similar naming patterns with `.template.md` suffix
+The agent looks for template files with `.template.md` suffix in the repository root or designated templates directory (e.g., `my-readme.template.md`, `my-agents.template.md`).
 
 ### Template Variables
 
@@ -403,7 +399,7 @@ git checkout README.md AGENTS.md
 
 ```bash
 # 1. Check for templates
-if [ -f "README.template.md" ]; then
+if [ -f "my-readme.template.md" ]; then
   echo "Found README template"
 fi
 
@@ -416,16 +412,16 @@ PROJECT_NAME=$(grep '"name"' package.json | cut -d'"' -f4)
 VERSION=$(grep '"version"' package.json | cut -d'"' -f4)
 DATE=$(date -I)
 
-# 4. Generate README.md
+# 4. Generate README.md (example using a template file)
 sed -e "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" \
     -e "s/{{VERSION}}/$VERSION/g" \
     -e "s/{{DATE}}/$DATE/g" \
-    README.template.md > README.md
+    my-readme.template.md > README.md
 
-# 5. Generate AGENTS.md
+# 5. Generate AGENTS.md (example using a template file)
 sed -e "s/{{PROJECT_NAME}}/$PROJECT_NAME/g" \
     -e "s/{{DATE}}/$DATE/g" \
-    AGENTS.template.md > AGENTS.md
+    my-agents.template.md > AGENTS.md
 
 # 6. Validate
 npx markdownlint README.md AGENTS.md
