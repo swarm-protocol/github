@@ -2898,6 +2898,7 @@ All agent files are in `.github/agents/` directory:
 | Agents | `src/agents/` | Agent implementation code |
 | Utils | `src/utils/` | Utility functions and helpers |
 | Scripts | `src/scripts/` | Automation scripts |
+| Performance | `src/scripts/performance/` | Performance benchmarking and connectivity tests |
 | Agent Prompts | `src/AGENT_PROMPTS.md` | Instructions for code agents |
 
 ---
@@ -3514,7 +3515,8 @@ Automation and deployment scripts:
 src/scripts/
 ├── deploy.sh
 ├── setup-environment.py
-└── generate-docs.js
+├── generate-docs.js
+└── performance/     # Performance and connectivity tests
 
 ```
 
@@ -3525,6 +3527,8 @@ src/scripts/
 - Database migration scripts
 - CI/CD helper scripts
 - Monitoring and health checks
+- Performance benchmarking (`benchmark_apt.sh`)
+- Latency testing (`check_connectivity.sh`)
 
 **Common script patterns:**
 
