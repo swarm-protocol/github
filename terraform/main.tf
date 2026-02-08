@@ -1,16 +1,9 @@
 # CloudFlare Infrastructure Configuration
 # This file defines the main infrastructure resources for CloudFlare deployment
 
+# Version constraints are defined in versions.tf
+
 terraform {
-  required_version = ">= 1.0"
-
-  required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 4.0"
-    }
-  }
-
   # Uncomment and configure backend for remote state management
   # backend "s3" {
   #   bucket = "your-terraform-state-bucket"
