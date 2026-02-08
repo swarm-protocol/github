@@ -1,0 +1,258 @@
+# =============================================================================
+# Docker Ignore File
+# =============================================================================
+# This file specifies intentionally untracked files that Docker should ignore
+# when building images. Following the same syntax as .gitignore, this file
+# helps reduce image size and build time by excluding unnecessary files.
+#
+# Benefits:
+# - Smaller image sizes (faster builds, less storage, quicker deployments)
+# - Faster build context transfer to Docker daemon
+# - Better security (prevents accidental inclusion of secrets)
+# - Improved build cache efficiency
+#
+# Learn more: https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Version Control
+# -----------------------------------------------------------------------------
+.git
+.gitignore
+.gitattributes
+.github/
+
+# -----------------------------------------------------------------------------
+# Documentation (Template Repository Files)
+# -----------------------------------------------------------------------------
+# These documentation files are specific to this template repository
+# and should not be included in containerized applications
+README.md
+AGENTS.md
+CLAUDE.md
+CURSOR.md
+GEMINI.md
+QWEN.md
+N8N.md
+SUPABASE.md
+LICENSE
+docs/
+
+# -----------------------------------------------------------------------------
+# Docker Files
+# -----------------------------------------------------------------------------
+# Exclude Docker-related files to prevent recursive inclusion
+Dockerfile
+Dockerfile.*
+docker-compose*.yml
+.dockerignore
+
+# -----------------------------------------------------------------------------
+# Editor and IDE Files
+# -----------------------------------------------------------------------------
+# Various IDEs and editors create these files for project configuration
+.vscode/
+.idea/
+.vs/
+.cursor/
+*.swp
+*.swo
+*~
+*.vim
+.editorconfig
+.project
+.classpath
+.settings/
+*.sublime-*
+.DS_Store
+
+# -----------------------------------------------------------------------------
+# Development Environment (Nix)
+# -----------------------------------------------------------------------------
+# Nix package manager and development shell files
+nix/
+*.nix
+result
+result-*
+.direnv/
+.envrc
+
+# -----------------------------------------------------------------------------
+# Package Management (APT)
+# -----------------------------------------------------------------------------
+# APT package lists specific to this template repository
+apt/
+
+# -----------------------------------------------------------------------------
+# Infrastructure as Code
+# -----------------------------------------------------------------------------
+# Terraform files - infrastructure should be separate from application
+terraform/
+*.tf
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraformrc
+terraform.rc
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# -----------------------------------------------------------------------------
+# Package manager directories - these should be installed fresh in the image
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.npm/
+.yarn/
+.yarn-integrity
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.venv/
+Pipfile.lock
+
+# Ruby
+vendor/bundle/
+.bundle/
+*.gem
+
+# Go
+vendor/
+go.sum
+
+# Rust
+target/
+Cargo.lock
+
+# PHP
+vendor/
+composer.lock
+
+# -----------------------------------------------------------------------------
+# Build Artifacts and Output Directories
+# -----------------------------------------------------------------------------
+# Generated files and build outputs - should be built inside the container
+dist/
+build/
+out/
+target/
+*.compiled.js
+*.bundle.js
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.output/
+
+# -----------------------------------------------------------------------------
+# Testing and Coverage
+# -----------------------------------------------------------------------------
+# Test results and coverage reports don't belong in production images
+coverage/
+.coverage
+.nyc_output/
+*.cover
+htmlcov/
+.pytest_cache/
+.tox/
+test-results/
+*.test
+*.spec
+
+# -----------------------------------------------------------------------------
+# Environment Variables and Secrets
+# -----------------------------------------------------------------------------
+# CRITICAL: Never include secrets in Docker images
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.crt
+secrets/
+.secrets/
+*.secret
+
+# -----------------------------------------------------------------------------
+# Temporary Files
+# -----------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.log
+*.cache
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+# Log files should be generated at runtime, not included in images
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------------------------------------------------------
+# Operating System Files
+# -----------------------------------------------------------------------------
+# OS-specific files that don't belong in containers
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# -----------------------------------------------------------------------------
+# CI/CD
+# -----------------------------------------------------------------------------
+# CI/CD configuration files (GitHub Actions, GitLab CI, etc.)
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+azure-pipelines.yml
+Jenkinsfile
+.buildkite/
+
+# -----------------------------------------------------------------------------
+# Data Directories
+# -----------------------------------------------------------------------------
+# Local data directories - use volumes for persistent data instead
+data/
+*.sqlite
+*.db
+*.sql
+
+# -----------------------------------------------------------------------------
+# Keep Exceptions
+# -----------------------------------------------------------------------------
+# Use '!' to negate patterns and force inclusion of specific files
+# Example: !important-file.txt
+
+# End of .dockerignore

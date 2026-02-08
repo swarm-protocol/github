@@ -74,6 +74,23 @@ Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML config
 - CI/CD pipeline YAML
 - Container security and best practices
 
+### Dockerfile.template & .dockerignore
+Production-ready Dockerfile template and comprehensive `.dockerignore` file following Docker best practices.
+
+**Includes:**
+- Multi-stage build (builder + production stages)
+- Non-root user for security
+- Health check configuration
+- Layer optimization with clear customization comments
+- Comprehensive `.dockerignore` for clean builds
+
+**Usage:**
+```bash
+# Copy and customize for your project
+cp Dockerfile.template Dockerfile
+# Edit the Dockerfile to match your application
+```
+
 ### ansible-specialist.agent.md 
 Expert agent for Ansible automation, playbooks, roles, and infrastructure configuration management.
 **Status:** Ready to use immediately!
