@@ -1,6 +1,6 @@
 # AGENTS.md - AI Agent Framework & Repository Navigation
 
-> **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
+> **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n, Supabase) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
 
 **Last Updated**: 2026-02-08
 
@@ -9,7 +9,7 @@
 ## Purpose
 
 This unified documentation helps AI assistants and developers:
-1. **Understand AI Agent Frameworks** - GitHub Copilot, Cursor, and n8n capabilities
+1. **Understand AI Agent Frameworks** - GitHub Copilot, Cursor, n8n, and Supabase capabilities
 2. **Navigate** the entire repository structure efficiently
 3. **Build and Deploy** custom agents for various platforms
 4. **Execute** common development commands and workflows
@@ -22,9 +22,10 @@ This unified documentation helps AI assistants and developers:
 1. [GitHub Copilot Custom Agents](#github-copilot-custom-agents)
 2. [Cursor Agent Framework](#cursor-agent-framework)
 3. [n8n AI Agent Framework](#n8n-ai-agent-framework)
-4. [Repository Documentation Sitemap](#documentation-sitemap)
-5. [Common Bash Commands](#common-bash-commands)
-6. [Getting Started](#getting-started-quick-commands)
+4. [Supabase Platform](#supabase-platform)
+5. [Repository Documentation Sitemap](#documentation-sitemap)
+6. [Common Bash Commands](#common-bash-commands)
+7. [Getting Started](#getting-started-quick-commands)
 
 ---
 
@@ -1511,16 +1512,16 @@ User Query → AI Agent → Vector Store Tool → Generate Response
 
 ## 9. Framework Comparison
 
-| Aspect | n8n | GitHub Copilot | Cursor |
-|--------|-----|----------------|--------|
-| **Interface** | Visual workflow + Code | IDE extension | IDE application |
-| **Agent Type** | Autonomous workflows | Code assistants | Code assistants |
-| **Deployment** | Self-hosted or Cloud | GitHub-hosted | Desktop app |
-| **LLM Support** | Multiple providers | GitHub's models | Multiple providers |
-| **Tools** | 400+ integrations | File/Git/Web | File/Terminal/Web |
-| **Multi-Agent** | Native support | Single agent | Subagents |
-| **Memory** | Multiple options | Session-based | Session-based |
-| **Use Case** | Workflow automation | Code generation | Code generation |
+| Aspect | n8n | GitHub Copilot | Cursor | Supabase |
+|--------|-----|----------------|--------|----------|
+| **Interface** | Visual workflow + Code | IDE extension | IDE application | Dashboard + CLI + SDK |
+| **Agent Type** | Autonomous workflows | Code assistants | Code assistants | Backend-as-a-Service |
+| **Deployment** | Self-hosted or Cloud | GitHub-hosted | Desktop app | Cloud or Self-hosted |
+| **LLM Support** | Multiple providers | GitHub's models | Multiple providers | pgvector + any LLM |
+| **Tools** | 400+ integrations | File/Git/Web | File/Terminal/Web | DB/Auth/Storage/Edge Functions |
+| **Multi-Agent** | Native support | Single agent | Subagents | MCP integration |
+| **Memory** | Multiple options | Session-based | Session-based | PostgreSQL + Vector store |
+| **Use Case** | Workflow automation | Code generation | Code generation | Backend infrastructure |
 
 ## n8n Quick Reference Links
 
@@ -1566,6 +1567,890 @@ n8n start
 6. Test and iterate
 
 **Follow the Tutorial**: [Build an AI workflow](https://docs.n8n.io/advanced-ai/intro-tutorial/)
+
+---
+
+# Supabase Platform
+
+## Overview
+
+Supabase is an open-source Firebase alternative that provides a complete backend-as-a-service platform. It offers a PostgreSQL database, authentication, instant APIs, edge functions, real-time subscriptions, storage, and vector embeddings — all with a generous free tier and self-hosting options.
+
+**Key Features**:
+- PostgreSQL database with Row Level Security (RLS)
+- Authentication and authorization (email, OAuth, magic links, SSO)
+- Auto-generated RESTful and GraphQL APIs (PostgREST)
+- Real-time subscriptions via WebSockets
+- Edge Functions (Deno-based serverless functions)
+- Storage for files and media with CDN
+- Vector embeddings and AI integration (pgvector)
+- Supabase CLI for local development and CI/CD
+- MCP (Model Context Protocol) support
+
+**Documentation**: [supabase.com/docs](https://supabase.com/docs)
+
+## 1. Architecture
+
+Supabase is built on a modular architecture of open-source tools:
+
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| **Database** | PostgreSQL | Core relational database with extensions |
+| **Auth** | GoTrue | User authentication and authorization |
+| **REST API** | PostgREST | Auto-generated RESTful API from database schema |
+| **Realtime** | Realtime Server | WebSocket-based real-time subscriptions |
+| **Storage** | Storage API | S3-compatible object storage |
+| **Edge Functions** | Deno | Serverless functions at the edge |
+| **Studio** | Next.js | Web-based database management UI |
+| **CLI** | Go | Local development and project management |
+| **pgvector** | PostgreSQL Extension | Vector similarity search for AI/ML |
+
+### How It Works
+
+```
+Client SDK (JS/Python/Flutter/Swift/Kotlin)
+    ↓
+API Gateway (Kong)
+    ├── PostgREST → PostgreSQL
+    ├── GoTrue → Auth
+    ├── Realtime → WebSocket Channels
+    ├── Storage → S3-compatible Store
+    └── Edge Functions → Deno Runtime
+```
+
+## 2. Project Setup
+
+### Creating a Project
+
+**Cloud (Recommended for getting started)**:
+1. Sign up at [supabase.com](https://supabase.com)
+2. Create a new project
+3. Note your project URL and API keys from Settings > API
+
+**Self-Hosted (Docker)**:
+```bash
+# Clone the Supabase repository
+git clone --depth 1 https://github.com/supabase/supabase
+cd supabase/docker
+
+# Copy the example environment file
+cp .env.example .env
+
+# Start all services
+docker compose pull
+docker compose up -d
+
+# Studio is available at http://localhost:8000
+```
+
+**Local Development with Supabase CLI**:
+```bash
+# Install Supabase CLI
+npm install -g supabase
+
+# Initialize a new project
+supabase init
+
+# Start local Supabase stack
+supabase start
+
+# Status of local services
+supabase status
+```
+
+### Client Libraries
+
+| Language | Package | Install |
+|----------|---------|---------|
+| **JavaScript/TypeScript** | `@supabase/supabase-js` | `npm install @supabase/supabase-js` |
+| **Python** | `supabase` | `pip install supabase` |
+| **Flutter/Dart** | `supabase_flutter` | `flutter pub add supabase_flutter` |
+| **Swift** | `supabase-swift` | Swift Package Manager |
+| **Kotlin** | `supabase-kt` | Gradle/Maven |
+| **C#** | `supabase-csharp` | `dotnet add package supabase-csharp` |
+
+### Client Initialization
+
+**JavaScript/TypeScript**:
+```typescript
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  'https://your-project.supabase.co',
+  'your-anon-key'
+)
+```
+
+**Python**:
+```python
+from supabase import create_client
+
+supabase = create_client(
+    "https://your-project.supabase.co",
+    "your-anon-key"
+)
+```
+
+## 3. Database (PostgreSQL)
+
+Supabase provides a full PostgreSQL database with extensions and Row Level Security.
+
+### Schema Management
+
+**Using SQL Editor (Studio)**:
+```sql
+-- Create a table
+CREATE TABLE public.todos (
+  id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  user_id UUID REFERENCES auth.users NOT NULL,
+  title TEXT NOT NULL,
+  completed BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.todos ENABLE ROW LEVEL SECURITY;
+
+-- Create a policy
+CREATE POLICY "Users can manage their own todos"
+  ON public.todos
+  FOR ALL
+  USING (auth.uid() = user_id)
+  WITH CHECK (auth.uid() = user_id);
+```
+
+**Using Migrations (CLI)**:
+```bash
+# Create a new migration
+supabase migration new create_todos_table
+
+# Apply migrations locally
+supabase db reset
+
+# Push migrations to remote
+supabase db push
+
+# Pull remote schema changes
+supabase db pull
+```
+
+### Row Level Security (RLS)
+
+RLS is a PostgreSQL feature that restricts which rows a user can access:
+
+```sql
+-- Enable RLS on a table
+ALTER TABLE public.posts ENABLE ROW LEVEL SECURITY;
+
+-- Public read access
+CREATE POLICY "Public posts are viewable by everyone"
+  ON public.posts FOR SELECT
+  USING (published = true);
+
+-- Authenticated users can insert
+CREATE POLICY "Authenticated users can create posts"
+  ON public.posts FOR INSERT
+  TO authenticated
+  WITH CHECK (auth.uid() = author_id);
+
+-- Users can update their own posts
+CREATE POLICY "Users can update their own posts"
+  ON public.posts FOR UPDATE
+  USING (auth.uid() = author_id)
+  WITH CHECK (auth.uid() = author_id);
+
+-- Users can delete their own posts
+CREATE POLICY "Users can delete their own posts"
+  ON public.posts FOR DELETE
+  USING (auth.uid() = author_id);
+```
+
+### Common PostgreSQL Extensions
+
+```sql
+-- Enable extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";      -- UUID generation
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";        -- Cryptographic functions
+CREATE EXTENSION IF NOT EXISTS "pgjwt";           -- JWT token creation
+CREATE EXTENSION IF NOT EXISTS "pg_stat_statements"; -- Query statistics
+CREATE EXTENSION IF NOT EXISTS "vector";          -- pgvector for embeddings
+CREATE EXTENSION IF NOT EXISTS "pg_trgm";         -- Trigram similarity search
+CREATE EXTENSION IF NOT EXISTS "http";            -- HTTP requests from SQL
+```
+
+### Database Functions
+
+```sql
+-- Create a database function
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email, full_name)
+  VALUES (NEW.id, NEW.email, NEW.raw_user_meta_data->>'full_name');
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Create a trigger
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+```
+
+## 4. Authentication
+
+Supabase Auth supports multiple authentication methods.
+
+### Email/Password
+
+```typescript
+// Sign up
+const { data, error } = await supabase.auth.signUp({
+  email: 'user@example.com',
+  password: 'secure-password',
+})
+
+// Sign in
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'secure-password',
+})
+
+// Sign out
+await supabase.auth.signOut()
+```
+
+### OAuth Providers
+
+```typescript
+// Sign in with GitHub
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github',
+  options: {
+    redirectTo: 'https://your-app.com/callback',
+  },
+})
+
+// Sign in with Google
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'google',
+})
+```
+
+**Supported OAuth Providers**: Apple, Azure, Bitbucket, Discord, Facebook, Figma, GitHub, GitLab, Google, Kakao, Keycloak, LinkedIn, Notion, Slack, Spotify, Twitch, Twitter, WorkOS
+
+### Magic Links
+
+```typescript
+const { data, error } = await supabase.auth.signInWithOtp({
+  email: 'user@example.com',
+})
+```
+
+### Session Management
+
+```typescript
+// Get current session
+const { data: { session } } = await supabase.auth.getSession()
+
+// Get current user
+const { data: { user } } = await supabase.auth.getUser()
+
+// Listen for auth state changes
+supabase.auth.onAuthStateChange((event, session) => {
+  console.log(event, session)
+})
+```
+
+## 5. APIs (Auto-Generated)
+
+Supabase auto-generates RESTful APIs from your database schema using PostgREST.
+
+### CRUD Operations
+
+```typescript
+// SELECT - Read data
+const { data, error } = await supabase
+  .from('todos')
+  .select('*')
+  .eq('completed', false)
+  .order('created_at', { ascending: false })
+  .limit(10)
+
+// INSERT - Create data
+const { data, error } = await supabase
+  .from('todos')
+  .insert({ title: 'New todo', user_id: userId })
+  .select()
+
+// UPDATE - Modify data
+const { data, error } = await supabase
+  .from('todos')
+  .update({ completed: true })
+  .eq('id', todoId)
+  .select()
+
+// DELETE - Remove data
+const { error } = await supabase
+  .from('todos')
+  .delete()
+  .eq('id', todoId)
+```
+
+### Advanced Queries
+
+```typescript
+// Select with relationships (joins)
+const { data } = await supabase
+  .from('posts')
+  .select(`
+    id,
+    title,
+    content,
+    author:profiles(id, full_name, avatar_url),
+    comments(id, body, created_at)
+  `)
+
+// Filtering
+const { data } = await supabase
+  .from('products')
+  .select('*')
+  .gte('price', 10)
+  .lte('price', 100)
+  .ilike('name', '%shirt%')
+  .in('category', ['clothing', 'accessories'])
+
+// Full-text search
+const { data } = await supabase
+  .from('posts')
+  .select('*')
+  .textSearch('title', 'supabase & database')
+
+// Calling database functions (RPC)
+const { data } = await supabase
+  .rpc('get_nearby_locations', {
+    lat: 40.7128,
+    lng: -74.0060,
+    radius_km: 10,
+  })
+```
+
+## 6. Real-Time
+
+Supabase provides real-time capabilities via WebSockets.
+
+### Database Changes (Postgres Changes)
+
+```typescript
+// Listen to all changes on a table
+const channel = supabase
+  .channel('todos-changes')
+  .on(
+    'postgres_changes',
+    { event: '*', schema: 'public', table: 'todos' },
+    (payload) => {
+      console.log('Change received:', payload)
+    }
+  )
+  .subscribe()
+
+// Listen to inserts only
+const channel = supabase
+  .channel('new-todos')
+  .on(
+    'postgres_changes',
+    { event: 'INSERT', schema: 'public', table: 'todos' },
+    (payload) => {
+      console.log('New todo:', payload.new)
+    }
+  )
+  .subscribe()
+
+// Filter changes
+const channel = supabase
+  .channel('user-todos')
+  .on(
+    'postgres_changes',
+    {
+      event: '*',
+      schema: 'public',
+      table: 'todos',
+      filter: `user_id=eq.${userId}`,
+    },
+    (payload) => {
+      console.log('User todo changed:', payload)
+    }
+  )
+  .subscribe()
+```
+
+### Broadcast (Client-to-Client)
+
+```typescript
+// Send broadcast messages
+const channel = supabase.channel('room-1')
+
+channel.subscribe((status) => {
+  if (status === 'SUBSCRIBED') {
+    channel.send({
+      type: 'broadcast',
+      event: 'cursor-pos',
+      payload: { x: 100, y: 200 },
+    })
+  }
+})
+
+// Receive broadcast messages
+channel.on('broadcast', { event: 'cursor-pos' }, (payload) => {
+  console.log('Cursor position:', payload)
+})
+```
+
+### Presence (Online Status)
+
+```typescript
+const channel = supabase.channel('online-users')
+
+channel
+  .on('presence', { event: 'sync' }, () => {
+    const state = channel.presenceState()
+    console.log('Online users:', state)
+  })
+  .on('presence', { event: 'join' }, ({ key, newPresences }) => {
+    console.log('User joined:', key, newPresences)
+  })
+  .on('presence', { event: 'leave' }, ({ key, leftPresences }) => {
+    console.log('User left:', key, leftPresences)
+  })
+  .subscribe(async (status) => {
+    if (status === 'SUBSCRIBED') {
+      await channel.track({ user_id: userId, online_at: new Date().toISOString() })
+    }
+  })
+```
+
+## 7. Edge Functions
+
+Supabase Edge Functions are serverless functions powered by Deno.
+
+### Creating Edge Functions
+
+```bash
+# Create a new edge function
+supabase functions new hello-world
+
+# Serve locally for development
+supabase functions serve hello-world
+
+# Deploy to production
+supabase functions deploy hello-world
+
+# Deploy all functions
+supabase functions deploy
+```
+
+### Edge Function Example
+
+```typescript
+// supabase/functions/hello-world/index.ts
+import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+serve(async (req: Request) => {
+  const supabase = createClient(
+    Deno.env.get('SUPABASE_URL')!,
+    Deno.env.get('SUPABASE_ANON_KEY')!,
+    {
+      global: { headers: { Authorization: req.headers.get('Authorization')! } },
+    }
+  )
+
+  const { data, error } = await supabase.from('todos').select('*')
+
+  return new Response(JSON.stringify({ data, error }), {
+    headers: { 'Content-Type': 'application/json' },
+    status: 200,
+  })
+})
+```
+
+### Edge Function with CORS
+
+```typescript
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
+serve(async (req: Request) => {
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
+  }
+
+  // Function logic here
+
+  return new Response(JSON.stringify({ message: 'Hello' }), {
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  })
+})
+```
+
+## 8. Storage
+
+Supabase Storage provides S3-compatible object storage with CDN.
+
+### Bucket Management
+
+```sql
+-- Create a storage bucket (via SQL)
+INSERT INTO storage.buckets (id, name, public) VALUES ('avatars', 'avatars', true);
+```
+
+```typescript
+// Create a bucket (via API)
+const { data, error } = await supabase.storage.createBucket('avatars', {
+  public: true,
+  fileSizeLimit: 1024 * 1024 * 2, // 2MB
+  allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif'],
+})
+```
+
+### File Operations
+
+```typescript
+// Upload a file
+const { data, error } = await supabase.storage
+  .from('avatars')
+  .upload('user-1/avatar.png', file, {
+    cacheControl: '3600',
+    upsert: true,
+  })
+
+// Download a file
+const { data, error } = await supabase.storage
+  .from('avatars')
+  .download('user-1/avatar.png')
+
+// Get a public URL
+const { data } = supabase.storage
+  .from('avatars')
+  .getPublicUrl('user-1/avatar.png')
+
+// Create a signed URL (temporary access)
+const { data, error } = await supabase.storage
+  .from('private-files')
+  .createSignedUrl('document.pdf', 3600) // 1 hour
+
+// Delete a file
+const { error } = await supabase.storage
+  .from('avatars')
+  .remove(['user-1/avatar.png'])
+
+// List files in a bucket
+const { data, error } = await supabase.storage
+  .from('avatars')
+  .list('user-1', { limit: 100, offset: 0 })
+```
+
+### Storage Policies (RLS)
+
+```sql
+-- Allow authenticated users to upload to their own folder
+CREATE POLICY "Users can upload their own avatar"
+  ON storage.objects FOR INSERT
+  TO authenticated
+  WITH CHECK (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::TEXT);
+
+-- Allow public read access
+CREATE POLICY "Public avatar access"
+  ON storage.objects FOR SELECT
+  TO public
+  USING (bucket_id = 'avatars');
+```
+
+## 9. Vector Embeddings and AI
+
+Supabase supports AI/ML workflows with pgvector for vector similarity search.
+
+### Setup pgvector
+
+```sql
+-- Enable the vector extension
+CREATE EXTENSION IF NOT EXISTS vector;
+
+-- Create a table with vector column
+CREATE TABLE public.documents (
+  id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  content TEXT NOT NULL,
+  embedding VECTOR(1536),  -- OpenAI ada-002 dimension
+  metadata JSONB,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Create an index for fast similarity search
+CREATE INDEX ON public.documents USING ivfflat (embedding vector_cosine_ops)
+  WITH (lists = 100);
+
+-- Or use HNSW index (recommended for most cases)
+CREATE INDEX ON public.documents USING hnsw (embedding vector_cosine_ops);
+```
+
+### Similarity Search
+
+```sql
+-- Find similar documents
+CREATE OR REPLACE FUNCTION match_documents(
+  query_embedding VECTOR(1536),
+  match_threshold FLOAT,
+  match_count INT
+)
+RETURNS TABLE (
+  id BIGINT,
+  content TEXT,
+  similarity FLOAT
+)
+LANGUAGE sql STABLE
+AS $$
+  SELECT
+    documents.id,
+    documents.content,
+    1 - (documents.embedding <=> query_embedding) AS similarity
+  FROM documents
+  WHERE 1 - (documents.embedding <=> query_embedding) > match_threshold
+  ORDER BY documents.embedding <=> query_embedding
+  LIMIT match_count;
+$$;
+```
+
+### Using with OpenAI
+
+```typescript
+import OpenAI from 'openai'
+
+const openai = new OpenAI()
+
+// Generate embedding
+const embeddingResponse = await openai.embeddings.create({
+  model: 'text-embedding-ada-002',
+  input: 'Your search query here',
+})
+
+const embedding = embeddingResponse.data[0].embedding
+
+// Search in Supabase
+const { data } = await supabase.rpc('match_documents', {
+  query_embedding: embedding,
+  match_threshold: 0.78,
+  match_count: 10,
+})
+```
+
+## 10. Supabase CLI Reference
+
+### Common Commands
+
+```bash
+# Project management
+supabase init                      # Initialize a new project
+supabase start                     # Start local Supabase stack
+supabase stop                      # Stop local Supabase stack
+supabase status                    # Show status of local services
+supabase link --project-ref <ref>  # Link to remote project
+
+# Database
+supabase db reset                  # Reset local database
+supabase db push                   # Push migrations to remote
+supabase db pull                   # Pull remote schema changes
+supabase db diff                   # Diff local vs remote schema
+supabase db lint                   # Lint SQL for common issues
+supabase db dump                   # Dump remote database schema
+
+# Migrations
+supabase migration new <name>      # Create a new migration
+supabase migration list            # List all migrations
+supabase migration up              # Apply pending migrations
+supabase migration repair          # Repair migration history
+
+# Edge Functions
+supabase functions new <name>      # Create a new edge function
+supabase functions serve           # Serve functions locally
+supabase functions deploy          # Deploy functions to production
+supabase functions delete <name>   # Delete a deployed function
+
+# Auth
+supabase sso add                   # Add SSO identity provider
+supabase sso list                  # List SSO providers
+supabase sso remove                # Remove SSO provider
+
+# Secrets
+supabase secrets set KEY=VALUE     # Set a secret
+supabase secrets list              # List all secrets
+supabase secrets unset KEY         # Remove a secret
+
+# Type generation
+supabase gen types typescript --linked  # Generate TypeScript types
+supabase gen types typescript --local   # Generate from local schema
+
+# Inspect (database diagnostics)
+supabase inspect db long-running-queries
+supabase inspect db table-sizes
+supabase inspect db index-usage
+supabase inspect db cache-hit
+```
+
+### Configuration File
+
+The `supabase/config.toml` file configures your local Supabase project:
+
+```toml
+[project]
+id = "your-project-ref"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
+[auth.external.github]
+enabled = true
+client_id = "env(GITHUB_CLIENT_ID)"
+secret = "env(GITHUB_CLIENT_SECRET)"
+redirect_uri = "http://localhost:54321/auth/v1/callback"
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[edge_runtime]
+enabled = true
+policy = "per_worker"
+
+[analytics]
+enabled = true
+port = 54327
+backend = "postgres"
+```
+
+## 11. MCP Integration
+
+Supabase provides an MCP (Model Context Protocol) server for AI agent integration.
+
+### Setup
+
+```bash
+# Install the Supabase MCP server
+npx @supabase/mcp-server-supabase@latest init
+```
+
+### Configuration for Cursor/VS Code
+
+Add to your MCP configuration (e.g., `.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase@latest"],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "your-access-token"
+      }
+    }
+  }
+}
+```
+
+### Available MCP Tools
+
+The Supabase MCP server provides tools for:
+
+| Tool | Description |
+|------|-------------|
+| **list_projects** | List all Supabase projects |
+| **get_project** | Get project details |
+| **execute_sql** | Run SQL queries against a project |
+| **apply_migration** | Apply a database migration |
+| **list_tables** | List tables in the database |
+| **list_extensions** | List PostgreSQL extensions |
+| **list_functions** | List edge functions |
+| **deploy_function** | Deploy an edge function |
+| **list_storage_buckets** | List storage buckets |
+| **get_logs** | Retrieve project logs |
+| **get_project_url** | Get project API URL and keys |
+
+## 12. Best Practices
+
+### Database Design
+
+1. **Always enable RLS**: Enable Row Level Security on all tables
+2. **Use migrations**: Version-control all schema changes
+3. **Create indexes**: Add indexes for frequently queried columns
+4. **Use foreign keys**: Maintain referential integrity
+5. **Leverage PostgreSQL**: Use views, functions, and triggers
+
+### Security
+
+1. **Never expose service role key**: Only use the anon key in client code
+2. **Write strict RLS policies**: Default to denying access
+3. **Validate inputs**: Use database constraints and check constraints
+4. **Use HTTPS**: Always connect over encrypted connections
+5. **Rotate keys**: Regularly rotate API keys and secrets
+
+### Performance
+
+1. **Use connection pooling**: Enable PgBouncer for production
+2. **Optimize queries**: Use `EXPLAIN ANALYZE` to debug slow queries
+3. **Add appropriate indexes**: B-tree for equality, GiST for spatial, GIN for full-text
+4. **Use database functions**: Move complex logic to the database layer
+5. **Cache with CDN**: Use Supabase Storage CDN for static assets
+
+### Edge Functions
+
+1. **Keep functions small**: Single responsibility per function
+2. **Handle CORS**: Always include CORS headers for browser access
+3. **Use environment variables**: Store secrets via `supabase secrets set`
+4. **Handle errors gracefully**: Return appropriate HTTP status codes
+5. **Use TypeScript**: Leverage type safety with generated types
+
+## Supabase Quick Reference Links
+
+| Resource | URL |
+|----------|-----|
+| Main Docs | [supabase.com/docs](https://supabase.com/docs) |
+| JavaScript Client | [supabase.com/docs/reference/javascript](https://supabase.com/docs/reference/javascript) |
+| Python Client | [supabase.com/docs/reference/python](https://supabase.com/docs/reference/python) |
+| CLI Reference | [supabase.com/docs/reference/cli](https://supabase.com/docs/reference/cli) |
+| Self-Hosting | [supabase.com/docs/guides/self-hosting](https://supabase.com/docs/guides/self-hosting) |
+| Auth Guide | [supabase.com/docs/guides/auth](https://supabase.com/docs/guides/auth) |
+| Database Guide | [supabase.com/docs/guides/database](https://supabase.com/docs/guides/database) |
+| Edge Functions | [supabase.com/docs/guides/functions](https://supabase.com/docs/guides/functions) |
+| Storage Guide | [supabase.com/docs/guides/storage](https://supabase.com/docs/guides/storage) |
+| Realtime Guide | [supabase.com/docs/guides/realtime](https://supabase.com/docs/guides/realtime) |
+| AI & Vectors | [supabase.com/docs/guides/ai](https://supabase.com/docs/guides/ai) |
+| MCP Server | [github.com/supabase-community/supabase-mcp](https://github.com/supabase-community/supabase-mcp) |
+| GitHub Repo | [github.com/supabase/supabase](https://github.com/supabase/supabase) |
+| Status Page | [status.supabase.com](https://status.supabase.com) |
 
 ---
 
