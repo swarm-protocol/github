@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD013 MD024 MD025 MD036 MD060 -->
+
 # AGENTS.md - AI Agent Framework & Repository Navigation
 
 > **For GitHub Copilot & AI Assistants**: This file provides comprehensive documentation for AI agent frameworks (GitHub Copilot, Cursor, n8n, Supabase) and serves as a complete repository sitemap. Read this file to understand the AI agent architecture, framework capabilities, and repository structure.
@@ -56,15 +58,14 @@ Each agent is defined in a `.agent.md` file with:
 
 1. **YAML Front Matter**:
 
-```yaml
----
-name: agent-name
-description: Brief description of what the agent does
----
+   ```yaml
+   ---
+   name: agent-name
+   description: Brief description of what the agent does
+   ---
+   ```
 
-```
-
-1. **Markdown Content**: Instructions, commands, examples, boundaries
+2. **Markdown Content**: Instructions, commands, examples, boundaries
 
 ### Template Structure
 
@@ -275,7 +276,7 @@ Last Updated: {{DATE}}
 In GitHub Copilot Chat:
 
 ```text
-@documentation-builder Generate README.md and AGENTS.md from the template files. 
+@documentation-builder Generate README.md and AGENTS.md from the template files.
 Use these values:
 - PROJECT_NAME: "My Awesome Project"
 - DESCRIPTION: "A tool that does amazing things"
@@ -298,7 +299,7 @@ The agent will:
 **Using Package.json Values**:
 
 ```text
-@documentation-builder Generate docs from templates, extracting 
+@documentation-builder Generate docs from templates, extracting
 PROJECT_NAME and VERSION from package.json
 
 ```
@@ -316,7 +317,7 @@ This content won't be replaced during regeneration.
 **Multiple Template Sources**:
 
 ```text
-@documentation-builder Combine header.template.md, features.template.md, 
+@documentation-builder Combine header.template.md, features.template.md,
 and footer.template.md into README.md
 
 ```
@@ -688,8 +689,8 @@ sudo npm install -g mytool
 **Using documentation-builder:**
 
 ```text
-@documentation-builder Generate a QUICKSTART.md for this codebase. 
-Follow the protocol in AGENTS.md. Extract information from README.md 
+@documentation-builder Generate a QUICKSTART.md for this codebase.
+Follow the protocol in AGENTS.md. Extract information from README.md
 and AGENTS.md. Make it completable in under 5 minutes.
 
 ```
@@ -697,9 +698,9 @@ and AGENTS.md. Make it completable in under 5 minutes.
 **Using documentation-expert:**
 
 ```text
-@documentation-expert Create a QUICKSTART.md that helps new users 
-get started in 5 minutes. Analyze README.md and AGENTS.md to extract 
-setup steps, examples, and common issues. Use the QUICKSTART.md 
+@documentation-expert Create a QUICKSTART.md that helps new users
+get started in 5 minutes. Analyze README.md and AGENTS.md to extract
+setup steps, examples, and common issues. Use the QUICKSTART.md
 protocol from AGENTS.md.
 
 ```
@@ -726,7 +727,7 @@ When working with both README.md and QUICKSTART.md:
 **Relationship:**
 
 ```text
-README.md (comprehensive) 
+README.md (comprehensive)
     ↓ extract minimal path
 QUICKSTART.md (5-minute success)
     ↓ reference for details
