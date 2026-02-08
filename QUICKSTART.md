@@ -217,9 +217,9 @@ def calc(x):
 
 ## Boundaries
 
-- ❌ Never modify code files
-- ❌ Never remove working code
-- ✅ Only provide suggestions and explanations
+-  Never modify code files
+-  Never remove working code
+- Only provide suggestions and explanations
 ```
 
 3. **Commit and push**:
@@ -236,11 +236,11 @@ git push
 
 ## Next Steps
 
-1. ✅ **Read the full guide**: See [.github/agents/README.md](.github/agents/README.md)
-2. 📚 **Explore templates**: Check out all available templates
-3. 🎯 **Create specialized agents**: Build agents for your specific needs
-4. 🤝 **Share with your team**: Add agents to your organization's `.github-private` repo
-5. 📈 **Iterate**: Refine your agents based on real-world usage
+1. **Read the full guide**: See [.github/agents/README.md](.github/agents/README.md)
+2. **Explore templates**: Check out all available templates
+3. **Create specialized agents**: Build agents for your specific needs
+4. **Share with your team**: Add agents to your organization's `.github-private` repo
+5.  **Iterate**: Refine your agents based on real-world usage
 
 ## Resources
 
@@ -250,10 +250,10 @@ git push
 
 ## Need Help?
 
-- 📖 Check the [Agent Creation Guide](.github/agents/README.md) for detailed instructions
-- 🐛 Found a bug? Open an issue in your repository
-- 💡 Have a question? Start a discussion or ask your team
+-  Check the [Agent Creation Guide](.github/agents/README.md) for detailed instructions
+-  Found a bug? Open an issue in your repository
+- Have a question? Start a discussion or ask your team
 
 ---
 
-**Congratulations!** 🎉 You're now ready to use GitHub Copilot custom agents. Start with a simple agent and build from there!
+**Congratulations!**  You're now ready to use GitHub Copilot custom agents. Start with a simple agent and build from there!

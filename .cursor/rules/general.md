@@ -50,18 +50,21 @@ tree -L 3 -I '.git|node_modules'
 
 ```
 .
-├── .github/agents/      # GitHub Copilot agent definitions
-├── .cursor/             # Cursor IDE configuration
-├── apt/                 # APT package lists by environment
-├── data/                # Data files, configs, schemas
-├── docs/                # Documentation files
-├── nix/                 # Nix development environments
-├── src/                 # Source code and scripts
-├── terraform/           # CloudFlare infrastructure modules
-├── AGENTS.md            # Navigation hub
-├── CLAUDE.md            # Claude AI context
-├── CURSOR.md            # Cursor framework docs
-└── README.md            # Main readme
+ .github/agents/      # GitHub Copilot agent definitions
+ .cursor/             # Cursor IDE configuration
+ apt/                 # APT package lists by environment
+ data/                # Data files, configs, schemas
+ docs/                # Documentation files
+ nix/                 # Nix development environments
+ src/                 # Source code and scripts
+ terraform/           # CloudFlare infrastructure modules
+ AGENTS.md            # AI frameworks & navigation hub
+ CLAUDE.md            # Symlink to AGENTS.md
+ CURSOR.md            # Symlink to AGENTS.md
+ N8N.md               # Symlink to AGENTS.md
+ GEMINI.md            # Symlink to AGENTS.md
+ QWEN.md              # Symlink to AGENTS.md
+ README.md            # Main readme
 ```
 
 ## Best Practices

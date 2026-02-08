@@ -13,7 +13,7 @@ This repository provides ready-to-use templates for creating specialized GitHub 
 
 ## Quick Start
 
-### 🚀 Automated Setup
+### Automated Setup
 
 Run the bootstrap script to set up your development environment:
 
@@ -27,7 +27,7 @@ The script will:
 - Set up your chosen environment (test, docker, documentation, etc.)
 - Verify the setup
 
-### ✋ Manual Setup
+### Manual Setup
 
 1. **Explore the templates** in the `.github/agents/` directory
 2. **Copy a template** that fits your needs
@@ -38,32 +38,32 @@ See [.github/agents/README.md](.github/agents/README.md) for detailed instructio
 
 ## Available Templates
 
-### 📋 TEMPLATE.agent.md
+### TEMPLATE.agent.md
 Comprehensive blank template with all recommended sections for creating custom agents from scratch.
 
-### 🧪 test-specialist.agent.md ✅
+### test-specialist.agent.md 
 Specialized agent for writing comprehensive tests without modifying production code.
 **Status:** Ready to use immediately!
 
-### 📝 documentation-expert.agent.md ✅
+### documentation-expert.agent.md 
 Expert agent for creating clear, comprehensive documentation, READMEs, and guides.
 **Status:** Ready to use immediately!
 
-### 👀 code-reviewer.agent.md ✅
+### code-reviewer.agent.md 
 Code review specialist focused on quality, security, and best practices.
 **Status:** Ready to use immediately!
 
-### 🔧 refactoring-assistant.agent.md ✅
+### refactoring-assistant.agent.md 
 Ready-to-use agent for safe code refactoring and improving maintainability.
 **Status:** Ready to use immediately!
 
-### 📄 documentation-builder.agent.md ✅
-Ready-to-use agent for building README.md and CLAUDE.md from template files with variable substitution.
+### documentation-builder.agent.md 
+Ready-to-use agent for building README.md and AGENTS.md from template files with variable substitution.
 **Status:** Ready to use immediately!
 
 See [DOCUMENTATION-BUILDER-USAGE.md](DOCUMENTATION-BUILDER-USAGE.md) for usage examples.
 
-### 🐳 docker-specialist.agent.md ✅
+### docker-specialist.agent.md 
 Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML configurations.
 **Status:** Ready to use immediately!
 
@@ -74,7 +74,7 @@ Expert agent for Docker, Dockerfiles, docker-compose, and Kubernetes YAML config
 - CI/CD pipeline YAML
 - Container security and best practices
 
-### 🔧 ansible-specialist.agent.md ✅
+### ansible-specialist.agent.md 
 Expert agent for Ansible automation, playbooks, roles, and infrastructure configuration management.
 **Status:** Ready to use immediately!
 
@@ -88,15 +88,15 @@ Expert agent for Ansible automation, playbooks, roles, and infrastructure config
 
 ## Features
 
-✅ **Well-structured templates** following GitHub's best practices  
-✅ **Real-world examples** demonstrating different agent types  
-✅ **Comprehensive documentation** with step-by-step guides  
-✅ **Customizable** for any language, framework, or workflow  
-✅ **Production-ready** agents you can use immediately  
+**Well-structured templates** following GitHub's best practices  
+**Real-world examples** demonstrating different agent types  
+**Comprehensive documentation** with step-by-step guides  
+**Customizable** for any language, framework, or workflow  
+**Production-ready** agents you can use immediately  
 
 ## Getting Started
 
-**⚡ New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+**New to custom agents?** Start with the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
 
 ### For Your Repository
 
@@ -117,17 +117,17 @@ Create a `.github-private` repository in your organization and add agent files t
 
 ## Documentation
 
-- [🗺️ **AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap and bash command reference**
-- [⚡ Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
-- [📖 Detailed Setup Guide](.github/agents/README.md) - Complete instructions
-- [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute
-- [📋 Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
-- [💡 Example Agents](.github/agents/) - Pre-built examples
-- [🔧 Nix Development Environments](nix/README.md) - Reproducible dev environments
-- [📦 APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
-- [🎯 Cursor IDE Configuration](.cursor/README.md) - Cursor rules and agents
-- [📚 Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
-- [🔄 n8n Agent Framework](N8N.md) - Visual workflow automation with AI agents
+- [**AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap and bash command reference**
+- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
+- [ Detailed Setup Guide](.github/agents/README.md) - Complete instructions
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
+- [Example Agents](.github/agents/) - Pre-built examples
+- [Nix Development Environments](nix/README.md) - Reproducible dev environments
+- [ APT Package Lists](apt/README.md) - Debian/Ubuntu package lists
+- [Cursor IDE Configuration](.cursor/README.md) - Cursor rules and agents
+- [Cursor Agent Framework](CURSOR.md) - Cursor agent architecture and tools
+- [ n8n Agent Framework](N8N.md) - Visual workflow automation with AI agents
 
 ## Development Environments
 

@@ -1,6 +1,6 @@
 # Using the Documentation Builder Agent
 
-This guide shows how to use the `documentation-builder` agent to generate README.md and CLAUDE.md files from templates.
+This guide shows how to use the `documentation-builder` agent to generate README.md and AGENTS.md files from templates.
 
 ## Quick Example
 
@@ -18,7 +18,7 @@ Version: {{VERSION}}
 Last Updated: {{DATE}}
 ```
 
-**CLAUDE.template.md**:
+**AGENTS.template.md**:
 ```markdown
 # {{PROJECT_NAME}} - Claude AI Context
 
@@ -33,7 +33,7 @@ Last Updated: {{DATE}}
 In GitHub Copilot Chat:
 
 ```
-@documentation-builder Generate README.md and CLAUDE.md from the template files. 
+@documentation-builder Generate README.md and AGENTS.md from the template files. 
 Use these values:
 - PROJECT_NAME: "My Awesome Project"
 - DESCRIPTION: "A tool that does amazing things"
@@ -46,13 +46,13 @@ Use these values:
 The agent will:
 1. Read the template files
 2. Replace all `{{VARIABLE}}` placeholders
-3. Generate README.md and CLAUDE.md
+3. Generate README.md and AGENTS.md
 4. Validate the markdown
 
 ### Step 4: Commit Changes
 
 ```bash
-git add README.md CLAUDE.md
+git add README.md AGENTS.md
 git commit -m "docs: generate from templates"
 git push
 ```
@@ -100,7 +100,7 @@ Common template variables:
 
 See the repository root for example templates:
 - `README.template.md` - Example README template
-- `CLAUDE.template.md` - Example CLAUDE template
+- `AGENTS.template.md` - Example AGENTS template
 
 ## Tips
 
@@ -138,8 +138,8 @@ If `@documentation-builder` doesn't work:
 
 This repository uses the documentation-builder agent! Check:
 - `README.template.md` - Template with variables
-- `CLAUDE.template.md` - Template for AI context
+- `AGENTS.template.md` - Template for AI agent framework and context
 - `README.md` - Generated from template
-- `CLAUDE.md` - Generated from template
+- `AGENTS.md` - Generated from template
 
-The agent maintains consistency between README and CLAUDE files while allowing easy updates through templates.
+The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.

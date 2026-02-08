@@ -21,21 +21,21 @@ NC='\033[0m' # No Color
 
 # Helper functions
 print_header() {
-    echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "\n${BLUE}${NC}"
     echo -e "${BLUE}  $1${NC}"
-    echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+    echo -e "${BLUE}${NC}\n"
 }
 
 print_success() {
-    echo -e "${GREEN}✓${NC} $1"
+    echo -e "${GREEN}${NC} $1"
 }
 
 print_error() {
-    echo -e "${RED}✗${NC} $1"
+    echo -e "${RED}${NC} $1"
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠${NC} $1"
+    echo -e "${YELLOW}${NC} $1"
 }
 
 print_info() {
@@ -277,19 +277,19 @@ show_next_steps() {
     
     echo "Your development environment is set up! Here's what you can do next:"
     echo
-    echo "📖 Documentation:"
+    echo " Documentation:"
     echo "   • Read AGENTS.md for a complete sitemap and bash commands"
     echo "   • Read QUICKSTART.md for quick onboarding"
     echo "   • Read README.md for project overview"
     echo
-    echo "🤖 Using GitHub Copilot Agents:"
+    echo "Using GitHub Copilot Agents:"
     echo "   • Agents are in .github/agents/"
     echo "   • Invoke with @agent-name in GitHub Copilot Chat"
     echo "   • Available agents: test-specialist, documentation-expert,"
     echo "     code-reviewer, refactoring-assistant, docker-specialist,"
     echo "     documentation-builder"
     echo
-    echo "🔧 Development Environments:"
+    echo "Development Environments:"
     if check_nix > /dev/null 2>&1; then
         echo "   • Activate Nix environment: cd nix/<env> && nix develop"
     fi
@@ -297,11 +297,11 @@ show_next_steps() {
         echo "   • Install APT packages: xargs -a apt/<env>/packages.txt sudo apt install -y"
     fi
     echo
-    echo "☁️  CloudFlare Infrastructure:"
+    echo "  CloudFlare Infrastructure:"
     echo "   • Review terraform/ for CloudFlare deployment templates"
     echo "   • Initialize: cd terraform && terraform init"
     echo
-    echo "📝 Creating Custom Agents:"
+    echo "Creating Custom Agents:"
     echo "   • Copy .github/agents/TEMPLATE.agent.md"
     echo "   • Customize for your needs"
     echo "   • Commit to .github/agents/"

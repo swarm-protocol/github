@@ -68,7 +68,7 @@ describe('ComponentName', () => {
 
 ## Boundaries
 
-- ❌ Never modify production code from test files
-- ❌ Never use real databases or APIs in unit tests
-- ✅ Only create or modify test files
-- ✅ Create test utilities and fixtures as needed
+-  Never modify production code from test files
+-  Never use real databases or APIs in unit tests
+-  Only create or modify test files
+-  Create test utilities and fixtures as needed

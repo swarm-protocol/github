@@ -6,14 +6,14 @@ This directory contains [Cursor](https://cursor.com) editor configurations for A
 
 ```
 .cursor/
-├── README.md           # This file
-├── rules/              # Project-specific rules for Cursor agents
-│   ├── general.md      # General project rules
-│   ├── testing.md      # Testing-specific rules
-│   ├── documentation.md # Documentation rules
-│   └── code-review.md  # Code review rules
-└── agents/             # Custom subagent configurations
-    └── README.md       # Agent configuration guide
+ README.md           # This file
+ rules/              # Project-specific rules for Cursor agents
+    general.md      # General project rules
+    testing.md      # Testing-specific rules
+    documentation.md # Documentation rules
+    code-review.md  # Code review rules
+ agents/             # Custom subagent configurations
+     README.md       # Agent configuration guide
 ```
 
 ## Rules

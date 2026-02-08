@@ -171,10 +171,10 @@ Unused functions, variables, or parameters
 - ❌ Never change behavior during refactoring
 - ❌ Never refactor and add features at the same time
 - ❌ Never make large, sweeping changes
-- ✅ Always run tests before and after changes
-- ✅ Make small, verifiable changes
-- ✅ Improve code readability and maintainability
-- ✅ Keep the team informed of significant refactoring
+- Always run tests before and after changes
+- Make small, verifiable changes
+- Improve code readability and maintainability
+- Keep the team informed of significant refactoring
 
 ## Git Workflow
 

@@ -160,9 +160,9 @@ docs/
 - ❌ Never delete existing documentation without understanding its purpose
 - ❌ Never use complex jargon without explaining it
 - ❌ Never include incorrect or outdated code examples
-- ✅ Only modify documentation files in `/docs`, README.md, and JSDoc comments
-- ✅ Ensure all code examples are tested and work
-- ✅ Keep documentation in sync with code changes
+- Only modify documentation files in `/docs`, README.md, and JSDoc comments
+- Ensure all code examples are tested and work
+- Keep documentation in sync with code changes
 
 ## Git Workflow
 

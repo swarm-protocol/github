@@ -72,25 +72,25 @@ terraform apply
 
 ```
 terraform/
-├── main.tf                      # Main configuration
-├── variables.tf                 # Input variables
-├── outputs.tf                   # Output values
-├── versions.tf                  # Provider versions
-├── terraform.tfvars.example     # Example configuration
-├── .gitignore                   # Git ignore rules
-└── modules/
-    ├── workers/                 # CloudFlare Workers module
-    │   ├── main.tf
-    │   ├── variables.tf
-    │   └── outputs.tf
-    ├── pages/                   # CloudFlare Pages module
-    │   ├── main.tf
-    │   ├── variables.tf
-    │   └── outputs.tf
-    └── dns/                     # CloudFlare DNS module
-        ├── main.tf
-        ├── variables.tf
-        └── outputs.tf
+ main.tf                      # Main configuration
+ variables.tf                 # Input variables
+ outputs.tf                   # Output values
+ versions.tf                  # Provider versions
+ terraform.tfvars.example     # Example configuration
+ .gitignore                   # Git ignore rules
+ modules/
+     workers/                 # CloudFlare Workers module
+        main.tf
+        variables.tf
+        outputs.tf
+     pages/                   # CloudFlare Pages module
+        main.tf
+        variables.tf
+        outputs.tf
+     dns/                     # CloudFlare DNS module
+         main.tf
+         variables.tf
+         outputs.tf
 ```
 
 ## Modules

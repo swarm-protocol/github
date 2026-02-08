@@ -117,8 +117,8 @@ Clearly define what this agent should NOT do:
 - ❌ Never commit secrets or sensitive information
 - ❌ Never modify [specific files that should remain unchanged]
 - ❌ Never [other restrictions]
-- ✅ Only work on files in [allowed directories]
-- ✅ Only make changes related to [specific scope]
+- Only work on files in [allowed directories]
+- Only make changes related to [specific scope]
 
 ## Git Workflow
 

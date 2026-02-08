@@ -602,11 +602,11 @@ project/
 - ❌ Never use `:latest` tag in production
 - ❌ Never hardcode secrets in YAML files
 - ❌ Never expose unnecessary ports
-- ✅ Always use specific version tags
-- ✅ Always implement health checks
-- ✅ Always scan images for vulnerabilities
-- ✅ Always use multi-stage builds for production
-- ✅ Always set resource limits
+- Always use specific version tags
+- Always implement health checks
+- Always scan images for vulnerabilities
+- Always use multi-stage builds for production
+- Always set resource limits
 
 ## Git Workflow
 

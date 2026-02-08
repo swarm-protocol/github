@@ -58,7 +58,7 @@ A comprehensive blank template with all recommended sections:
 
 **Use this when:** You want to create a completely custom agent from scratch.
 
-### 2. test-specialist.agent.md ✅ READY TO USE
+### 2. test-specialist.agent.md READY TO USE
 
 A testing specialist agent focused on:
 - Writing unit, integration, and E2E tests
@@ -70,7 +70,7 @@ A testing specialist agent focused on:
 
 **Use this when:** You want help writing comprehensive tests without touching production code.
 
-### 3. documentation-expert.agent.md ✅ READY TO USE
+### 3. documentation-expert.agent.md READY TO USE
 
 A documentation specialist agent focused on:
 - Creating clear, comprehensive documentation
@@ -82,7 +82,7 @@ A documentation specialist agent focused on:
 
 **Use this when:** You need help with documentation, README files, or technical writing.
 
-### 4. code-reviewer.agent.md ✅ READY TO USE
+### 4. code-reviewer.agent.md READY TO USE
 
 A code review specialist agent focused on:
 - Reviewing code quality
@@ -94,7 +94,7 @@ A code review specialist agent focused on:
 
 **Use this when:** You want automated code review feedback following best practices.
 
-### 5. refactoring-assistant.agent.md ✅ READY TO USE
+### 5. refactoring-assistant.agent.md READY TO USE
 
 A refactoring specialist agent focused on:
 - Safe, incremental code refactoring
@@ -106,19 +106,19 @@ A refactoring specialist agent focused on:
 
 **Use this when:** You need help refactoring legacy code or improving code quality without changing functionality.
 
-### 6. documentation-builder.agent.md ✅ READY TO USE
+### 6. documentation-builder.agent.md READY TO USE
 
 A documentation builder specialist agent focused on:
 - Generating README.md from template files
-- Building CLAUDE.md for AI context
+- Building AGENTS.md for AI context
 - Processing template variables and substitutions
 - Maintaining consistent documentation structure
 
 **Status:** Uncommented and ready to use immediately!
 
-**Use this when:** You need to build or regenerate README.md and CLAUDE.md files from templates with variable substitution.
+**Use this when:** You need to build or regenerate README.md and AGENTS.md files from templates with variable substitution.
 
-### 7. docker-specialist.agent.md ✅ READY TO USE
+### 7. docker-specialist.agent.md READY TO USE
 
 A Docker and containerization specialist agent focused on:
 - Writing optimized Dockerfiles with multi-stage builds
@@ -132,7 +132,7 @@ A Docker and containerization specialist agent focused on:
 
 **Use this when:** You need help with Docker, Dockerfiles, docker-compose, Kubernetes configurations, or containerization best practices.
 
-### 8. ansible-specialist.agent.md ✅ READY TO USE
+### 8. ansible-specialist.agent.md READY TO USE
 
 An Ansible automation specialist agent focused on:
 - Writing Ansible playbooks and roles
@@ -152,13 +152,13 @@ An Ansible automation specialist agent focused on:
 .github/
 └── agents/
     ├── TEMPLATE.agent.md              # Blank template
-    ├── test-specialist.agent.md       # ✅ Testing agent (READY)
-    ├── documentation-expert.agent.md  # ✅ Documentation agent (READY)
-    ├── code-reviewer.agent.md         # ✅ Code review agent (READY)
-    ├── refactoring-assistant.agent.md # ✅ Refactoring agent (READY)
-    ├── documentation-builder.agent.md # ✅ README/CLAUDE.md builder (READY)
-    ├── docker-specialist.agent.md     # ✅ Docker & YAML expert (READY)
-    └── ansible-specialist.agent.md    # ✅ Ansible automation (READY)
+    ├── test-specialist.agent.md       # Testing agent (READY)
+    ├── documentation-expert.agent.md  # Documentation agent (READY)
+    ├── code-reviewer.agent.md         # Code review agent (READY)
+    ├── refactoring-assistant.agent.md # Refactoring agent (READY)
+    ├── documentation-builder.agent.md # README/AGENTS.md builder (READY)
+    ├── docker-specialist.agent.md     # Docker & YAML expert (READY)
+    └── ansible-specialist.agent.md    # Ansible automation (READY)
 ```
 
 ## Creating Your Own Agent
@@ -247,7 +247,7 @@ Key sections to customize:
 
 ## Best Practices
 
-### Do's ✅
+### Do's 
 
 - **Be specific**: Provide concrete examples and clear instructions
 - **Set boundaries**: Explicitly state what the agent should NOT do
