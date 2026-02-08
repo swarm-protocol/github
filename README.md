@@ -7,7 +7,9 @@ All AI-specific instruction files (CLAUDE.md, CURSOR.md, GEMINI.md, QWEN.md, N8N
 are symlinks to AGENTS.md - that's your primary navigation hub for this repository.
 -->
 
-> **🤖 AI Assistants & Agents**: Before working with this repository, please read **[AGENTS.md](AGENTS.md)** for comprehensive context, architecture, and navigation. All AI instruction files (CLAUDE.md, CURSOR.md, GEMINI.md, QWEN.md, N8N.md, SUPABASE.md) point to AGENTS.md.
+> **🤖 AI Assistants & Agents**: Before working with this repository, please read **[AGENTS.md](AGENTS.md)** for comprehensive context, architecture, and navigation. The following AI instruction files are all **symlinks to AGENTS.md** for simplified automation — each AI platform automatically reads its own named file and receives the same unified context:
+>
+> [`CLAUDE.md`](CLAUDE.md) · [`CURSOR.md`](CURSOR.md) · [`GEMINI.md`](GEMINI.md) · [`QWEN.md`](QWEN.md) · [`N8N.md`](N8N.md) · [`SUPABASE.md`](SUPABASE.md) → **[AGENTS.md](AGENTS.md)**
 
 # GitHub Copilot Custom Agents Templates
 
