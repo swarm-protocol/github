@@ -137,13 +137,24 @@
 # NC='\033[0m' # No Color
 
 # --- Safety Checks ---
-# # Ensure we are in a git repository before proceeding
-# if [ ! -d ".git" ]; then
-#   echo -e "${RED}Error: Not in a git repository root. Run from the repo root.${NC}"
+# # Ensure we are at the top level of a git repository
+# REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) || {
+#   echo -e "${RED}Error: Not inside a git repository.${NC}"
+#   exit 1
+# }
+# if [ "$(pwd)" != "$REPO_ROOT" ]; then
+#   echo -e "${RED}Error: Not at the repository root. Run from: $REPO_ROOT${NC}"
 #   exit 1
 # fi
 
 # --- Build Lookup Set from Expected Files ---
+# # Abort if EXPECTED_FILES is unset or empty to prevent accidental deletion
+# if [ ${#EXPECTED_FILES[@]} -eq 0 ]; then
+#   echo -e "${RED}Error: EXPECTED_FILES is empty or not uncommented.${NC}"
+#   echo -e "${RED}Uncomment the EXPECTED_FILES array in this script before running.${NC}"
+#   exit 1
+# fi
+#
 # # Create an associative array for O(1) lookups of expected files
 # declare -A expected_set
 # for file in "${EXPECTED_FILES[@]}"; do
@@ -151,8 +162,8 @@
 # done
 
 # --- Discover All Current Files ---
-# # Find all tracked and untracked files, excluding the .git directory
-# mapfile -t current_files < <(find . -not -path './.git/*' -type f | sed 's|^\./||' | sort)
+# # Find all git-tracked and untracked (non-ignored) files
+# mapfile -t current_files < <({ git ls-files; git ls-files --others --exclude-standard; } | sort -u)
 
 # --- Identify Leftover Files ---
 # # Compare current files against the expected list to find leftovers
@@ -191,7 +202,7 @@
 # # Remove each leftover file and report progress
 # deleted_count=0
 # for file in "${leftover_files[@]}"; do
-#   if rm "$file" 2>/dev/null; then
+#   if rm -- "$file" 2>/dev/null; then
 #     echo -e "  ${GREEN}Deleted:${NC} $file"
 #     deleted_count=$((deleted_count + 1))
 #   else
