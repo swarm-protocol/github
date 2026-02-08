@@ -1,4 +1,7 @@
 <!-- markdownlint-disable MD013 MD024 MD025 MD036 MD060 -->
+<!-- MD013: long lines in tables/URLs; MD024: duplicate headings across sections;
+     MD025: multiple H1s for major sections; MD036: bold used as inline labels;
+     MD060: compact table style throughout -->
 
 # AGENTS.md - AI Agent Framework & Repository Navigation
 
