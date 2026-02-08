@@ -826,8 +826,7 @@ The `cleanup.sh` script is fully commented out by default. To activate it:
 #### Step 4: Run the Script
 
 ```bash
-chmod +x cleanup.sh
-./cleanup.sh
+bash cleanup.sh
 ```
 
 The script will:
