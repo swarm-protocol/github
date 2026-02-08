@@ -174,7 +174,7 @@ prepare_apt_environment() {
 # Parse packages from a packages.txt file
 # Removes comments (including trailing ones) and empty lines
 parse_packages() {
-    local packages_file=$1
+    local packages_file="$1"
     sed 's/#.*//' "$packages_file" | xargs
 }
 
@@ -236,7 +236,16 @@ show_environment_menu() {
     
     # Get available environments dynamically
     local -a envs
-    IFS=' ' read -r -a envs <<< "$(get_available_environments)"
+    local env_list
+    env_list=$(get_available_environments)
+    
+    # Handle empty environment list
+    if [ -z "$env_list" ]; then
+        print_error "No environments found in apt/ or nix/ directory"
+        return 1
+    fi
+    
+    IFS=' ' read -r -a envs <<< "$env_list"
     
     if [ -z "$env_type" ]; then
         if [ "$ASSUME_YES" = true ]; then
@@ -257,7 +266,7 @@ show_environment_menu() {
                 documentation) description="Documentation generation tools" ;;
                 code-review) description="Linters, formatters, analyzers" ;;
                 refactoring) description="Code transformation tools" ;;
-                wrangler) description="CloudFlare Workers development" ;;
+                wrangler) description="Cloudflare Workers development" ;;
                 terraform) description="Infrastructure as Code tools" ;;
                 ansible) description="Ansible automation tools" ;;
                 security) description="Security auditing and scanning tools" ;;
@@ -290,7 +299,7 @@ show_environment_menu() {
             exit 0
         elif [ "$choice" -ge 1 ] && [ "$choice" -le "${#envs[@]}" ]; then
             env_type="${envs[$((choice-1))]}"
-        elif [ "$setup_method" = "apt" ] && [ -n "${all_option:-}" ] && [ "$choice" = "$all_option" ]; then
+        elif [ "$setup_method" = "apt" ] && [ -n "${all_option:-}" ] && [[ "$all_option" =~ ^[0-9]+$ ]] && [ "$choice" = "$all_option" ]; then
             env_type="all"
         else
             print_error "Invalid choice"
