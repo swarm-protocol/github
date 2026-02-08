@@ -17,7 +17,7 @@
 #        repository's canonical file structure.
 #     2. Uncomment the active code sections (remove the leading '# ' from
 #        each line in the "Active Code" sections).
-#     3. Run the script:  ./cleanup.sh
+#     3. Run the script:  bash cleanup.sh
 #     4. Review the output and confirm deletions when prompted.
 #     5. Re-comment the script after use to prevent accidental execution.
 #
