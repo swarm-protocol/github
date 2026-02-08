@@ -1705,7 +1705,15 @@ All agent files are in `.github/agents/` directory:
 
 ## Detailed Directory Documentation
 
-> **Note**: This section contains detailed documentation previously found in subdirectory README.md files. All subdirectory README.md files now symlink to this AGENTS.md file.
+> **Note**: This section contains detailed documentation previously found in subdirectory README.md files. 
+> 
+> **Symlink Design**: All subdirectory README.md files now symlink to this AGENTS.md file. When you navigate to any subdirectory and view its README.md, you'll see this entire AGENTS.md content. This is intentional - AGENTS.md serves as a comprehensive navigation hub for the entire repository. Use your browser/editor's search functionality (Ctrl+F / Cmd+F) to quickly find the section relevant to your current directory, or use the Table of Contents at the top of this file.
+>
+> **Quick Navigation Tips**:
+> - Press Ctrl+F (Cmd+F on Mac) and search for the directory name (e.g., "nix", "terraform", "docs")
+> - Use the [Table of Contents](#table-of-contents) at the top
+> - Look for the section heading matching your current directory
+> - All directory sections use the format: "### Directory Name (`path/`)"
 
 ### Cursor IDE Configuration (`.cursor/`)
 
