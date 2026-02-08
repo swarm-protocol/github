@@ -241,7 +241,7 @@ show_environment_menu() {
     
     # Handle empty environment list
     if [ -z "$env_list" ]; then
-        print_error "No environments found in apt/ or nix/ directory"
+        print_error "No environments found in apt/ directory"
         return 1
     fi
     
@@ -299,11 +299,19 @@ show_environment_menu() {
             exit 0
         elif [ "$choice" -ge 1 ] && [ "$choice" -le "${#envs[@]}" ]; then
             env_type="${envs[$((choice-1))]}"
-        elif [ "$setup_method" = "apt" ] && [ -n "${all_option:-}" ] && [[ "$all_option" =~ ^[0-9]+$ ]] && [ "$choice" = "$all_option" ]; then
-            env_type="all"
         else
-            print_error "Invalid choice"
-            return 1
+            # Check if this is the "all" option for APT
+            local is_all_option=false
+            if [ "$setup_method" = "apt" ] && [ -n "${all_option:-}" ] && [[ "$all_option" =~ ^[0-9]+$ ]] && [ "$choice" = "$all_option" ]; then
+                is_all_option=true
+            fi
+            
+            if [ "$is_all_option" = true ]; then
+                env_type="all"
+            else
+                print_error "Invalid choice"
+                return 1
+            fi
         fi
     fi
 
