@@ -113,7 +113,7 @@ When building README.md from templates, include:
 
 ## AGENTS.md Structure
 
-AGENTS.md is a special file designed to provide context to Claude AI when working with the codebase. It should include:
+AGENTS.md is a special file designed to provide context to AI coding assistants and automation tools when working with the codebase. It should include:
 
 1. **Project Overview**
    - Purpose and goals

@@ -142,4 +142,4 @@ This repository uses the documentation-builder agent! Check:
 - `README.md` - Generated from template
 - `AGENTS.md` - Generated from template
 
-The agent maintains consistency between README and CLAUDE files while allowing easy updates through templates.
+The agent maintains consistency between README.md and AGENTS.md while allowing easy updates through templates.

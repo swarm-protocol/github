@@ -22,9 +22,9 @@ This unified documentation helps AI assistants and developers:
 1. [GitHub Copilot Custom Agents](#github-copilot-custom-agents)
 2. [Cursor Agent Framework](#cursor-agent-framework)
 3. [n8n AI Agent Framework](#n8n-ai-agent-framework)
-4. [Repository Documentation Sitemap](#-documentation-sitemap)
-5. [Common Bash Commands](#-common-bash-commands)
-6. [Getting Started](#-getting-started-quick-commands)
+4. [Repository Documentation Sitemap](#documentation-sitemap)
+5. [Common Bash Commands](#common-bash-commands)
+6. [Getting Started](#getting-started-quick-commands)
 
 ---
 
