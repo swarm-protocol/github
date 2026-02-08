@@ -1,6 +1,48 @@
+<!-- 
+🤖 AI ASSISTANTS: For comprehensive repository context, architecture details, and navigation guidance,
+please read AGENTS.md first. It contains the complete sitemap, bash command reference, and framework 
+documentation for GitHub Copilot, Cursor IDE, n8n, and Supabase.
+
+All AI-specific instruction files (CLAUDE.md, CURSOR.md, GEMINI.md, QWEN.md, N8N.md, SUPABASE.md) 
+are symlinks to AGENTS.md - that's your primary navigation hub for this repository.
+-->
+
+> **🤖 AI Assistants & Agents**: Before working with this repository, please read **[AGENTS.md](AGENTS.md)** for comprehensive context, architecture, and navigation. All AI instruction files (CLAUDE.md, CURSOR.md, GEMINI.md, QWEN.md, N8N.md, SUPABASE.md) point to AGENTS.md.
+
 # GitHub Copilot Custom Agents Templates
 
 A comprehensive collection of templates and examples for creating GitHub Copilot custom agents.
+
+## Table of Contents
+
+- [What's Included](#whats-included)
+- [Quick Start](#quick-start)
+  - [Automated Setup](#automated-setup)
+  - [Automated Setup (Non-interactive)](#automated-setup-non-interactive)
+  - [Manual Setup](#manual-setup)
+- [Available Templates](#available-templates)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [For Your Repository](#for-your-repository)
+  - [For Your Organization](#for-your-organization)
+- [Usage Examples](#usage-examples)
+- [Development Environments](#development-environments)
+  - [Nix Environments (Recommended)](#nix-environments-recommended)
+  - [APT Package Lists (Debian/Ubuntu)](#apt-package-lists-debianubuntu)
+- [Repository Structure](#repository-structure)
+- [Agent Frameworks](#agent-frameworks)
+  - [GitHub Copilot Custom Agents](#github-copilot-custom-agents)
+  - [Cursor Agent Framework](#cursor-agent-framework)
+  - [n8n Agent Framework](#n8n-agent-framework)
+- [Use Cases](#use-cases)
+- [Resources](#resources)
+- [Best Practices](#best-practices)
+  - [Starting Out](#starting-out)
+  - [Agent Design](#agent-design)
+  - [Maintenance](#maintenance)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## What's Included
 
@@ -216,89 +258,6 @@ The agent will create multi-stage Dockerfiles following best practices.
 
 The agent will perform a comprehensive security audit and recommend remediations.
 
-## Best Practices
-
-### Starting Out
-
-- **Start Simple**: Begin with basic instructions and refine based on results
-- **Test Incrementally**: Use your agent for small tasks first, then gradually increase complexity
-- **Provide Context**: Give your agent relevant code snippets or file names in your requests
-- **Use Examples**: The more examples you include in your agent file, the better it performs
-- **Set Clear Boundaries**: Explicitly tell your agent what NOT to do to avoid unwanted changes
-
-### Agent Design
-
-- **Specialization**: One agent should do one thing well - avoid "do everything" agents
-- **Concrete Examples**: Provide specific code examples, not just general descriptions
-- **Clear Commands**: List exact commands to run (build, test, lint)
-- **Explicit Boundaries**: State what the agent should NOT do
-- **Real-World Testing**: Test agents in actual scenarios before sharing with your team
-
-### Maintenance
-
-- **Keep Updated**: Update agent instructions as your project evolves
-- **Version Control**: Always commit agents to version control
-- **Team Collaboration**: Share successful agents with your team
-- **Iterate**: Refine agents based on feedback and usage patterns
-
-## Troubleshooting
-
-### Agent Not Responding
-
-**Symptoms**: Agent doesn't respond when invoked with `@agent-name`
-
-**Solutions**:
-1. Verify the file is named `*.agent.md`
-2. Check it's in `.github/agents/` directory
-3. Ensure YAML front matter is uncommented and valid
-4. Confirm the file is committed and pushed to the default branch
-5. Wait a few minutes for GitHub to process the new agent
-6. Check that you have a GitHub Copilot Pro+ subscription
-
-### Agent Doesn't Follow Instructions
-
-**Symptoms**: Agent ignores your instructions or behaves unexpectedly
-
-**Solutions**:
-1. Be more specific in your agent instructions
-2. Add concrete code examples to the agent file
-3. Explicitly state boundaries (what NOT to do)
-4. Test with simple requests first
-5. Remove conflicting or unclear instructions
-6. Provide more context in your prompts
-
-### Can't Find My Agent
-
-**Symptoms**: Agent doesn't appear in autocomplete
-
-**Solutions**:
-1. Type `@` in Copilot Chat to see all available agents
-2. Check the agent name matches the YAML `name` field exactly
-3. Verify you have access to custom agents (requires GitHub Copilot Pro, Business, or Enterprise)
-4. Ensure the agent file is on the repository's default branch
-
-### Variables Not Replaced (Documentation Builder)
-
-**Symptoms**: Generated files contain `{{VARIABLE}}` instead of values
-
-**Solutions**:
-1. Check variable name spelling in templates
-2. Ensure values were provided to the agent
-3. Verify template file syntax is correct
-4. Make sure you're using the correct variable format: `{{VARIABLE_NAME}}`
-
-For more troubleshooting help, see [AGENTS.md](AGENTS.md) comprehensive troubleshooting section.
-
-## Documentation
-
-- [**AGENTS.md - Navigation Hub**](AGENTS.md) - **Complete sitemap, bash command reference, and all AI framework documentation (GitHub Copilot, Cursor, n8n)**
-- [Detailed Setup Guide](.github/agents/README.md) - Complete instructions
-- [Template Reference](.github/agents/TEMPLATE.agent.md) - Blank template
-- [Example Agents](.github/agents/) - Pre-built examples
-- [Nix Development Environments](AGENTS.md#nix-development-environments-nix) - Reproducible dev environments
-- [APT Package Lists](AGENTS.md#apt-package-lists-apt) - Debian/Ubuntu package lists
-- [Cursor IDE Configuration](AGENTS.md#cursor-ide-configuration-cursor) - Cursor rules and agents
-
 ## Development Environments
 
 ### Nix Environments (Recommended)
@@ -452,6 +411,79 @@ See [AGENTS.md](AGENTS.md) for complete n8n agent documentation.
 - [AI Agent Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/)
 - [AI Agentic Workflows Guide](https://blog.n8n.io/ai-agentic-workflows/)
 - [5000+ AI Workflow Templates](https://n8n.io/workflows/categories/ai/)
+
+## Best Practices
+
+### Starting Out
+
+- **Start Simple**: Begin with basic instructions and refine based on results
+- **Test Incrementally**: Use your agent for small tasks first, then gradually increase complexity
+- **Provide Context**: Give your agent relevant code snippets or file names in your requests
+- **Use Examples**: The more examples you include in your agent file, the better it performs
+- **Set Clear Boundaries**: Explicitly tell your agent what NOT to do to avoid unwanted changes
+
+### Agent Design
+
+- **Specialization**: One agent should do one thing well - avoid "do everything" agents
+- **Concrete Examples**: Provide specific code examples, not just general descriptions
+- **Clear Commands**: List exact commands to run (build, test, lint)
+- **Explicit Boundaries**: State what the agent should NOT do
+- **Real-World Testing**: Test agents in actual scenarios before sharing with your team
+
+### Maintenance
+
+- **Keep Updated**: Update agent instructions as your project evolves
+- **Version Control**: Always commit agents to version control
+- **Team Collaboration**: Share successful agents with your team
+- **Iterate**: Refine agents based on feedback and usage patterns
+
+## Troubleshooting
+
+### Agent Not Responding
+
+**Symptoms**: Agent doesn't respond when invoked with `@agent-name`
+
+**Solutions**:
+1. Verify the file is named `*.agent.md`
+2. Check it's in `.github/agents/` directory
+3. Ensure YAML front matter is uncommented and valid
+4. Confirm the file is committed and pushed to the default branch
+5. Wait a few minutes for GitHub to process the new agent
+6. Check that you have a GitHub Copilot Pro+ subscription
+
+### Agent Doesn't Follow Instructions
+
+**Symptoms**: Agent ignores your instructions or behaves unexpectedly
+
+**Solutions**:
+1. Be more specific in your agent instructions
+2. Add concrete code examples to the agent file
+3. Explicitly state boundaries (what NOT to do)
+4. Test with simple requests first
+5. Remove conflicting or unclear instructions
+6. Provide more context in your prompts
+
+### Can't Find My Agent
+
+**Symptoms**: Agent doesn't appear in autocomplete
+
+**Solutions**:
+1. Type `@` in Copilot Chat to see all available agents
+2. Check the agent name matches the YAML `name` field exactly
+3. Verify you have access to custom agents (requires GitHub Copilot Pro, Business, or Enterprise)
+4. Ensure the agent file is on the repository's default branch
+
+### Variables Not Replaced (Documentation Builder)
+
+**Symptoms**: Generated files contain `{{VARIABLE}}` instead of values
+
+**Solutions**:
+1. Check variable name spelling in templates
+2. Ensure values were provided to the agent
+3. Verify template file syntax is correct
+4. Make sure you're using the correct variable format: `{{VARIABLE_NAME}}`
+
+For more troubleshooting help, see [AGENTS.md](AGENTS.md) comprehensive troubleshooting section.
 
 ## Contributing
 
