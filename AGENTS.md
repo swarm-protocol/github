@@ -1579,7 +1579,7 @@ Supabase is an open-source Firebase alternative that provides a complete backend
 **Key Features**:
 - PostgreSQL database with Row Level Security (RLS)
 - Authentication and authorization (email, OAuth, magic links, SSO)
-- Auto-generated RESTful and GraphQL APIs (PostgREST)
+- Auto-generated RESTful APIs (PostgREST), plus optional GraphQL APIs via PostgreSQL extensions
 - Real-time subscriptions via WebSockets
 - Edge Functions (Deno-based serverless functions)
 - Storage for files and media with CDN
@@ -2057,19 +2057,34 @@ import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 serve(async (req: Request) => {
-  const supabase = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_ANON_KEY')!,
-    {
-      global: { headers: { Authorization: req.headers.get('Authorization')! } },
-    }
-  )
+  const supabaseUrl = Deno.env.get('SUPABASE_URL')
+  const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return new Response(
+      JSON.stringify({ error: 'Missing SUPABASE_URL or SUPABASE_ANON_KEY env vars' }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status: 500,
+      }
+    )
+  }
+
+  const authHeader = req.headers.get('Authorization') ?? undefined
+
+  const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+    global: {
+      headers: authHeader ? { Authorization: authHeader } : {},
+    },
+  })
 
   const { data, error } = await supabase.from('todos').select('*')
 
+  const status = error ? 500 : 200
+
   return new Response(JSON.stringify({ data, error }), {
     headers: { 'Content-Type': 'application/json' },
-    status: 200,
+    status,
   })
 })
 ```
@@ -2354,12 +2369,12 @@ backend = "postgres"
 
 ## 11. MCP Integration
 
-Supabase provides an MCP (Model Context Protocol) server for AI agent integration.
+A community-maintained MCP (Model Context Protocol) server is available for integrating AI agents with Supabase.
 
 ### Setup
 
 ```bash
-# Install the Supabase MCP server
+# Install the Supabase MCP community server
 npx @supabase/mcp-server-supabase@latest init
 ```
 
