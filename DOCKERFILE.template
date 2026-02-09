@@ -14,7 +14,7 @@
 # - Comprehensive metadata labels
 #
 # Usage:
-#   1. Copy this file and rename to `Dockerfile`
+#   1. Copy this file and rename to `DOCKERFILE`
 #   2. Replace all TODO sections with your application specifics
 #   3. Ensure you have a `.dockerignore` file (see .dockerignore in this repo)
 #   4. Build: docker build -t your-app:tag .
